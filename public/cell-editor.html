@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>WhiskerWood — Cell Editor 🐭📐</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #15110d; color: #f3e9d2; font-family: system-ui, sans-serif; }
+  #bar {
+    position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 50;
+    display: flex; align-items: center; gap: 12px; padding: 0 16px;
+    background: #221a12; border-bottom: 2px solid #4a3826;
+  }
+  #bar b { color: #ffd36a; }
+  #bar button {
+    padding: 9px 16px; border: none; border-radius: 9px; cursor: pointer;
+    font-size: 15px; font-weight: bold; background: #6d9a3f; color: #fff;
+  }
+  #bar button.alt { background: #3a5a7a; }
+  #status { margin-left: auto; font-size: 14px; opacity: 0.85; }
+  #hint { font-size: 13px; opacity: 0.8; }
+  #stage { padding: 70px 20px 40px; display: flex; justify-content: center; }
+  #wrap { position: relative; display: inline-block; }
+  #wrap img { display: block; width: min(96vw, 1024px); user-select: none; -webkit-user-drag: none; }
+  .box {
+    position: absolute; border: 2px solid #ffcf4d;
+    background: rgba(255, 207, 77, 0.12); cursor: move;
+  }
+  .box.sel { border-color: #66e0ff; background: rgba(102, 224, 255, 0.22); z-index: 10; }
+  .box .tag {
+    position: absolute; top: -2px; left: -2px; font-size: 10px; line-height: 1.1;
+    background: rgba(0,0,0,0.7); color: #ffe6a8; padding: 1px 4px; border-radius: 4px;
+    white-space: nowrap; pointer-events: none; max-width: 130px; overflow: hidden;
+  }
+  .box .grip {
+    position: absolute; right: -6px; bottom: -6px; width: 14px; height: 14px;
+    background: #66e0ff; border: 2px solid #fff; border-radius: 50%; cursor: nwse-resize;
+  }
+  #readout {
+    position: fixed; bottom: 12px; left: 12px; z-index: 50; font-size: 13px;
+    background: rgba(0,0,0,0.6); padding: 8px 12px; border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+  <div id="bar">
+    <b>🐭 Cell Editor</b>
+    <span id="hint">Drag a box to move • drag the blue dot to resize • click to select, then arrow keys nudge (Shift = resize)</span>
+    <button id="save">💾 Save to game</button>
+    <button id="download" class="alt">⬇ Download</button>
+    <button id="reset" class="alt">↺ Reset</button>
+    <span id="status"></span>
+  </div>
+
+  <div id="stage">
+    <div id="wrap">
+      <img id="img" src="/crafting-table.png?v=3" alt="crafting table" />
+      <div id="boxes"></div>
+    </div>
+  </div>
+
+  <div id="readout">Select a box to see its numbers.</div>
+
+<script>
+// Starting positions (the auto-detected ones). Editing happens on top of these.
+const DEFAULTS = [
+  {name:"Moss Bedding",l:0.54,t:3.48,w:7.96,h:11.17},{name:"Leaf Blanket",l:8.5,t:3.48,w:10.55,h:11.17},{name:"Den Wall Reinforcement",l:19.04,t:3.48,w:11.94,h:11.17},{name:"Nursery Nest",l:30.98,t:3.48,w:12.79,h:11.17},{name:"Lantern Mushroom Lamp",l:43.77,t:3.48,w:11.55,h:11.17},{name:"Warmth Stones",l:55.32,t:3.48,w:10.18,h:11.17},{name:"Acorn Bowl",l:65.5,t:3.48,w:9.11,h:11.17},{name:"Family Keepsake Shelf",l:74.61,t:3.48,w:10.33,h:11.17},{name:"Thistle Bed",l:84.94,t:3.48,w:11.67,h:11.17},
+  {name:"Travel Backpack",l:0.44,t:18.33,w:8.45,h:11.17},{name:"Leaf Rain Cloak",l:8.89,t:18.33,w:11.33,h:11.17},{name:"Root Rope",l:20.21,t:18.33,w:10.25,h:11.17},{name:"Dew Water Pouch",l:30.47,t:18.33,w:10.01,h:11.17},{name:"Scent Mask Pouch",l:40.48,t:18.33,w:10.35,h:11.17},{name:"Waterproof Leaf Pack",l:50.83,t:18.33,w:10.25,h:11.17},{name:"Climbing Spikes",l:61.08,t:18.33,w:9.62,h:11.17},{name:"Glow Lantern",l:70.7,t:18.33,w:8.59,h:11.17},{name:"Firefly Lantern",l:79.3,t:18.33,w:8.3,h:11.17},{name:"Moonstone Necklace",l:87.6,t:18.33,w:8.5,h:11.17},
+  {name:"Berry Bundle",l:0.44,t:34.54,w:8.06,h:10.84},{name:"Mushroom Stew",l:8.5,t:34.54,w:11.23,h:10.84},{name:"Nectar Energy Mix",l:19.73,t:34.54,w:10.69,h:10.84},{name:"Roasted Beetle Snack",l:30.42,t:34.54,w:10.3,h:10.84},{name:"Healing Poultice",l:40.72,t:34.54,w:10.5,h:10.84},{name:"Bee Wax Balm",l:51.22,t:34.54,w:9.96,h:10.84},{name:"Glow Dust Satchel",l:61.18,t:34.54,w:9.18,h:10.84},{name:"Cheese Feast",l:70.36,t:34.54,w:8.84,h:10.84},{name:"Moon Petal Tea",l:79.2,t:34.54,w:8.98,h:10.84},{name:"Snack Pouch",l:88.18,t:34.54,w:9.08,h:10.84},
+  {name:"Braided Grass Bracelet",l:0.44,t:50.29,w:8.2,h:10.9},{name:"Feather Charm",l:8.64,t:50.29,w:11.21,h:10.9},{name:"Button Backpack Pin",l:19.85,t:50.29,w:10.62,h:10.9},{name:"Berry Seed Charm",l:30.47,t:50.29,w:9.81,h:10.9},{name:"Flower Crown",l:40.28,t:50.29,w:9.86,h:10.9},{name:"Acorn Pendant",l:50.15,t:50.29,w:9.79,h:10.9},{name:"Lavender Anklet",l:59.94,t:50.29,w:9.28,h:10.9},{name:"Crystal Ear Charm",l:69.21,t:50.29,w:9.08,h:10.9},{name:"Firefly Jar Decoration",l:78.3,t:50.29,w:8.96,h:10.9},{name:"Moonstone Crown",l:87.26,t:50.29,w:8.98,h:10.9},
+  {name:"Grass Hideout",l:0.54,t:66.31,w:8.42,h:11.69},{name:"Twig Bridge",l:8.96,t:66.31,w:11.79,h:11.69},{name:"Lookout Perch",l:20.75,t:66.31,w:10.72,h:11.69},{name:"Escape Tunnel",l:31.47,t:66.31,w:9.91,h:11.69},{name:"Storm Door",l:41.38,t:66.31,w:9.81,h:11.69},{name:"Herb Drying Rack",l:51.2,t:66.31,w:9.57,h:11.69},{name:"Map Table",l:60.77,t:66.31,w:9.3,h:11.69},{name:"Scent Trail Marker",l:70.07,t:66.31,w:8.76,h:11.69},{name:"Baby Toy",l:78.83,t:66.31,w:8.59,h:11.69},{name:"Sticky Sap Trap",l:87.43,t:66.31,w:8.54,h:11.69},
+  {name:"Moonstone Lantern",l:0.83,t:83.79,w:11.13,h:16.99},{name:"Secret Root Door",l:11.96,t:83.79,w:17.63,h:16.99},{name:"Ancient Seed Planter",l:29.59,t:83.79,w:18.38,h:16.99},{name:"Family Portrait Wall",l:47.97,t:83.79,w:19.24,h:16.99},{name:"Moonstone Hollow Shrine",l:67.21,t:83.79,w:19.78,h:16.99}
+];
+
+const boxesEl = document.getElementById("boxes");
+const wrapEl = document.getElementById("wrap");
+const statusEl = document.getElementById("status");
+const readoutEl = document.getElementById("readout");
+let cells = [];
+let selected = -1;
+
+function clamp(v) { return Math.max(0, Math.min(100, v)); }
+
+function render() {
+  boxesEl.innerHTML = "";
+  cells.forEach((c, i) => {
+    const box = document.createElement("div");
+    box.className = "box" + (i === selected ? " sel" : "");
+    box.style.left = c.l + "%"; box.style.top = c.t + "%";
+    box.style.width = c.w + "%"; box.style.height = c.h + "%";
+    box.dataset.i = i;
+    const tag = document.createElement("div");
+    tag.className = "tag"; tag.textContent = (i + 1) + ". " + c.name;
+    box.appendChild(tag);
+    const grip = document.createElement("div");
+    grip.className = "grip"; grip.dataset.grip = "1";
+    box.appendChild(grip);
+    boxesEl.appendChild(box);
+  });
+  updateReadout();
+}
+
+function updateReadout() {
+  if (selected < 0) { readoutEl.textContent = "Select a box to see its numbers."; return; }
+  const c = cells[selected];
+  readoutEl.textContent = `#${selected + 1} ${c.name} — l:${c.l.toFixed(2)} t:${c.t.toFixed(2)} w:${c.w.toFixed(2)} h:${c.h.toFixed(2)}`;
+}
+
+// --- Dragging / resizing ---
+let drag = null;
+boxesEl.addEventListener("pointerdown", (e) => {
+  const boxEl = e.target.closest(".box");
+  if (!boxEl) return;
+  const i = +boxEl.dataset.i;
+  selected = i;
+  const rect = wrapEl.getBoundingClientRect();
+  drag = {
+    i, mode: e.target.dataset.grip ? "resize" : "move",
+    startX: e.clientX, startY: e.clientY,
+    cell: { ...cells[i] }, rw: rect.width, rh: rect.height,
+  };
+  e.target.setPointerCapture(e.pointerId);
+  render();
+  e.preventDefault();
+});
+boxesEl.addEventListener("pointermove", (e) => {
+  if (!drag) return;
+  const dx = ((e.clientX - drag.startX) / drag.rw) * 100;
+  const dy = ((e.clientY - drag.startY) / drag.rh) * 100;
+  const c = cells[drag.i];
+  if (drag.mode === "move") {
+    c.l = clamp(drag.cell.l + dx);
+    c.t = clamp(drag.cell.t + dy);
+  } else {
+    c.w = Math.max(1, drag.cell.w + dx);
+    c.h = Math.max(1, drag.cell.h + dy);
+  }
+  const el = boxesEl.children[drag.i];
+  el.style.left = c.l + "%"; el.style.top = c.t + "%";
+  el.style.width = c.w + "%"; el.style.height = c.h + "%";
+  updateReadout();
+});
+boxesEl.addEventListener("pointerup", () => (drag = null));
+
+// --- Keyboard nudging ---
+window.addEventListener("keydown", (e) => {
+  if (selected < 0) return;
+  const c = cells[selected];
+  const step = e.altKey ? 0.05 : 0.3;
+  let used = true;
+  if (e.shiftKey) {
+    if (e.key === "ArrowRight") c.w += step;
+    else if (e.key === "ArrowLeft") c.w -= step;
+    else if (e.key === "ArrowDown") c.h += step;
+    else if (e.key === "ArrowUp") c.h -= step;
+    else used = false;
+  } else {
+    if (e.key === "ArrowRight") c.l = clamp(c.l + step);
+    else if (e.key === "ArrowLeft") c.l = clamp(c.l - step);
+    else if (e.key === "ArrowDown") c.t = clamp(c.t + step);
+    else if (e.key === "ArrowUp") c.t = clamp(c.t - step);
+    else used = false;
+  }
+  if (used) { e.preventDefault(); render(); }
+});
+
+// --- Save / Download / Reset ---
+document.getElementById("save").onclick = async () => {
+  statusEl.textContent = "Saving…";
+  try {
+    const r = await fetch("/api/save-cells", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(cells, null, 2),
+    });
+    statusEl.textContent = r.ok ? "✅ Saved! The game will use these now." : "❌ Save failed";
+  } catch {
+    statusEl.textContent = "❌ Save failed (is the dev server running?)";
+  }
+};
+document.getElementById("download").onclick = () => {
+  const blob = new Blob([JSON.stringify(cells, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "craft-cells.json"; a.click();
+};
+document.getElementById("reset").onclick = () => {
+  if (confirm("Reset all boxes to the starting positions?")) {
+    cells = DEFAULTS.map((c) => ({ ...c }));
+    render();
+  }
+};
+
+// --- Load saved cells if they exist, else the defaults ---
+fetch("/craft-cells.json")
+  .then((r) => (r.ok ? r.json() : null))
+  .then((saved) => {
+    cells = (saved && saved.length ? saved : DEFAULTS).map((c) => ({ ...c }));
+    render();
+  })
+  .catch(() => { cells = DEFAULTS.map((c) => ({ ...c })); render(); });
+</script>
+</body>
+</html>

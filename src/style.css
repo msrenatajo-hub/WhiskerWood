@@ -1,0 +1,263 @@
+/* Make the page fill the whole window with no white edges */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #0b0a08;
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+}
+
+/* The 3D canvas fills the screen */
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* The little controls box in the top-left corner */
+#hud {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: rgba(20, 16, 12, 0.6);
+  color: #f3e9d2;
+  font-size: 14px;
+  line-height: 1.6;
+  backdrop-filter: blur(6px);
+  user-select: none;
+  pointer-events: none;
+}
+
+#hud strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+/* Sprint meter (bottom-center) */
+#sprint {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(20, 16, 12, 0.6);
+  border: 1px solid rgba(255, 220, 150, 0.35);
+  overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+#sprint.hidden {
+  opacity: 0; /* fully charged → fade away */
+}
+#sprint-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ffd36a, #7ad14a);
+  transition: width 0.1s linear, background 0.2s;
+}
+#sprint-fill.empty {
+  background: #c0504a;
+}
+
+/* Floating "Press ..." prompts (craft + nest + hollow) */
+#craft-prompt,
+#nest-prompt,
+#hollow-prompt {
+  position: fixed;
+  left: 50%;
+  bottom: 18%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: rgba(20, 16, 12, 0.78);
+  color: #ffeec0;
+  font-size: 18px;
+  border: 1px solid rgba(255, 220, 150, 0.4);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+#nest-prompt {
+  bottom: 26%; /* a bit higher so it doesn't overlap the craft prompt */
+}
+#hollow-prompt {
+  bottom: 26%;
+}
+#craft-prompt.show,
+#nest-prompt.show,
+#hollow-prompt.show {
+  opacity: 1;
+}
+#craft-prompt b {
+  color: #ffd36a;
+}
+
+/* The crafting screen overlay */
+#craft-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#craft-screen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+#craft-panel {
+  position: relative;
+  max-width: 92vw;
+  max-height: 92vh;
+}
+#craft-panel img {
+  display: block;
+  max-width: 92vw;
+  max-height: 92vh;
+  border-radius: 14px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.7);
+}
+#craft-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(20, 16, 12, 0.8);
+  color: #ffeec0;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 3;
+}
+#craft-close b {
+  color: #ffd36a;
+}
+
+/* Invisible clickable squares over each recipe picture.
+   Its exact position/size is set in code to match the image precisely. */
+#craft-hotspots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.hotspot {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+.hotspot:hover {
+  border-color: #ffd36a;
+  background: rgba(255, 211, 106, 0.14);
+}
+
+/* The "have / need" ingredient panel */
+#recipe-popup {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.96);
+  width: min(340px, 80vw);
+  padding: 18px;
+  border-radius: 16px;
+  background: #2a2018;
+  border: 2px solid #6b5436;
+  color: #f3e9d2;
+  box-shadow: 0 14px 55px rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 5;
+}
+#recipe-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+.recipe-title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 14px;
+  color: #ffe6a8;
+  line-height: 1.3;
+}
+.ing-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.ing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.ing .count {
+  font-weight: bold;
+  min-width: 48px;
+}
+.ing.ok {
+  background: rgba(60, 165, 75, 0.22);
+  color: #b7f0bb;
+}
+.ing.no {
+  background: rgba(195, 60, 60, 0.22);
+  color: #ffc2c2;
+}
+.recipe-actions {
+  display: flex;
+  gap: 8px;
+}
+.recipe-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+  background: #7a5a32;
+  color: #fff;
+}
+.recipe-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.recipe-actions .test {
+  background: #3a5a7a;
+}
+.recipe-back {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #f3e9d2;
+  cursor: pointer;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhiskerWood 🐭</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- This is where three.js draws your 3D game -->
+    <canvas id="game"></canvas>
+
+    <!-- A little help box in the corner -->
+    <div id="hud">
+      <strong>🐭 WhiskerWood</strong>
+      <div>W / ↑ &nbsp;— walk forward</div>
+      <div>S / ↓ &nbsp;— walk backward</div>
+      <div>A / ← &nbsp;— turn left</div>
+      <div>D / → &nbsp;— turn right</div>
+      <div>Space — jump</div>
+      <div>F — stand up &amp; look at the sky</div>
+      <div>E — craft (near the stump)</div>
+      <div>Shift — sprint (15s, then rests)</div>
+      <div>G — grab / drop with teeth</div>
+      <div>X — get in / out of the nest</div>
+      <div>🚪 Walk into the wall hole → go outside!</div>
+    </div>
+
+    <!-- Sprint meter -->
+    <div id="sprint"><div id="sprint-fill"></div></div>
+
+    <!-- "Press E to craft" prompt that appears near the stump -->
+    <div id="craft-prompt">Press <b>E</b> to craft</div>
+
+    <!-- "Press X to get in the nest" prompt -->
+    <div id="nest-prompt">Press X to get in the nest</div>
+
+    <!-- hollow storage prompt -->
+    <div id="hollow-prompt">Press G to store</div>
+
+    <!-- The full crafting screen (your artwork). Hidden until crafting. -->
+    <div id="craft-screen">
+      <div id="craft-panel">
+        <img src="/crafting-table.png?v=3" alt="Crafting recipes" />
+        <!-- Invisible clickable squares are placed over each recipe here -->
+        <div id="craft-hotspots"></div>
+        <!-- The "have / need" panel that appears when you click a recipe -->
+        <div id="recipe-popup"></div>
+        <div id="craft-close">Press <b>Esc</b> to close ✕</div>
+      </div>
+    </div>
+
+    <!-- This loads your game code -->
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
