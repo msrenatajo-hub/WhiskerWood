@@ -24,7 +24,7 @@ scene.add(sun);
 // ---- top-down camera (like looking at a map) ----
 const cam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 5000);
 const camTarget = new THREE.Vector3(40, 0, -150); // center of the view (pan)
-let viewSize = 320; // half-height of the view in world units (zoom)
+let viewSize = 620; // half-height of the view in world units (zoom)
 
 function resize() {
   const w = window.innerWidth;
@@ -111,6 +111,47 @@ function objectAt(e) {
   return o ? rootToItem.get(o) : null;
 }
 
+// ---- 🤝 the Claude bridge: post selection + pins so Claude can see ----
+let pins = []; // [{...entry snapshot}]
+let postTimer = null;
+
+function snapshot(item) {
+  return {
+    ...item.entry,
+    x: +item.root.position.x.toFixed(2),
+    z: +item.root.position.z.toFixed(2),
+    rot: +item.root.rotation.y.toFixed(3),
+    scale: +item.root.scale.x.toFixed(3),
+  };
+}
+
+function postState(action) {
+  clearTimeout(postTimer);
+  postTimer = setTimeout(() => {
+    fetch("/api/editor-state", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(
+        {
+          at: new Date().toISOString(),
+          action,
+          selected: selected ? snapshot(selected) : null,
+          pins,
+        },
+        null,
+        2
+      ),
+    }).catch(() => {});
+  }, 150);
+}
+
+function refreshPinList() {
+  const el = document.getElementById("pin-list");
+  el.textContent = pins.length
+    ? "📌 " + pins.map((p) => p.name || p.id).join(", ")
+    : "";
+}
+
 // ---- selection visuals ----
 function select(item) {
   selected = item;
@@ -119,9 +160,11 @@ function select(item) {
     document.getElementById(id).disabled = !has;
   }
   document.getElementById("sel-name").textContent = has
-    ? "Selected: " + (item.entry.name || "model")
+    ? "Selected: " + (item.entry.name || item.entry.id || "model")
     : "";
+  document.getElementById("pin").disabled = !has;
   updateRing();
+  postState("select");
 }
 function updateRing() {
   if (!selected) {
@@ -175,14 +218,17 @@ canvas.addEventListener("pointermove", (e) => {
   }
 });
 
-canvas.addEventListener("pointerup", () => (mode = null));
+canvas.addEventListener("pointerup", () => {
+  if (mode === "object" && selected) postState("move");
+  mode = null;
+});
 
 canvas.addEventListener(
   "wheel",
   (e) => {
     e.preventDefault();
     viewSize *= 1 + e.deltaY * 0.0012;
-    viewSize = Math.max(25, Math.min(900, viewSize));
+    viewSize = Math.max(25, Math.min(1600, viewSize));
     updateCamera();
   },
   { passive: false }
@@ -195,16 +241,30 @@ document.getElementById("bigger").onclick = () => {
   if (selected) {
     selected.root.scale.multiplyScalar(1.2);
     updateRing();
+    postState("scale");
   }
 };
 document.getElementById("smaller").onclick = () => {
   if (selected) {
     selected.root.scale.multiplyScalar(1 / 1.2);
     updateRing();
+    postState("scale");
   }
 };
 document.getElementById("rotate").onclick = () => {
-  if (selected) selected.root.rotation.y += Math.PI / 8;
+  if (selected) {
+    selected.root.rotation.y += Math.PI / 8;
+    postState("rotate");
+  }
+};
+document.getElementById("pin").onclick = () => {
+  if (!selected) return;
+  const id = selected.entry.id;
+  const already = pins.findIndex((p) => p.id === id);
+  if (already >= 0) pins.splice(already, 1);
+  else pins.push(snapshot(selected));
+  refreshPinList();
+  postState("pin");
 };
 document.getElementById("delete").onclick = () => deleteSelected();
 window.addEventListener("keydown", (e) => {
@@ -212,10 +272,14 @@ window.addEventListener("keydown", (e) => {
 });
 function deleteSelected() {
   if (!selected) return;
+  const gone = snapshot(selected);
   worldGroup.remove(selected.root);
   objects = objects.filter((o) => o !== selected);
   rootToItem.delete(selected.root);
   select(null);
+  pins = pins.filter((p) => p.id !== gone.id);
+  refreshPinList();
+  postState("delete:" + (gone.name || gone.id));
 }
 
 // ---- upload models (a single file, OR a whole .unitypackage) ----

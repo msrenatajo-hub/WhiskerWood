@@ -1,0 +1,40 @@
+WhiskerWood — Animal Model Attributions
+========================================
+
+The following models are licensed CC-BY 3.0
+(https://creativecommons.org/licenses/by/3.0/) via Poly Pizza.
+Attribution is REQUIRED when distributing this game.
+
+By "Poly by Google" [CC-BY] via Poly Pizza:
+- rabbit.glb            — Rabbit             https://poly.pizza/m/dyeBDJxhDwP
+- hedgehog.glb          — Hedgehog           https://poly.pizza/m/8UNni5IvK_c
+- raccoon.glb           — Raccoon            https://poly.pizza/m/2iYORwFng3_
+- porcupine.glb         — Porcupine          https://poly.pizza/m/17NdW1sy5PC
+- squirrel.glb          — Squirrel           https://poly.pizza/m/caxos24uWC9
+- mule_deer.glb         — Mule Deer          https://poly.pizza/m/a4srWJqGtdR
+- fox.glb               — Fox                https://poly.pizza/m/10u8FYPC5Br
+- black_bear.glb        — Black bear         https://poly.pizza/m/56ym_pyVnel
+- river_otter.glb       — River otter        https://poly.pizza/m/dJW3JeUWXQ-
+- bobcat.glb            — Bobcat             https://poly.pizza/m/bvsVdF1hLme
+- great_horned_owl.glb  — Great horned owl   https://poly.pizza/m/fNkq9CwSG6d
+- turtle.glb            — Turtle             https://poly.pizza/m/2LCcq8vhqJ3
+- bluebird.glb          — Western bluebird   https://poly.pizza/m/cdcl5UwlYWd
+- hummingbird.glb       — Hummingbird        https://poly.pizza/m/1HreVSktbPG
+- trout.glb             — Trout              https://poly.pizza/m/2W2sKWYvk8k
+
+By other artists:
+- deer.glb — Deer by madtrollstudio [CC-BY] via Poly Pizza
+             https://poly.pizza/m/bLT2gJHPPt
+- wolf.glb — Wolf by Quaternius (CC0) via Poly Pizza
+             https://poly.pizza/m/P1gU3Qkr9r
+
+Added 2026-07-03 (via Poly Pizza — author shown on each model page):
+- badger.glb      [CC-BY]        https://poly.pizza/m/8k4cduyRhi4
+- coyote.glb      [CC-BY]        https://poly.pizza/m/auVAs_kT6nE
+- beaver.glb      [CC-BY]        https://poly.pizza/m/fwtA7VLrXPr
+- moose.glb       [CC-BY]        https://poly.pizza/m/bO8XPdrAb5G
+- turkey.glb      [CC-BY]        https://poly.pizza/m/4f31_AG9Iap
+- bison.glb       [CC-BY]        https://poly.pizza/m/9sTrha-TxdS
+- muskrat.glb     [CC-BY]        https://poly.pizza/m/24Xnzj_Nmln
+- woodpecker.glb  [CC-BY]        https://poly.pizza/m/8-xKRYwdgmL
+- snake.glb       [CC0/PD]       https://poly.pizza/m/x9x0viZs8V

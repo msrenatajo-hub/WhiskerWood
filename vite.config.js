@@ -47,6 +47,23 @@ export default defineConfig({
           }
         });
 
+        // 🤝 The Claude bridge: the world editor posts whatever you have
+        // selected or pinned, so Claude can see what you're pointing at and
+        // act on it (editor-state.json in the project root, git-ignored).
+        server.middlewares.use("/api/editor-state", async (req, res, next) => {
+          if (req.method !== "POST") return next();
+          const body = (await readBody(req)).toString();
+          try {
+            JSON.parse(body);
+            fs.writeFileSync(path.resolve("editor-state.json"), body);
+            res.statusCode = 200;
+            res.end('{"ok":true}');
+          } catch {
+            res.statusCode = 400;
+            res.end('{"ok":false}');
+          }
+        });
+
         // The world editor uploads .glb models here -> public/models/<name>.
         server.middlewares.use("/api/upload-model", async (req, res, next) => {
           if (req.method !== "POST") return next();

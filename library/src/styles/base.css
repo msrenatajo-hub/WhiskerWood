@@ -1,0 +1,125 @@
+/* ============================================================
+   Base — resets, canvas, loading veil, crash overlay, HUD.
+   ============================================================ */
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #17110b;
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-scene);
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+}
+#scene.is-pointing {
+  cursor: pointer;
+}
+
+/* The UI layer NEVER catches the mouse itself — the 3D canvas below must get
+   every drag/click. Interactive elements (search panel, buttons, an OPEN
+   backdrop) opt back in individually with `pointer-events: auto`. */
+#ui {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+}
+
+/* ---- Loading veil ---- */
+.veil {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-veil);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  background: radial-gradient(120% 90% at 50% 30%, #241a10 0%, #140d08 70%);
+  color: var(--parchment);
+  transition: opacity var(--t-slow) var(--ease-out);
+}
+.veil.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.veil__crest {
+  font-size: 34px;
+  color: var(--gold-bright);
+  text-shadow: var(--glow-gold);
+  animation: pulse 2.6s var(--ease-in-out) infinite;
+}
+.veil__title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+.veil__title span {
+  color: var(--gold-bright);
+  font-style: italic;
+}
+.veil__bar {
+  width: 240px;
+  height: 2px;
+  background: rgba(240, 199, 102, 0.2);
+  border-radius: var(--r-pill);
+  overflow: hidden;
+}
+.veil__bar i {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: var(--gold-bright);
+  transition: width var(--t-med) var(--ease-out);
+}
+.veil__msg {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(246, 236, 214, 0.55);
+  letter-spacing: 0.02em;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+
+/* ---- Crash overlay ---- */
+.crash {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 2000;
+  max-width: 92vw;
+  color: #ff9a8a;
+  font: 12px/1.5 var(--font-mono);
+  white-space: pre-wrap;
+  pointer-events: none;
+}
+
+/* Elegant scrollbars for overlays */
+.scroll::-webkit-scrollbar {
+  width: 10px;
+}
+.scroll::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: var(--r-pill);
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
