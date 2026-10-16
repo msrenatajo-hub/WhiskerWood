@@ -26,6 +26,16 @@ import {
 } from "./outside.js";
 import { initMinimap } from "./minimap.js";
 import { initAmbientAudio, updateAmbient, setAmbientMuted, ambientMuted } from "./ambient.js";
+import {
+  RETRO,
+  FOG_MULT,
+  DRAW_DISTANCE,
+  rendererOptions,
+  applyResolution,
+  cycleResolution,
+  createBlobShadow,
+  updateBlobShadow,
+} from "./retro.js";
 
 // ------------------------------------------------------------
 //  ⚙️  SETTINGS YOU CAN PLAY WITH
@@ -79,19 +89,22 @@ const camera = new THREE.PerspectiveCamera(
   55, // field of view (how wide you see)
   window.innerWidth / window.innerHeight, // screen shape
   0.1, // closest visible distance
-  6500 // farthest visible distance (huge, for the Breath-of-the-Wild outdoors)
+  DRAW_DISTANCE // farthest visible distance (N64 mode: shorter, hidden by fog)
 );
 
 // The renderer draws the scene onto the <canvas>.
 const canvas = document.getElementById("game");
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25)); // huge speed win on retina
-renderer.shadowMap.enabled = true;
+const renderer = new THREE.WebGLRenderer(rendererOptions(canvas));
+// N64 mode draws a small picture and stretches it to the window (see retro.js)
+applyResolution(renderer);
+// N64 mode: no shadow maps at all (a whole extra scene render saved) — a
+// blob shadow under the mouse stands in for them, Ocarina-style.
+renderer.shadowMap.enabled = !RETRO;
 renderer.shadowMap.type = THREE.PCFShadowMap; // cheaper filter, still soft-edged
 renderer.shadowMap.autoUpdate = false; // we refresh it every other frame ourselves
 // Filmic tone-mapping = bright, vivid, "stylized render" colors.
-renderer.toneMapping = THREE.ACESFilmicToneMapping;
+// (N64 mode skips it: plain, punchy, saturated cartridge colors)
+renderer.toneMapping = RETRO ? THREE.NoToneMapping : THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.05;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -460,6 +473,9 @@ denGroup.add(exitDoor);
 // ------------------------------------------------------------
 const mouseRig = new THREE.Group();
 scene.add(mouseRig);
+// N64 mode's round shadow on the ground under the mouse
+const blobShadow = createBlobShadow();
+scene.add(blobShadow);
 
 // We have TWO poses of the mouse:
 //   quadMouse  = on all fours (used for walking)
@@ -622,6 +638,7 @@ function closeMenu() {
 }
 
 window.addEventListener("keydown", (e) => {
+  if (e.code === "KeyV" && !e.repeat) owlSay(cycleResolution(renderer)); // picture size
   if (e.code === "KeyT" && world === "outside") {
     // hop the clock forward an eighth of a day — watch the sky change!
     setTimeOfDay(dayTime + 0.125);
@@ -3069,7 +3086,7 @@ function updateDayNight(dt) {
 
   // fog + clear color follow the horizon; rain pulls the world in close
   outFog.color.copy(_colB);
-  outFog.density = 0.00042 * (1 + cloudAmt * 0.35 + rainAmt * 2.1);
+  outFog.density = 0.00042 * FOG_MULT * (1 + cloudAmt * 0.35 + rainAmt * 2.1);
   skyBg.copy(_colB);
   if (world === "outside") scene.background = skyBg;
 
@@ -3096,7 +3113,7 @@ const skyBg = SKY_HORIZON.clone(); // any gaps blend into the horizon
 // Exponential fog = natural aerial perspective: nearby is crisp, the far
 // hills fade into the haze the way real distance looks. Thin enough that the
 // huge world shows kilometer-long vistas before melting into the sky.
-const outFog = new THREE.FogExp2(0xe4edf4, 0.00042); // matches the bright horizon
+const outFog = new THREE.FogExp2(0xe4edf4, 0.00042 * FOG_MULT); // matches the bright horizon
 
 // ------------------------------------------------------------
 //  🌤️  THE SKY — a giant inside-out dome with a painted gradient,
@@ -3202,6 +3219,8 @@ const skyDome = new THREE.Mesh(
   })
 );
 skyDome.renderOrder = -1; // draw the sky first, behind everything
+// the dome must sit inside the camera's draw distance or it gets clipped away
+skyDome.scale.setScalar(Math.min(1, (DRAW_DISTANCE * 0.9) / 5200));
 skyDome.visible = false; // shown only when outside
 scene.add(skyDome);
 
@@ -3549,6 +3568,7 @@ function updatePlay(dt) {
     jumpVel = 0;
   }
   climbingNow = false; // each frame the claws must grip anew
+  updateBlobShadow(blobShadow, mouseRig, floorY);
 
   updateMousePose(dt, isWalking);
   if (window.__probe) {
@@ -4495,7 +4515,7 @@ function updateCamera(dt) {
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  applyResolution(renderer);
 });
 
 // Dev-only handle so tooling can drive world transitions for verification.
