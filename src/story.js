@@ -58,6 +58,7 @@ import { initPhase36 } from "./phase36.js";
 import { initPhase37 } from "./phase37.js";
 import { initPhase38 } from "./phase38.js";
 import { initPhase39 } from "./phase39.js";
+import { initPhase40 } from "./phase40.js";
 import { cityState } from "./cityLife.js";
 
 const SAVE_KEY = "ww.story.v1";
@@ -98,6 +99,10 @@ export function initStory(ctx) {
     st.started = true;
     for (const [k] of LESSONS) st.done[k] = true;
     delete st.p2;
+  }
+  if (q.get("story") === "p40") {
+    q.set("story", "p39");
+    st._toP40 = true;
   }
   if (q.get("story") === "p39") {
     q.set("story", "p38");
@@ -370,6 +375,11 @@ export function initStory(ctx) {
     }
   }
   function drawPanelRaw() {
+    if (p40 && st.phase >= 40 && !p40.done()) {
+      panel.style.display = "";
+      panel.innerHTML = p40.panelHTML();
+      return;
+    }
     if (p39 && st.phase >= 39 && !p39.done()) {
       panel.style.display = "";
       panel.innerHTML = p39.panelHTML();
@@ -498,7 +508,7 @@ export function initStory(ctx) {
     if (p13 && st.phase >= 14 && (st.phase >= 15 || p14.done())) {
       // (the whole story is told — free roaming)
       panel.style.display = "";
-      panel.innerHTML = st.phase < 39 || !(p39 && p39.done())
+      panel.innerHTML = st.phase < 40 || !(p40 && p40.done())
         ? `<h3>✨ The next chapter is starting…</h3><ul><li>○ your next adventure begins in a moment!</li></ul>`
         : `<h3>🌠 Every chapter told — for now!</h3><ul><li>○ Quests (Q) · your village (O) · the open sea ⛵</li></ul><div class="kit">🏡 C — Life Goals (optional)</div>`;
       return;
@@ -1023,7 +1033,7 @@ export function initStory(ctx) {
   }
   /** What's here to do? → { label, act } or null */
   function interactable() {
-    const inCity = safe(() => p39.interactable()) || safe(() => p38.interactable()) || safe(() => p37.interactable()) || safe(() => p36.interactable()) || safe(() => p35.interactable()) || safe(() => p34.interactable()) || safe(() => p33.interactable()) || safe(() => p32.interactable()) || safe(() => p31.interactable()) || safe(() => p30.interactable()) || safe(() => p29.interactable()) || safe(() => p28.interactable()) || safe(() => p27.interactable()) || safe(() => p26.interactable()) || safe(() => p25.interactable()) || safe(() => p24.interactable()) || safe(() => p23.interactable()) || safe(() => p22.interactable()) || safe(() => p21.interactable()) || safe(() => p20.interactable()) || safe(() => p19.interactable()) || safe(() => p18.interactable()) || safe(() => p17.interactable()) || safe(() => p16.interactable()) || safe(() => p15.interactable()) || safe(() => p14.interactable()) || safe(() => p13.interactable()) || safe(() => p12.interactable()) || safe(() => p11.interactable()) || safe(() => p10.interactable()) || safe(() => p9.interactable()) || safe(() => p8.interactable()) || safe(() => p7.interactable()) || safe(() => p6.interactable()); // (the cities are their own places)
+    const inCity = safe(() => p40.interactable()) || safe(() => p39.interactable()) || safe(() => p38.interactable()) || safe(() => p37.interactable()) || safe(() => p36.interactable()) || safe(() => p35.interactable()) || safe(() => p34.interactable()) || safe(() => p33.interactable()) || safe(() => p32.interactable()) || safe(() => p31.interactable()) || safe(() => p30.interactable()) || safe(() => p29.interactable()) || safe(() => p28.interactable()) || safe(() => p27.interactable()) || safe(() => p26.interactable()) || safe(() => p25.interactable()) || safe(() => p24.interactable()) || safe(() => p23.interactable()) || safe(() => p22.interactable()) || safe(() => p21.interactable()) || safe(() => p20.interactable()) || safe(() => p19.interactable()) || safe(() => p18.interactable()) || safe(() => p17.interactable()) || safe(() => p16.interactable()) || safe(() => p15.interactable()) || safe(() => p14.interactable()) || safe(() => p13.interactable()) || safe(() => p12.interactable()) || safe(() => p11.interactable()) || safe(() => p10.interactable()) || safe(() => p9.interactable()) || safe(() => p8.interactable()) || safe(() => p7.interactable()) || safe(() => p6.interactable()); // (the cities are their own places)
     if (inCity) return inCity;
     if (ctx.world() !== "outside" || !school()) return null;
     const fromP2 = p2.interactable() || p3.interactable() || p4.interactable() || p5.interactable();
@@ -1170,6 +1180,7 @@ export function initStory(ctx) {
     safe(() => p37.update(dt, t));
     safe(() => p38.update(dt, t));
     safe(() => p39.update(dt, t));
+    safe(() => p40.update(dt, t));
     if (pendingIntro && school() && ctx.quadMouse() && !cutscenePlaying()) {
       pendingIntro = false;
       intro();
@@ -1498,11 +1509,19 @@ export function initStory(ctx) {
     st.p39 = { started: true, been: false, met: false, crossed: false, jewels: {}, done: false };
   }
   const p39 = initPhase39({ ctx, st, save, chime, redraw: () => drawPanel() });
-  // (designer cheat) ?gophase=N (13–39) → jump SAFELY to the start of phase N:
+  // ---------- Phase 40 ----------
+  if (st._toP40) {
+    delete st._toP40;
+    st.phase = 40;
+    st.p39 = { started: true, been: true, met: true, crossed: true, jewels: { sapphire: true, diamond: true, ruby: true }, done: true };
+    st.p40 = { started: true, sorted: false, letters: {}, decoded: false, deadline: 0, done: false };
+  }
+  const p40 = initPhase40({ ctx, st, save, chime, redraw: () => drawPanel() });
+  // (designer cheat) ?gophase=N (13–40) → jump SAFELY to the start of phase N:
   // the phases before it are marked finished, nothing else is touched
   {
     const go = +(new URLSearchParams(location.search).get("gophase") || 0);
-    if (go >= 13 && go <= 39) {
+    if (go >= 13 && go <= 40) {
       for (let k = 13; k < go; k++) {
         const o = (st["p" + k] ||= {});
         o.started = true;
@@ -1525,6 +1544,7 @@ export function initStory(ctx) {
         if (k === 36) Object.assign(o, { been: true, seeds: { bean: true, island: true, pot: true, can: true, gnome: true, bed: true } });
         if (k === 37) Object.assign(o, { been: true, talked: true, shaken: { 0: true, 1: true, 2: true, 3: true, 4: true }, pile: 5, woke: true, golden: { 0: true, 1: true, 2: true, 3: true, 4: true, 5: true, 6: true }, placed: 7 });
         if (k === 38) Object.assign(o, { been: true, met: true, hacked: { 0: true, 1: true }, ravine: true, river: true, found: { tree: true, quick: true, cave: true }, opened: true });
+        if (k === 39) Object.assign(o, { been: true, met: true, crossed: true, jewels: { sapphire: true, diamond: true, ruby: true } });
         if (k === 30) Object.assign(o, { been: true, crossed: true, knots: { 0: 1, 1: 1, 2: 1 }, freed: true, caps: { 0: 1, 1: 1, 2: 1, 3: 1, 4: 1 } });
         if (k === 29) Object.assign(o, { clues: { reedmere: 1, golden: 1, frostpine: 1, silverveil: 1 }, found: true, sat: true });
         if (k === 28) Object.assign(o, { been: true, gears: { plank: 1, piston: 1, chasm: 1, stairs: 1 } });

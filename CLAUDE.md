@@ -46,7 +46,8 @@ src/                  the game (≈100 modules, below)
 | `homes.js` | Interiors: your houses and every walk-in shop/café room (`registerRoom`). |
 | `questZones.js` | **Every zone** (self-contained mini-world reached via `goCity(id)`): `ZONE_INFO`, `buildZone(id)` dispatch, and one `buildX()` per zone with its own `height()`, colliders, platforms, `waterAt`. Zone constants (e.g. `JUNGLE`, `FROZENSEA`) are exported for the phase that uses them. |
 | `story.js` | The story driver: Phase 1 itself, the quest panel, and the wiring that inits/updates/routes E-presses to every `phaseN.js`. |
-| `phase2.js` … `phase39.js` | One story chapter each (see below). |
+| `phase2.js` … `phase40.js` | One story chapter each (see below). |
+| `minigames.js` | Overlay mini-games (`playMinigame(kind, { onWin })`): Post Sort, Leaf Catch, Bottle Bob, Haystack Hunt, Ice Memory, Cipher Wheel. Imported first in `main.js` so a game sees the keys before the world does. |
 | `cutscene.js` | In-engine movies (`playCutscene([...shots])`, `fadeThrough`). Lines with text wait for Space/E. |
 | `quests.js`, `restock.js`, `economy.js` | Side quests (Q log), endless shop restock, price growth with story progress. |
 | `more.js`, `more2.js`, `more3.js`, `extras.js` | Grab-bags of world systems: music/flute (U) + songs, village, legends, dog sledding, dragon flight (1 menu, `DRAGON_DESTS`), dragon races, seasons, festivals… |
@@ -98,7 +99,7 @@ real save) · `&p9city=<zone>` (start in a city/zone) · `&csat=N` (start cutsce
 
 There is no unit-test suite. Changes are verified by `npm run build` plus headless Chrome driven
 over the DevTools protocol (scripts kept outside the repo): load a URL, call the `window.__ww*`
-hooks (`__wwTeleport(x, z)`, `__wwPos()`, `__wwFly.go(id)`, `__wwPN.state()`…), press keys, take
+hooks (`__wwTeleport(x, z)`, `__wwPos()`, `__wwFly.go(id)`, `__wwTravel(city)`, `__wwMini.win()`, `__wwPN.state()`…), press keys, take
 screenshots, and fail on console errors. Gotchas:
 
 - Kill a stale headless Chrome between runs or it reuses the old localStorage save.

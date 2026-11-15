@@ -4,6 +4,7 @@
 // ============================================================
 
 import "./boot.js"; // (first: ?newgame wipes the save before anything loads it)
+import "./minigames.js"; // (early: a mini-game must see the keys before the world does)
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { RECIPES } from "./recipes.js";
@@ -7135,6 +7136,7 @@ skating = initSkating({
 });
 initItemPictures(); // 🖼️ real pictures of items (instead of emoji) in every shop and list
 window.__wwTeleport = (x, z, f = 0) => placePlayer(x, z, f); // (for tests)
+window.__wwTravel = (id) => fadeThrough(() => (id === "forest" ? goOutside() : goCity(id)), 0.4); // (for tests: straight to forest · reedmere · golden · frostpine · silverveil …)
 window.__wwPos = () => ({ x: +mouseRig.position.x.toFixed(2), y: +mouseRig.position.y.toFixed(2), z: +mouseRig.position.z.toFixed(2), world }); // (for tests)
 // 🪙 prices grow the further you get in the story (economy.js)
 setEconomySource(() => (story ? story.state().phase : 1), () => cityLifeSave());
