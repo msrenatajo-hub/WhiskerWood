@@ -64,7 +64,7 @@ export function initPhase40(api) {
   }
 
   // ---------------------------------------------------------------- Hootsworth, and the glowing letters
-  let owl = null, owlBuilt = false;
+  let owl = null, owlBuilt = false, owlBeam = null;
   const beacons = {};
   function owlSpot() {
     const H0 = ctx.home;
@@ -87,6 +87,11 @@ export function initPhase40(api) {
     owl.position.set(O.x, ctx.terrainHeight(O.x, O.z), O.z);
     ctx.outsideGroup.add(owl);
     owl.userData.bird = bird;
+    // a golden beam over Hootsworth too, whenever HE is where you need to go
+    owlBeam = makeBeacon(0xffd040);
+    owlBeam.userData.env.visible = false;
+    owlBeam.position.copy(owl.position);
+    ctx.outsideGroup.add(owlBeam);
   }
   // a floating envelope with a beam of light you can see from far away
   function makeBeacon(col) {
@@ -97,10 +102,23 @@ export function initPhase40(api) {
     seal.position.z = 0.04;
     env.add(paper, seal);
     env.position.y = 1.4;
-    const beam = new THREE.Mesh(new THREE.CylinderGeometry(0.35, 0.35, 30, 10, 1, true), new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.18, depthWrite: false, side: THREE.DoubleSide }));
-    beam.position.y = 15;
-    g.add(env, beam, glow(col, 2.6, 0.8));
-    g.userData.env = env;
+    // ✨ a GOLDEN BEAM up into the sky — a bright core inside a soft glow, seen from far away
+    // (solid gold, not "added light" — so it stands out even against bright grass and snow)
+    const beamMat = (op) => new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: op, depthWrite: false, side: THREE.DoubleSide, fog: false, toneMapped: false });
+    const core = new THREE.Mesh(new THREE.CylinderGeometry(0.7, 0.7, 90, 12, 1, true), beamMat(0.85));
+    const soft = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 90, 16, 1, true), beamMat(0.3));
+    // the soft glow shows THROUGH trees and hills — a waypoint you can always find
+    soft.material.depthTest = false;
+    soft.renderOrder = 50;
+    core.position.y = soft.position.y = 45;
+    const ring = new THREE.Mesh(new THREE.RingGeometry(1.2, 1.8, 28), beamMat(0.6));
+    ring.rotation.x = -Math.PI / 2;
+    ring.position.y = 0.08;
+    const halo = glow(col, 3.2, 0.9);
+    halo.material.fog = false;
+    halo.position.y = 1.4;
+    g.add(env, core, soft, ring, halo);
+    g.userData = { env, soft, ring };
     return g;
   }
   function beaconAt(key) {
@@ -237,6 +255,53 @@ export function initPhase40(api) {
     ]);
   }
 
+  // ---------------------------------------------------------------- 🧭 the golden guide: WHERE TO GO next
+  // An arrow at the top of the screen points at your next goal (and how far it is);
+  // if that goal is in another place, it tells you where — and how to get there.
+  let guideEl = null;
+  function nextGoal() {
+    const s = p40();
+    if (s.done || !s.started) return null;
+    const w = here();
+    const owlGoal = () => (w === "forest" ? { ...owlSpot(), label: "🦉 Hootsworth" } : { elsewhere: "your cottage in the Great Forest" });
+    if (!s.sorted || s.decoded) return owlGoal();
+    // a letter right here?
+    const local = PLACES.find((P) => P.key === w && !s.letters[P.key]);
+    if (local && beacons[w]) return { ...beacons[w].userData.at, label: `${local.icon} the lost letter` };
+    const left = PLACES.filter((P) => !s.letters[P.key]);
+    if (left.length) return { elsewhere: left.map((P) => P.name).join(", ") };
+    if (w === "silverveil" && beacons.silverveil) return { ...beacons.silverveil.userData.at, label: "💜 Renata's letter" };
+    return { elsewhere: "Silverveil (Renata's purple-sealed letter)" };
+  }
+  function guide() {
+    if (!guideEl) {
+      guideEl = document.createElement("div");
+      guideEl.id = "ww-guide";
+      guideEl.style.cssText = "position:fixed;left:50%;bottom:72px;transform:translateX(-50%);display:none;align-items:center;gap:10px;padding:6px 16px 6px 10px;border-radius:14px;background:rgba(40,28,8,.82);border:2px solid #ffd040;color:#ffe8a0;font:900 15px 'Trebuchet MS',sans-serif;z-index:44;pointer-events:none;box-shadow:0 0 18px rgba(255,208,64,.45)";
+      guideEl.innerHTML = `<span class="arr" style="display:inline-block;font-size:24px;color:#ffd040;transition:transform .08s linear">⬆</span><span class="txt"></span>`;
+      document.body.appendChild(guideEl);
+    }
+    const G = nextGoal();
+    const show = G && !ctx.playing() && !minigameOpen();
+    guideEl.style.display = show ? "flex" : "none";
+    if (!show) return;
+    const arr = guideEl.querySelector(".arr"), txt = guideEl.querySelector(".txt");
+    if (G.elsewhere) {
+      arr.textContent = "✉️";
+      arr.style.transform = "none";
+      txt.textContent = `Next: ${G.elsewhere} — press K for the old roads, or 1 for your dragon`;
+      return;
+    }
+    // turn the arrow toward the goal, as seen from the camera
+    const p = me(), f = new THREE.Vector3();
+    ctx.camera.getWorldDirection(f);
+    const dx = G.x - p.x, dz = G.z - p.z;
+    const ang = Math.atan2(dx * -f.z + dz * f.x, dx * f.x + dz * f.z);
+    arr.textContent = "⬆";
+    arr.style.transform = `rotate(${(ang * 180) / Math.PI}deg)`;
+    txt.textContent = `${G.label} — ${Math.round(Math.hypot(dx, dz))} m · follow the golden beam!`;
+  }
+
   // ---------------------------------------------------------------- the dawn clock
   let clockEl = null;
   function dawnClock() {
@@ -282,10 +347,18 @@ export function initPhase40(api) {
           b.visible = !got;
           b.userData.env.rotation.y = t * 1.5;
           b.userData.env.position.y = 1.4 + Math.sin(t * 2) * 0.15;
+          b.userData.soft.material.opacity = 0.3 + Math.sin(t * 2.4) * 0.1; // (the beam gently pulses)
+          b.userData.ring.scale.setScalar(1 + ((t * 0.6) % 1) * 0.6);
         }
       }
     } else for (const b of Object.values(beacons)) b.visible = false;
+    if (owlBeam) {
+      owlBeam.visible = !s.done && (!s.sorted || s.decoded);
+      owlBeam.userData.soft.material.opacity = 0.3 + Math.sin(t * 2.4) * 0.1;
+      owlBeam.userData.ring.scale.setScalar(1 + ((t * 0.6) % 1) * 0.6);
+    }
     dawnClock();
+    guide();
   }
 
   function panelHTML() {
@@ -305,6 +378,16 @@ export function initPhase40(api) {
     playing: () => ctx.playing(),
     owl: () => owlSpot(),
     beacon: (k) => beacons[k] && beacons[k].userData.at,
+    beaconInfo: (k) => {
+      const b = beacons[k];
+      if (!b) return null;
+      const v = new THREE.Vector3();
+      b.getWorldPosition(v);
+      let vis = true;
+      for (let o = b; o; o = o.parent) vis = vis && o.visible;
+      const sc = v.clone().add(new THREE.Vector3(0, 10, 0)).project(ctx.camera);
+      return { world: v.toArray().map((n) => +n.toFixed(1)), visible: vis, screen: [+sc.x.toFixed(2), +sc.y.toFixed(2), +sc.z.toFixed(3)], kids: b.children.length };
+    },
   };
   return { update, interactable, panelHTML, done: () => !!p40().done };
 }

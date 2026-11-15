@@ -80,7 +80,7 @@ window.addEventListener("keyup", (e) => {
 
 export const minigameOpen = () => !!cur;
 // (test hook: win or check the game that is open)
-window.__wwMini = { kind: () => cur && cur.kind, win: () => cur && !cur.over && finish(true, "(test)"), over: () => cur && cur.over };
+window.__wwMini = { play: (k) => playMinigame(k), G: () => cur && cur.G, kind: () => cur && cur.kind, win: () => cur && !cur.over && finish(true, "(test)"), over: () => cur && cur.over };
 
 /** Open a mini-game. onWin() after a win (when you close it); onLose() if you quit. */
 export function playMinigame(kind, opts = {}) {
@@ -179,7 +179,7 @@ const GAMES = {
   // 📮 POST SORT
   sort() {
     const G = { done: 0, bad: 0, goal: 15, letter: null, flash: 0, flashOk: true };
-    const next = () => (G.letter = { s: Math.floor(Math.random() * 4), t: 0, life: Math.max(1.5, 3.2 - G.done * 0.11), y: 60 });
+    const next = () => (G.letter = { s: Math.floor(Math.random() * 4), t: 0, life: Math.max(0.5, (3.2 - G.done * 0.11) / 3) /* (3× faster drop) */, y: 60 });
     next();
     const send = (k) => {
       if (!G.letter) return;
@@ -227,15 +227,29 @@ const GAMES = {
 
   // 🍃 LEAF CATCH
   catch() {
-    const G = { x: W / 2, got: 0, goal: 8, lives: 3, t: 45, items: [], spawn: 0, left: false, right: false };
+    const G = { x: W / 2, vx: 0, aim: null, got: 0, goal: 8, lives: 3, t: 45, items: [], spawn: 0, left: false, right: false };
     return {
       status: () => `✉️ ${G.got}/${G.goal} · ❤️ ${G.lives} · ⏱ ${Math.ceil(G.t)}s`,
-      move: (p) => (G.x = p.x),
+      move: (p) => (G.aim = p.x), // (the basket SLIDES toward the mouse — it doesn't snap)
       key: (c) => ((c === "KeyA" || c === "ArrowLeft") && (G.left = true), (c === "KeyD" || c === "ArrowRight") && (G.right = true)),
       keyUp: (c) => ((c === "KeyA" || c === "ArrowLeft") && (G.left = false), (c === "KeyD" || c === "ArrowRight") && (G.right = false)),
       step(dt) {
         G.t -= dt;
-        G.x = Math.max(40, Math.min(W - 40, G.x + ((G.right ? 1 : 0) - (G.left ? 1 : 0)) * 420 * dt));
+        // 🧺 a SMOOTH basket: it eases up to speed and eases to a stop — never jerky, never icy
+        const push = (G.right ? 1 : 0) - (G.left ? 1 : 0);
+        if (push) {
+          G.aim = null; // (keys take over from the mouse)
+          G.vx += (push * 1500 - G.vx) * Math.min(1, dt * 12);
+          G.x += G.vx * dt;
+        } else if (G.aim !== null) {
+          const nx = G.x + (G.aim - G.x) * Math.min(1, dt * 14); // (glides to the mouse — no overshoot)
+          G.vx = (nx - G.x) / Math.max(dt, 0.001);
+          G.x = nx;
+        } else {
+          G.vx += (0 - G.vx) * Math.min(1, dt * 12);
+          G.x += G.vx * dt;
+        }
+        G.x = Math.max(56, Math.min(W - 56, G.x)); // (the whole basket stays on screen)
         G.spawn -= dt;
         if (G.spawn <= 0) {
           G.spawn = rnd(0.35, 0.7);
@@ -276,9 +290,13 @@ const GAMES = {
             g.fill();
           }
         }
-        // the basket
-        rr(G.x - 46, H - 62, 92, 34, 10, "#a8783a");
-        rr(G.x - 46, H - 62, 92, 8, 4, "#7a5426");
+        // the basket (it tilts as it slides)
+        g.save();
+        g.translate(G.x, H - 45);
+        g.rotate(Math.max(-0.35, Math.min(0.35, G.vx / 4000)));
+        rr(-46, -17, 92, 34, 10, "#a8783a");
+        rr(-46, -17, 92, 8, 4, "#7a5426");
+        g.restore();
       },
     };
   },
@@ -289,10 +307,12 @@ const GAMES = {
     const newZone = () => (G.z0 = rnd(0.08, 0.92 - G.zone));
     newZone();
     return {
+      G, // (for tests)
       status: () => `🍾 hooked ${G.hits}/${G.goal} · misses ${G.miss}/3`,
       key: (c) => {
         if (c !== "Space" && c !== "KeyE") return;
-        const ok = G.m >= G.z0 && G.m <= G.z0 + G.zone;
+        const slack = 0.03; // (forgiving: it counts the moment ANY part of the marker touches the green)
+        const ok = G.m >= G.z0 - slack && G.m <= G.z0 + G.zone + slack;
         G.flash = 0.4;
         G.ok = ok;
         if (ok) {
