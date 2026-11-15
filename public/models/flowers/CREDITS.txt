@@ -1,0 +1,10 @@
+Flower models used in WhiskerWood:
+
+- flower_single.glb — "Flower Single" by Quaternius (CC0)
+  https://poly.pizza/m/GvfHo0roi3
+- flower_rayden.glb — "flower" by Rayden Smiles, licensed CC-BY 3.0
+  https://creativecommons.org/licenses/by/3.0/
+  via Poly Pizza: https://poly.pizza/m/7IfLtBortPN
+- bell_flower.glb — "Bell Flower" by Zsky, licensed CC-BY 3.0
+  https://creativecommons.org/licenses/by/3.0/
+  via Poly Pizza: https://poly.pizza/m/1baaAXcdzZ

@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Enchanted Idea Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ✨ The Enchanted Idea Book — every dream for WhiskerWood, written down
+     before it's built. Ideas stay 💭 until Renata says "make it!" */
+  :root {
+    --paper: #fbe4ea;
+    --paper-2: #f6d3dd;
+    --paper-edge: #e8b4c4;
+    --ink: #5a2f3e;
+    --ink-soft: #8a5468;
+    --rose: #d9668f;
+    --rose-deep: #b8466f;
+    --gold: #c9a24a;
+    --glow: #ff9ccf;
+    --night: #2a1530;
+    --night-2: #3f1f45;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 50% -10%, #5a2a5e 0%, #33233f 30%, #1a2a24 70%, #0f1d17 100%) fixed;
+    color: var(--ink);
+    font-family: "IM Fell English", Georgia, serif;
+    font-size: 18px;
+    line-height: 1.55;
+    overflow-x: hidden;
+    padding: 56px 16px 140px;
+  }
+
+  /* ⭐ the night sky: twinkling stars + drifting sparkles */
+  .sky { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .star {
+    position: absolute; width: 3px; height: 3px; border-radius: 50%;
+    background: #fff; box-shadow: 0 0 6px 1px #ffd6ec;
+    animation: twinkle var(--d, 3s) ease-in-out infinite; animation-delay: var(--w, 0s);
+  }
+  .sparkle {
+    position: absolute; color: #ffe3f1; font-size: var(--s, 14px);
+    text-shadow: 0 0 8px #ff9ccf, 0 0 16px #ff6fb5;
+    animation: drift var(--d, 9s) linear infinite, twinkle 2.4s ease-in-out infinite;
+    animation-delay: var(--w, 0s);
+  }
+  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.25); } }
+  @keyframes drift { from { translate: 0 0; } to { translate: 30px -120px; } }
+
+  /* 🍄 glowing pink mushrooms along the forest floor */
+  .shrooms { position: fixed; left: 0; right: 0; bottom: -6px; height: 150px; pointer-events: none; z-index: 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 0 10px; }
+  .shroom { filter: drop-shadow(0 0 10px var(--glow)) drop-shadow(0 0 22px #ff5fb0); animation: pulse 3.6s ease-in-out infinite; animation-delay: var(--w, 0s); }
+  @keyframes pulse { 0%, 100% { filter: drop-shadow(0 0 6px var(--glow)) drop-shadow(0 0 14px #ff5fb0); } 50% { filter: drop-shadow(0 0 14px var(--glow)) drop-shadow(0 0 30px #ff5fb0); } }
+  .fly { position: fixed; width: 5px; height: 5px; border-radius: 50%; background: #ffe7a8; box-shadow: 0 0 10px 3px #ffd36e; z-index: 2; pointer-events: none; animation: wander var(--d, 14s) ease-in-out infinite alternate; }
+  @keyframes wander { 0% { translate: 0 0; opacity: .3; } 50% { opacity: 1; } 100% { translate: var(--x, 120px) var(--y, -80px); opacity: .4; } }
+
+  /* 🌲 the enchanted forest all around */
+  .forest { position: fixed; left: 0; right: 0; bottom: 0; height: 46vh; pointer-events: none; z-index: 0; }
+  .forest svg { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; }
+  .canopy { position: fixed; left: 0; right: 0; top: 0; height: 120px; pointer-events: none; z-index: 0; }
+  .mist { position: fixed; left: -10%; right: -10%; bottom: 8vh; height: 22vh; pointer-events: none; z-index: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(255,190,230,.16), transparent 60%), radial-gradient(ellipse at 75% 50%, rgba(190,255,220,.12), transparent 60%);
+    animation: mist 18s ease-in-out infinite alternate; }
+  @keyframes mist { to { transform: translateX(6%); } }
+  .leaf { position: fixed; top: -40px; z-index: 3; pointer-events: none; font-size: var(--s, 18px); opacity: .85;
+    animation: fall var(--d, 14s) linear infinite; animation-delay: var(--w, 0s); filter: drop-shadow(0 0 4px rgba(255,170,215,.5)); }
+  @keyframes fall { 0% { transform: translate(0, 0) rotate(0deg); } 50% { transform: translate(var(--x, 60px), 55vh) rotate(180deg); } 100% { transform: translate(calc(var(--x, 60px) * -0.5), 110vh) rotate(360deg); } }
+  /* 🌿 flowering vines climbing the book */
+  .vine { position: absolute; top: 10px; bottom: 10px; width: 46px; pointer-events: none; z-index: 2; }
+  .vine.left { left: -30px; } .vine.right { right: -30px; transform: scaleX(-1); }
+  .vine svg { width: 100%; height: 100%; }
+
+  /* 📖 the book */
+  .book {
+    position: relative; z-index: 1; max-width: 860px; margin: 0 auto;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.55), transparent 55%),
+      radial-gradient(ellipse at 85% 90%, rgba(214,140,165,.25), transparent 60%),
+      repeating-linear-gradient(0deg, rgba(160,90,110,.035) 0 2px, transparent 2px 5px),
+      linear-gradient(160deg, var(--paper) 0%, var(--paper-2) 100%);
+    border-radius: 6px 14px 14px 6px;
+    padding: 64px clamp(20px, 6vw, 72px) 72px;
+    box-shadow:
+      inset 0 0 60px rgba(170, 90, 120, .28),
+      inset 0 0 0 1px rgba(255,255,255,.4),
+      -10px 0 0 -2px #e9b9c8, -18px 0 0 -4px #dba3b6,
+      0 30px 80px rgba(0,0,0,.55), 0 0 60px rgba(255,120,190,.18);
+  }
+  /* a gilded, vine-y frame */
+  .book::before {
+    content: ""; position: absolute; inset: 16px; border: 2px solid rgba(201,162,74,.55); border-radius: 4px 10px 10px 4px; pointer-events: none;
+    box-shadow: inset 0 0 0 5px rgba(251,228,234,.6), inset 0 0 0 6px rgba(201,162,74,.35);
+  }
+  .corner { position: absolute; font-size: 26px; color: var(--gold); text-shadow: 0 0 8px rgba(255,200,120,.6); }
+  .corner.tl { top: 4px; left: 8px; } .corner.tr { top: 4px; right: 8px; } .corner.bl { bottom: 4px; left: 8px; } .corner.br { bottom: 4px; right: 8px; }
+
+  header { text-align: center; margin-bottom: 30px; }
+  .title { font-family: "Dancing Script", cursive; font-size: clamp(42px, 8vw, 64px); color: var(--rose-deep); margin: 0; line-height: 1.05; text-shadow: 0 2px 0 #fff, 0 0 18px rgba(255,140,190,.55); }
+  .subtitle { font-style: italic; color: var(--ink-soft); margin: 8px 0 0; }
+  .flourish { color: var(--gold); letter-spacing: 8px; margin: 14px 0 0; font-size: 18px; }
+  .note { background: rgba(255,255,255,.45); border: 1px dashed var(--paper-edge); border-radius: 10px; padding: 12px 16px; margin: 18px auto 0; max-width: 560px; font-size: 16px; color: var(--ink-soft); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 14px; font-size: 14px; }
+  .chip { display: inline-block; padding: 1px 10px; border-radius: 999px; font-size: 13px; white-space: nowrap; border: 1px solid; }
+  .chip.dream { background: #fff0f6; border-color: #f0b6cc; color: var(--rose-deep); }
+  .chip.made { background: #f1fbe9; border-color: #bfe0a6; color: #4e7a34; }
+
+  /* chapters of the book */
+  section { margin-top: 44px; }
+  h2 { font-family: "Dancing Script", cursive; font-size: 36px; color: var(--rose-deep); margin: 0 0 4px; text-align: center; text-shadow: 0 0 12px rgba(255,150,200,.45); }
+  .h2sub { text-align: center; font-style: italic; color: var(--ink-soft); margin: 0 0 18px; font-size: 16px; }
+  .divider { text-align: center; color: var(--gold); margin: 6px 0 22px; letter-spacing: 6px; }
+
+  .ideas { display: grid; gap: 14px; }
+  .idea {
+    position: relative; background: rgba(255,255,255,.42); border: 1px solid rgba(217,102,143,.22); border-radius: 12px;
+    padding: 14px 18px 12px; box-shadow: 0 2px 0 rgba(255,255,255,.7) inset, 0 6px 16px rgba(160,70,110,.08);
+  }
+  .idea h3 { margin: 0 0 6px; font-size: 21px; color: var(--ink); display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .idea h3 .num { font-family: "Dancing Script", cursive; color: var(--rose); font-size: 24px; min-width: 2.2em; }
+  .idea h3 .chip { margin-left: auto; }
+  .idea ul { margin: 0; padding-left: 22px; }
+  .idea li { margin: 2px 0; }
+  .idea li::marker { content: "✿  "; color: var(--rose); }
+  .idea.special { background: linear-gradient(135deg, rgba(255,255,255,.6), rgba(255,214,232,.6)); border: 2px solid rgba(201,162,74,.5); }
+  .idea.special::after { content: "✨"; position: absolute; top: -12px; right: -8px; font-size: 22px; filter: drop-shadow(0 0 6px #ffb3d9); }
+
+  .lands { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+  .land { background: rgba(255,255,255,.42); border: 1px solid rgba(217,102,143,.22); border-radius: 12px; padding: 10px 14px; font-size: 16px; }
+  .land b { display: block; color: var(--rose-deep); font-size: 18px; }
+
+  footer { text-align: center; margin-top: 46px; font-style: italic; color: var(--ink-soft); font-size: 15px; }
+  footer .sig { font-family: "Dancing Script", cursive; font-size: 30px; color: var(--rose-deep); display: block; margin-top: 4px; }
+
+  /* 🌸 editing mode */
+  .edit-btn {
+    position: fixed; top: 16px; right: 16px; z-index: 20;
+    font-family: "Dancing Script", cursive; font-size: 26px; font-weight: 700; color: #fff;
+    padding: 6px 22px 8px; border: 2px solid #fff3f8; border-radius: 999px; cursor: pointer;
+    background: linear-gradient(135deg, #ff8cc6, #e85a9c);
+    box-shadow: 0 0 0 4px rgba(255,140,198,.35), 0 0 22px rgba(255,111,181,.75), 0 6px 14px rgba(0,0,0,.3);
+    text-shadow: 0 1px 2px rgba(150,30,80,.5); transition: transform .15s;
+  }
+  .edit-btn:hover { transform: scale(1.06) rotate(-2deg); }
+  .edit-btn.rescue { top: 70px; font-family: "IM Fell English", Georgia, serif; font-size: 15px; padding: 6px 14px; background: linear-gradient(135deg, #b98ad8, #8a5ab8); }
+  .edit-btn.rescue::after { content: ""; }
+  .edit-btn::after { content: " ✨"; font-size: 18px; }
+  body.editing .edit-btn { background: linear-gradient(135deg, #8ad08a, #4fa86a); box-shadow: 0 0 0 4px rgba(140,220,150,.35), 0 0 22px rgba(120,220,140,.7), 0 6px 14px rgba(0,0,0,.3); }
+  body.editing .book { outline: 3px dashed rgba(232,90,156,.55); outline-offset: 6px; }
+  body.editing [contenteditable="true"]:focus { outline: none; }
+  body.editing .idea, body.editing .land { cursor: text; }
+  body.editing .chip { cursor: pointer; }
+  .edit-ui { font-family: "IM Fell English", Georgia, serif; }
+  .del-btn {
+    position: absolute; top: -10px; left: -10px; width: 26px; height: 26px; border-radius: 50%;
+    border: 2px solid #fff; background: #e85a9c; color: #fff; font-size: 14px; line-height: 1; cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,111,181,.7);
+  }
+  .idea, .land { position: relative; }
+  .add-btn {
+    display: block; width: 100%; margin-top: 12px; padding: 10px; border-radius: 12px; cursor: pointer;
+    border: 2px dashed var(--rose); background: rgba(255,255,255,.5); color: var(--rose-deep); font-size: 17px;
+  }
+  .add-btn:hover { background: rgba(255,255,255,.8); }
+  .edit-help { text-align: center; font-size: 15px; color: var(--rose-deep); background: rgba(255,255,255,.6); border-radius: 10px; padding: 8px 12px; margin: 0 auto 10px; max-width: 600px; }
+  /* 📑 shortcuts: jump straight to any part of the book */
+  .toc { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 18px auto 4px; max-width: 680px; }
+  .toc a {
+    font: 15px "IM Fell English", Georgia, serif; color: var(--rose-deep); text-decoration: none; padding: 5px 14px; border-radius: 999px;
+    background: rgba(255,255,255,.6); border: 1px solid #f0b6cc; box-shadow: 0 2px 6px rgba(200,90,140,.15); transition: transform .15s, background .15s;
+  }
+  .toc a:hover { background: #ffe3ef; transform: translateY(-2px); }
+  .toc a .n { font-size: 12px; color: var(--ink-soft); margin-left: 4px; }
+  .toc-title { text-align: center; font: italic 14px "IM Fell English", Georgia, serif; color: var(--ink-soft); margin-top: 14px; }
+  .to-top {
+    position: fixed; right: 18px; bottom: 22px; z-index: 20; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: none;
+    border: 2px solid #fff3f8; background: linear-gradient(135deg, #ff8cc6, #e85a9c); color: #fff; font-size: 22px;
+    box-shadow: 0 0 0 4px rgba(255,140,198,.3), 0 0 18px rgba(255,111,181,.6);
+  }
+  .to-top.show { display: block; }
+  html { scroll-behavior: smooth; }
+  section { scroll-margin-top: 20px; }
+
+  /* 🚩 little flags pinned on ideas */
+  .flags { display: flex; flex-wrap: wrap; gap: 6px; margin: -2px 0 8px; }
+  .flag {
+    display: inline-block; position: relative; padding: 2px 16px 2px 10px; font-size: 13px; color: #fff; cursor: pointer;
+    background: #8a4fb8; clip-path: polygon(0 0, 100% 0, calc(100% - 9px) 50%, 100% 100%, 0 100%);
+    text-shadow: 0 1px 1px rgba(0,0,0,.35); box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  }
+  .flag-epic { background: linear-gradient(90deg, #8a1f2e, #c23a3a); }
+  .flag-adventure { background: linear-gradient(90deg, #2f6a3a, #4f9a4a); }
+  .flag-lessgirly { background: linear-gradient(90deg, #2f4f8a, #4a78c2); }
+  .flag-btn {
+    position: absolute; top: 8px; right: -14px; width: 28px; height: 28px; border-radius: 50%; cursor: pointer;
+    border: 2px solid #fff; background: #fff0f6; font-size: 14px; line-height: 1; box-shadow: 0 0 8px rgba(255,111,181,.5);
+    opacity: .75; transition: opacity .15s, transform .15s;
+  }
+  .flag-btn:hover { opacity: 1; transform: scale(1.12) rotate(-8deg); }
+  .land .flag-btn { top: -10px; right: -10px; width: 24px; height: 24px; font-size: 12px; }
+  .flag-menu {
+    position: absolute; top: 40px; right: -6px; z-index: 6; display: flex; flex-direction: column; gap: 4px; padding: 8px;
+    background: #fff7fa; border: 2px solid #ffb3d6; border-radius: 12px; box-shadow: 0 8px 24px rgba(120,40,80,.25);
+  }
+  .flag-opt { font: 15px "IM Fell English", Georgia, serif; text-align: left; padding: 5px 12px; border-radius: 8px; border: 1px solid #f3c6da; background: #fff; color: var(--ink); cursor: pointer; white-space: nowrap; }
+  .flag-opt:hover { background: #ffe3ef; }
+  .flag-opt.on { background: #ffd6e8; font-weight: bold; }
+  .flag-opt.on::after { content: "  ✓"; }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 20px); z-index: 21; opacity: 0; pointer-events: none;
+    background: #fff0f6; color: var(--rose-deep); border: 2px solid #ffb3d6; border-radius: 999px; padding: 8px 20px; font-size: 17px;
+    box-shadow: 0 0 20px rgba(255,111,181,.6); transition: opacity .3s, transform .3s;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 30px 12px 120px; }
+    .book { padding: 46px 18px 56px; }
+    .idea h3 .chip { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .star, .sparkle, .shroom, .fly { animation: none; } }
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<div class="canopy" id="canopy" aria-hidden="true"></div>
+<div class="mist" aria-hidden="true"></div>
+<div class="forest" id="forest" aria-hidden="true"></div>
+
+<main class="book">
+<!--BOOK-START-->
+<span class="corner tl">❦</span><span class="corner tr">❦</span><span class="corner bl">❦</span><span class="corner br">❦</span>
+
+  <header>
+    <p class="flourish">✦ ✧ ✦</p>
+    <h1 class="title">The Enchanted Idea Book</h1>
+    <p class="subtitle">dreams for WhiskerWood, gathered under the glowing mushrooms</p>
+    <p class="flourish">❀ ✧ ❀</p>
+    <div class="note">Every idea here is only a <i>dream</i> for now. We pick one together, and only when Renata says <b>“make it!”</b> does it get built — then its little ribbon turns green.</div>
+    <div class="legend"><span class="chip dream">💭 a dream</span><span class="chip made">🌿 built</span></div>
+  </header>
+
+  <!-- ===================================================== STORY CHAPTERS -->
+  <section>
+    <h2>Story Chapters</h2>
+    <p class="h2sub">Phases 26 to 50 — and on, and on, forever…</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3><span class="num">26</span>Sprig's Big Day<span class="chip made">🌿 built</span></h3><ul>
+        <li>Sprig takes the real Moonkeeper test</li>
+        <li>Practise three trials together: a riddle, a night walk with no lantern, a brave rescue</li>
+        <li>A ceremony where Sprig gets his very own cloak and lantern</li></ul></article>
+
+      <article class="idea"><h3><span class="num">27</span>The Sunken City of Coralmere<span class="chip made">🌿 built</span></h3><ul>
+        <li>A whole city hidden under Reedmere's lagoon</li>
+        <li>Kelp forests, pearl lamps, and riding a sea turtle</li>
+        <li>Wake the sleepy giant whale</li></ul></article>
+
+      <article class="idea"><h3><span class="num">28</span>The Clockwork Mountain<span class="chip made">🌿 built</span></h3><ul>
+        <li>A mountain full of giant gears, brass and puffs of steam</li>
+        <li>Ride the moving gear-platforms and find the lost gears</li>
+        <li>Fix the great clock that tells the seasons when to change</li></ul></article>
+
+      <article class="idea"><h3><span class="num">29</span>The Shadow Thief<span class="chip made">🌿 built</span></h3><ul>
+        <li>Someone is stealing every city's lantern light!</li>
+        <li>Follow the clues from city to city</li>
+        <li>Find Umbra, a lonely shadow creature who only wanted to be warm — and make a friend instead of a fight</li></ul></article>
+
+      <article class="idea"><h3><span class="num">30</span>The Glowcap Kingdom<span class="chip made">🌿 built</span></h3><ul>
+        <li>A kingdom of glowing mushroom folk, deep under the forest floor</li>
+        <li>Climb down through glowing caves and rope bridges over bottomless chasms</li>
+        <li>Rescue the Glowcap King from the tunnels of the giant Rootworm</li>
+        <li>Light up the giant mushroom caps so the whole kingdom shines again</li></ul></article>
+
+      <article class="idea"><h3><span class="num">31</span>The Crystal Caverns<span class="chip made">🌿 built</span></h3><ul>
+        <li>Caverns of crystals that hum like thunder when the wind blows through</li>
+        <li>Find the five lost singing crystals, guarded by crystal golems</li>
+        <li>Sing them all at once to shake the mountain and open the sealed cavern</li></ul></article>
+
+      <article class="idea"><h3><span class="num">32</span>Dragon Races<span class="chip made">🌿 built</span></h3><ul>
+        <li>Race your four dragonlings — AND wild sky dragons — over the forest</li>
+        <li>Tight canyon turns, storm winds that blow you off course, and rings that MOVE</li>
+        <li>Three cups — Bronze, Silver and Gold — each one faster and harder</li>
+        <li>Miss a single ring and you're out! Win them all for the Sky Cup</li></ul></article>
+
+      <article class="idea"><h3><span class="num">33</span>The Volcano's Heart<span class="chip made">🌿 built</span></h3><ul>
+        <li>Emberpeak volcano is grumpy and rumbly</li>
+        <li>Carry frost stones all the way from Frostpine</li>
+        <li>Calm the volcano spirit with a lullaby</li><li>jump over 2 lava rivers</li></ul></article>
+
+      <article class="idea"><h3><span class="num">34</span>The Thundering Falls<span class="chip made">🌿 built</span></h3><ul>
+        <li>The great waterfall has run dry, and the whole valley below is dying</li>
+        <li>Climb the cliffs beside the falls and cross a broken rope bridge</li>
+        <li>Find the seven prism stones hidden in the caves behind where the water fell</li>
+        <li>Outsmart the Stone Serpent coiled at the top and break the dam it built</li>
+        <li>The river ROARS back to life and a rainbow blazes over the valley</li></ul></article>
+
+      <article class="idea"><h3><span class="num">35</span>The Wisp Ring<span class="chip made">🌿 built</span></h3><ul>
+        <li>Deep in the oldest, darkest part of the forest: a ring of glowing mushrooms</li>
+        <li>Step inside at moonrise and a hidden door opens</li>
+        <li>A secret glade of will-o'-wisps, ancient tree spirits and whispering willows</li>
+        <li>Wake the sleeping Forest Guardian before the glade fades forever</li></ul></article>
+
+      <article class="idea"><h3><span class="num">36</span>The Giant's Garden<span class="chip made">🌿 built</span></h3><ul>
+        <li>Everything is HUGE — a tiny mouse in a giant's wild, overgrown garden</li>
+        <li>Climb beanstalks, sail puddle-lakes on leaf boats, and sneak past the giant's cat</li>
+        <li>Find the giant seeds hidden all over the garden</li>
+        <li>Meet the friendly, gentle giant</li></ul></article>
+
+      <article class="idea"><h3><span class="num">37</span>Amberwood's Long Autumn<span class="chip made">🌿 built</span></h3><ul>
+        <li>The leaves forgot how to fall</li>
+        <li>Wake the sleepy Autumn Fox</li>
+        <li>Gather golden leaves for the Harvest Tree</li></ul></article>
+
+      <article class="idea"><h3><span class="num">38</span>The Jungle Expedition<span class="chip made">🌿 built</span></h3><ul>
+        <li>Captain Marisol finds an old map of a jungle nobody has ever come back from</li>
+        <li>Hack through vines, swing across ravines and cross a river full of crocodiles</li>
+        <li>Find the lost explorers' maps — and the lost explorers themselves!</li>
+        <li>Reach the hidden temple and meet the wise jungle elder</li></ul></article>
+
+      
+
+      <article class="idea"><h3><span class="num">39</span>The Frozen Crown<span class="chip made">🌿 built</span></h3><ul>
+        <li>The Snow King's crown has been stolen — and an endless blizzard begins</li>
+        <li>Cross the frozen sea on your dog sled and climb the great glacier</li>
+        <li>Storm the ice palace and win back the three crown jewels from the frost giants</li>
+        <li>Bring the crown home and end the blizzard</li></ul></article>
+
+      <article class="idea"><h3><span class="num">41</span>The Last Letter<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A storm scatters the royal post-owl's letters over the whole land</li>
+        <li>One of them is a warning Renata wrote long, long ago</li>
+        <li>Track the letters through cities, forests and mountains</li>
+        <li>Find the warning and deliver it before it's too late</li></ul></article>
+
+      
+
+      <article class="idea"><h3><span class="num">43</span>Pip's Lightning<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Pip learns to use her very own lightning</li>
+        <li>Practise together in the Great Storm</li></ul></article>
+
+      <article class="idea"><h3><span class="num">44</span>The Whale's Song<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The giant whale's baby is lost in the deep</li>
+        <li>Dive in a bubble helmet through shipwrecks and sea caves</li>
+        <li>Follow its song right past the giant squid's lair</li>
+        <li>Lead the baby home to its mother</li></ul></article>
+
+      <article class="idea"><h3><span class="num">45</span>The Gentle Giant Wakes<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The gentle giant wakes up far, far from home</li>
+        <li>Lead the giant across rivers, mountains and an old stone bridge that might not hold</li>
+        <li>Find the giant's lost home in a valley high above the clouds</li></ul></article>
+
+      <article class="idea"><h3><span class="num">46</span>The Lighthouse Lens<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A great storm smashes the Moonless Isle's lighthouse lens — and ships are lost in the dark</li>
+        <li>Sail into the storm to the reefs where the pieces sank</li>
+        <li>Dive for the pieces and climb the sea cliffs</li>
+        <li>Fix the lens and guide the lost ships home through the storm</li></ul></article>
+
+      <article class="idea"><h3><span class="num">47</span>Starfall Crater<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A falling star crashes into the forest and a strange glowing jungle grows around it</li>
+        <li>Explore the crater: star-plants that move, glowing caves and crackling star-dust</li>
+        <li>Find the heart of the fallen star before the crater goes dark</li>
+        <li>Bring home star-seeds to plant in your own garden</li></ul></article>
+
+      <article class="idea"><h3><span class="num">48</span>Umbra's Home<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Visit your shadow friend Umbra in Shadowmere</li>
+        <li>Help light up Shadowmere with soft lamps</li></ul></article>
+
+      
+
+      
+
+    </div>
+  </section>
+
+  <!-- ===================================================== NEW LANDS -->
+  <section>
+    <h2>Lands to Explore</h2>
+    <p class="h2sub">new places your dragon could carry you</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="lands">
+      <div class="land"><b>🐚 Coralmere</b>a sunken city under the lagoon</div>
+      <div class="land"><b>⚙️ Clockwork Mountain</b>giant gears and brass and steam</div>
+      <div class="land"><b>🍄 Glowcap Kingdom</b>a glowing kingdom deep under the forest floor</div>
+      <div class="land"><b>💎 The Crystal Caverns</b>crystals that hum like thunder</div>
+      <div class="land"><b>🌋 Emberpeak</b>a grumpy, rumbly volcano</div>
+      <div class="land"><b>🌊 The Thundering Falls</b>a dried-up waterfall and a Stone Serpent</div>
+      <div class="land"><b>✨ The Wisp Ring</b>a hidden glade of will-o'-wisps and tree spirits</div>
+      <div class="land"><b>🌻 The Giant's Garden</b>everything is enormous</div>
+      <div class="land"><b>🍂 Amberwood</b>a forest of forever-autumn</div>
+      <div class="land"><b>🌴 The Jungle Wilds</b>vines, parrots and lost maps</div>
+      <div class="land"><b>🌕 The Moon</b>craters, moon-stones and bouncy jumps</div>
+      <div class="land"><b>👑 The Frozen Crown</b>the Snow Queen's ice palace</div>
+      <div class="land"><b>🌑 Shadowmere</b>a dim, misty marsh where Umbra lives</div>
+    </div>
+  </section>
+
+  <!-- ===================================================== MORE DREAMS -->
+  <section>
+    <h2>Little Wonders to Add</h2>
+    <p class="h2sub">things to make the whole game more magical</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea special"><h3>⛸️ Real Ice Skating<span class="chip made">🌿 built</span></h3><ul>
+        <li>Realistic skating: push off one foot, then the other (left, right, left…) to build up speed</li>
+        <li>Glide on and on with real momentum, slowing only a little at a time</li>
+        <li>Lean into turns and carve on your blade edges, leaving scratchy skate tracks in the ice</li>
+        <li>A hockey stop that sprays a shower of sparkly ice</li>
+        <li>Spins, spirals and little jumps (a bunny hop, then a real axel!)</li>
+        <li>Turn too fast or hit a crack — whoops, a wobble and a fall</li>
+        <li>The sound of blades swishing and scraping on the ice</li>
+        <li>Skate on Frostpine's frozen lake and the Starlight Pass</li>
+        <li>A figure-skating show with music, and judges holding up scores</li>
+        <li>Choose your skate colours (pink with ribbons!)</li></ul></article>
+
+      <article class="idea"><h3>🐲 Ride Your Baby Dragons<span class="chip made">🌿 built</span></h3><ul>
+        <li>When the dragonlings grow up, choose which one to fly</li>
+        <li>Each one has its own power: Pip makes lightning, the frost one freezes water to walk on, and more</li></ul></article>
+
+      <article class="idea"><h3>🏁 Dragon Races Any Time<span class="chip made">🌿 built</span></h3><ul>
+        <li>Fly through rings against the dragonlings, like time trials in the sky</li></ul></article>
+
+      <article class="idea"><h3>🏛️ Decorate the Pyramid &amp; the Castle<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Place furniture and treasures there, just like your houses</li></ul></article>
+
+      <article class="idea"><h3>🏆 A Trophy Room<span class="chip made">🌿 built</span></h3><ul>
+        <li>A room in your cottage showing every keepsake from every adventure</li></ul></article>
+
+      
+
+    </div>
+  </section>
+
+  <!-- ===================================================== HIDDEN SECRETS -->
+  <section>
+    <h2>Hidden Secrets</h2>
+    <p class="h2sub">little hidden places and things, for those who look closely, notice, and talk to everyone</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🔍 Look Closer<span class="chip made">🌿 built</span></h3><ul>
+        <li>Stand still and look (F) at odd little things — a loose stone, a knothole, a glint in a puddle</li>
+        <li>…and find hidden coins, lost notes and tiny treasures tucked inside</li></ul></article>
+
+      <article class="idea"><h3>📚 The Book That Isn't a Book<span class="chip made">🌿 built</span></h3><ul>
+        <li>In Everbough's library, one book won't come off the shelf</li>
+        <li>Pull it and the whole bookcase swings open onto a secret reading room</li></ul></article>
+
+      <article class="idea"><h3>🗝️ The Shopkeepers' Back Rooms<span class="chip made">🌿 built</span></h3><ul>
+        <li>Chat with a shopkeeper again and again until they trust you</li>
+        <li>They lead you through a curtain to a back room of rare, secret wares</li></ul></article>
+
+      <article class="idea"><h3>🐈 Follow the Shop Cat<span class="chip made">🌿 built</span></h3><ul>
+        <li>A cat in the General Store keeps slipping away</li>
+        <li>Follow it up the stairs, along the beams, to a forgotten attic full of old things</li></ul></article>
+
+      <article class="idea"><h3>👂 Gossip and Rumours<span class="chip made">🌿 built</span></h3><ul>
+        <li>Villagers whisper rumours: “lights in the old mill at midnight…”</li>
+        <li>Go and see for yourself — every rumour leads somewhere real</li></ul></article>
+
+      <article class="idea"><h3>🐾 Mysterious Tracks<span class="chip made">🌿 built</span></h3><ul>
+        <li>Strange footprints in the snow or the mud</li>
+        <li>Follow them all the way to a hidden den, and whoever lives there</li></ul></article>
+
+      <article class="idea"><h3>🎶 The Song That Opens Doors<span class="chip made">🌿 built</span></h3><ul>
+        <li>Play the right tune on your reed flute beside the oldest oak</li>
+        <li>Its roots part to reveal a door no one has opened in a hundred years</li></ul></article>
+
+      <article class="idea"><h3>🪞 Still-Water Reflections<span class="chip made">🌿 built</span></h3><ul>
+        <li>Look into a perfectly still pond</li>
+        <li>The reflection shows an island that isn't there… until you find the way to it</li></ul></article>
+
+      <article class="idea"><h3>🗺️ The Torn Treasure Map<span class="chip made">🌿 built</span></h3><ul>
+        <li>Scraps of an old map are hidden in shop corners and cupboards all over the land</li>
+        <li>Collect every piece to find a buried treasure</li></ul></article>
+
+      <article class="idea"><h3>🌙 Doors That Only Appear Sometimes<span class="chip made">🌿 built</span></h3><ul>
+        <li>Some doors only show up at night, some only in winter, some only on your birthday</li>
+        <li>Remember where they were — and come back at the right time</li></ul></article>
+
+      <article class="idea"><h3>🔔 Secret Patterns<span class="chip made">🌿 built</span></h3><ul>
+        <li>Ring the school bell in just the right pattern</li>
+        <li>Somewhere beneath the school, something answers…</li></ul></article>
+
+      <article class="idea"><h3>💌 Message in a Bottle<span class="chip made">🌿 built</span></h3><ul>
+        <li>A bottle washes up on Reedmere's shore every few days</li>
+        <li>Each note is part of a story — or a clue to a hidden cove</li></ul></article>
+
+      <article class="idea"><h3>🌫️ Paths in the Fog<span class="chip made">🌿 built</span></h3><ul>
+        <li>Walk into the fog at just the right spot</li>
+        <li>…and step out in a forgotten village that isn't on any map</li></ul></article>
+
+      <article class="idea"><h3>🗿 Watching Statues<span class="chip made">🌿 built</span></h3><ul>
+        <li>Some statues turn their heads when you're not looking</li>
+        <li>Find out what they're looking at</li></ul></article>
+
+      <article class="idea"><h3>🕯️ The Flickering Candle<span class="chip made">🌿 built</span></h3><ul>
+        <li>A candle in a café window flickers whenever a secret is near</li>
+        <li>Use it like a compass to hunt for hidden things</li></ul></article>
+
+      <article class="idea"><h3>📖 The Secrets Page<span class="chip made">🌿 built</span></h3><ul>
+        <li>A hidden page in your Collection Book fills up as you discover secrets</li>
+        <li>Find them all to earn the title “Secret Seeker” and a special reward</li></ul></article>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== MORE SECRET PLACES -->
+  <section>
+    <h2>Where to Find Every Secret</h2>
+    <p class="h2sub">a secret-seeker's guide — ✨ spoilers! ✨ all 46 secrets and secret places, and how to find them</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🌳 The Great Forest (round your cottage)</h3><ul>
+        <li>🌳 <b>Coin-Filled Knothole</b> — an old stump about 40 steps north-east of your cottage. Stand right next to it and hold F (or press E)</li>
+        <li>🪨 <b>Under the Loose Stone</b> — about 35 steps south-west of the school. A wobbly stone; hold F right beside it</li>
+        <li>💧 <b>Glint in the Puddle</b> — about 35 steps west of your cottage. Hold F at the puddle</li>
+        <li>📚 <b>The Book That Isn't a Book</b> — inside the school library: E at the bookcase to pull the red book</li>
+        <li>🔔 <b>The Bell's Secret</b> — ring the school bell (E) THREE times, quickly. A trapdoor opens nearby — E to climb down</li>
+        <li>🎶 <b>The Song That Opens the Oak</b> — the giant oak about 45 steps south-east of your cottage. Stand near it and play 2, 4, 2, 1 on your flute (U). Then step through the root door</li>
+        <li>🪞 <b>The Still Pond's Island</b> — the pond about 40 steps west of your cottage. Stand at its east edge and hold F. Stepping stones appear — hop out to the chest</li>
+        <li>🌙 <b>The Door That Comes Out at Night</b> — a crooked tree about 40 steps south-west of your cottage. Only at NIGHT a little door appears: E to knock</li>
+        <li>🌫️ <b>The Village in the Fog</b> — on early MORNINGS a fog patch sits about 40 steps north-east of the school. Walk into the fog</li>
+        <li>🗺️ <b>X Marks the Spot</b> — collect all 6 map scraps (2 in Reedmere, 2 in Golden Hollow, 1 in Frostpine, 1 in Silverveil — each lies a short walk from where you arrive). Then a big X appears about 70 steps north-east of your cottage: E to dig</li></ul></article>
+      <article class="idea"><h3>🏙️ The Cities</h3><ul>
+        <li>🐈 <b>Follow the Shop Cat</b> (Golden Hollow) — pop into the General Store and back out. Biscuit slinks round the side; FOLLOW her (stay close, or she gives up!). She climbs a ladder at the back — E to climb up to the attic, and open the chest</li>
+        <li>💌 <b>Messages in Bottles</b> (Reedmere) — a bottle washes up on the south-east shore, a new one every day. Read all five; bottle 4 tells you where Captain Tilly's chest is: a hidden cove across the lagoon to the north-west</li>
+        <li>🗝️ <b>The Back Rooms</b> (Reedmere, Golden Hollow, Frostpine) — chat (💬) with a market shopkeeper 3 times on different visits. A 🗝️ back-room button appears in their shop</li>
+        <li>👂 <b>The Gossips</b> — a purple-hooded Gossip stands in every city square. Listen to her and she gives you a hint for a secret you haven't found</li></ul></article>
+      <article class="idea"><h3>❄️ Frostpine (12 secrets!)</h3><ul>
+        <li>🐾 <b>Mysterious Tracks</b> — little tracks lead from the square out to the WEST edge of town. Follow them to the snowy den and E to peek in</li>
+        <li>🧊 <b>Behind the Frozen Waterfall</b> — the frozen waterfall tumbles down the hill on the east-north-east edge of town. Hold F at the crack at its foot, then E to squeeze through</li>
+        <li>⛄ <b>The Snowman's Secret</b> — the lonely snowman south-east of the square. Pat him (E) a few times</li>
+        <li>🐟 <b>Fish Frozen in Time</b> — a big block of ice to the south. Hold F beside it</li>
+        <li>♨️ <b>The Hidden Hot Spring</b> — follow the steam deep into the pines to the west-south-west. E to dip your paws (full hearts!)</li>
+        <li>🛷 <b>Grandpa Frost's Old Sled</b> — a snowdrift to the north with a red runner poking out. Hold F by the runner</li>
+        <li>🪨 <b>The Rune Stone</b> — a carved stone to the east-north-east. Hold F to read it — it tells you the icicle tune</li>
+        <li>🎐 <b>The Icicle Chimes</b> — three icicles beside the rune stone. Tap (E) the LONG one, then the SHORT one, then the MIDDLE one</li>
+        <li>🦉 <b>The Watching Owls</b> — three carved owls. Study each one (E); then go where they are ALL looking (south-south-east) and dig (E)</li>
+        <li>🧤 <b>The Snow Giant's Mitten</b> — something huge and red in a drift to the north-west. Hold F right beside it</li>
+        <li>🌲 <b>The Hollow Pine</b> — an old pine to the east with a knothole. Hold F at the knothole</li>
+        <li>⛸️ <b>The Lost Skate Blade</b> — a silver glint in the snow north-east of where you arrive, on the way to the Frozen Lake. Hold F on it</li></ul></article>
+      <article class="idea"><h3>🗝️ The 19 Secret Places</h3><ul>
+        <li>🖼️ <b>Into the Painting</b> — an easel in a sunny clearing about 50 steps south of your cottage. Hold F at the painting, then E to step in</li>
+        <li>🪣 <b>The Whispering Well</b> — an old well about 45 steps east of the school. Hold F to listen, then E to climb down</li>
+        <li>☁️ <b>Treehouse Above the Clouds</b> — the tallest tree, far east of your cottage. Hold F by the trunk to spot the rope ladder, then E</li>
+        <li>🦉 <b>The Owls' Night Library</b> — a tree far south-west of your cottage that glows only at NIGHT. E at the glowing hollow</li>
+        <li>🌙 <b>The Moon Garden</b> — a ring of white stones far south of your cottage. Walk into the middle at NIGHT</li>
+        <li>🧚 <b>The Fairy Market</b> — a mushroom ring far west of your cottage. Walk into it at DUSK, when the mushrooms glow</li>
+        <li>✨ <b>Glow-Worm Tunnels</b> — a rooty burrow far north-east of your cottage. Hold F at the hole, then E to crawl in</li>
+        <li>🧩 <b>The Puzzle Doors</b> — three stone doors north-west of the school. Read the clue stone (E), then push the doors: ☀️ sun, ⭐ star, 🌙 moon</li>
+        <li>🗝️ <b>The Locked Door in Your Cottage</b> — a tiny door in the back wall of your own cottage. It opens once you have the 🕯️ Seeker's Candle</li>
+        <li>🏰 <b>The Castle's Secret Passage</b> — in your Great Hall, a crooked torch on the right-hand wall. Hold F at it, then E to pull it</li>
+        <li>🕰️ <b>The Clocktower's Secret Room</b> (Golden Hollow) — the little clocktower. At NOON the door under the clock opens: E</li>
+        <li>🛒 <b>The Underground Market</b> (Golden Hollow) — an iron grate in the street. Knock (E) three times, quickly</li>
+        <li>⚓ <b>The Grotto Under the Docks</b> (Reedmere) — old planks with a gap. Hold F at the gap, then E to squeeze down</li>
+        <li>🗼 <b>The Lost Lighthouse</b> (Reedmere) — the old red-and-white lighthouse on the west side. Hold F at the nailed door, then E</li>
+        <li>🐚 <b>The Shell That Leads Somewhere</b> (Reedmere) — a giant shell on the shore. Hold F to listen, then E to crawl in</li>
+        <li>❄️ <b>The Palace Under the Ice</b> (Frostpine) — a patch of clear ice north of the square. Hold F to look down, then E</li>
+        <li>🐉 <b>The Dragon's Hoard</b> (Frostpine) — a cave on the south-west hill with claw marks. Hold F at the claw marks, then E</li>
+        <li>🗺️ <b>The Map Room</b> (Silverveil) — an old globe on a stand. Spin it (E) three times, then climb down the steps</li>
+        <li>🪞 <b>The Mirror Maze</b> (Silverveil) — a tall mirror standing alone. Hold F at your reflection, then E to step through</li></ul></article>
+      <article class="idea"><h3>💡 Seeker's Tips</h3><ul>
+        <li>Sparkles only show when you're REALLY close — walk slowly near odd things</li>
+        <li>When you're right on top of something, the prompt says “look closely 🔍”. Hold F and a glowing blue frame shows what you found</li>
+        <li>Listen to 3 Gossip rumours and you're given the 🕯️ Seeker's Candle — it flickers faster the closer you are to a secret</li>
+        <li>Your Collection Book (N) has a 🔍 Secrets page that counts what you've found</li></ul></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Even More Secret Places</h2>
+    <p class="h2sub">hidden doors, hidden rooms, hidden worlds — for the ones who look closer</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🖼️ Painting Portals<span class="chip made">🌿 built</span></h3><ul>
+        <li>Hang a living painting on your wall… then step INTO it</li>
+        <li>Every painting is a tiny secret world — swim with the coral fish, walk the snowy one, fly through the starry one</li></ul></article>
+
+      <article class="idea"><h3>🏰 The Castle's Secret Passage<span class="chip made">🌿 built</span></h3><ul>
+        <li>One torch bracket in your Great Hall twists like a lever</li>
+        <li>A hidden staircase spirals down to dungeons, a forgotten treasure vault, and a tunnel out to the forest</li></ul></article>
+
+      <article class="idea"><h3>🗝️ The Locked Door in Your Cottage<span class="chip made">🌿 built</span></h3><ul>
+        <li>A tiny door you never noticed, behind the bookshelf</li>
+        <li>Find its key somewhere in the world — what's been hiding in your own home all along?</li></ul></article>
+
+      <article class="idea"><h3>🕳️ The Whispering Well<span class="chip made">🌿 built</span></h3><ul>
+        <li>Drop a coin in the old well and a voice whispers back</li>
+        <li>Climb down the rope into forgotten tunnels that lead under the whole forest</li></ul></article>
+
+      <article class="idea"><h3>🌳 The Treehouse Above the Clouds<span class="chip made">🌿 built</span></h3><ul>
+        <li>Climb the tallest tree in Everbough higher than anyone ever has</li>
+        <li>At the very top, hidden in the mist, someone built a treehouse long ago</li></ul></article>
+
+      <article class="idea"><h3>🦉 The Owls' Night Library<span class="chip made">🌿 built</span></h3><ul>
+        <li>A hollow tree that's only open at night</li>
+        <li>Inside, wise old owls keep a library of every secret in the land</li></ul></article>
+
+      <article class="idea"><h3>🧜 The Grotto Under the Docks<span class="chip made">🌿 built</span></h3><ul>
+        <li>At the lowest tide, an opening appears under Reedmere's docks</li>
+        <li>A glittering grotto full of shells, pearls and old sailors' treasure</li></ul></article>
+
+      <article class="idea"><h3>❄️ The Palace Under the Ice<span class="chip made">🌿 built</span></h3><ul>
+        <li>Skate the right pattern on Frostpine's Frozen Lake</li>
+        <li>The ice cracks open onto a stairway down to a frozen palace</li></ul></article>
+
+      <article class="idea"><h3>🌙 The Moon Garden<span class="chip made">🌿 built</span></h3><ul>
+        <li>On full-moon nights only, in a hidden corner of Silverveil</li>
+        <li>A garden of silver flowers that sing when you walk past</li></ul></article>
+
+      <article class="idea"><h3>🍄 The Fairy Market<span class="chip made">🌿 built</span></h3><ul>
+        <li>A ring of mushrooms that opens into a tiny market at dusk</li>
+        <li>Magical, mysterious things for sale — but only until the stars come out</li></ul></article>
+
+      <article class="idea"><h3>🕰️ The Clocktower's Secret Room<span class="chip made">🌿 built</span></h3><ul>
+        <li>Right at the top of the Great Season Clock</li>
+        <li>A room of gears where you can wind time forwards or backwards</li></ul></article>
+
+      <article class="idea"><h3>🌫️ The Lost Lighthouse<span class="chip made">🌿 built</span></h3><ul>
+        <li>On foggy nights, a lighthouse appears out at sea where none should be</li>
+        <li>Sail to it before the fog lifts — and see who keeps its light</li></ul></article>
+
+      <article class="idea"><h3>🐭 The Underground Market<span class="chip made">🌿 built</span></h3><ul>
+        <li>A mouse-sized door under the roots of Everbough</li>
+        <li>A whole hidden market city beneath the ground, lit by glow-worms</li></ul></article>
+
+      <article class="idea"><h3>🔦 The Glow-Worm Tunnels<span class="chip made">🌿 built</span></h3><ul>
+        <li>Tunnels that are pitch-black… until you stand perfectly still</li>
+        <li>Then the glow-worms light the way, one by one</li></ul></article>
+
+      <article class="idea"><h3>🧩 The Puzzle Doors<span class="chip made">🌿 built</span></h3><ul>
+        <li>Old stone doors with sliding-tile pictures on them</li>
+        <li>Solve the picture and the door grinds open</li></ul></article>
+
+      <article class="idea"><h3>🐉 The Dragon's Hoard<span class="chip made">🌿 built</span></h3><ul>
+        <li>Behind a curtain of lava in Emberroost</li>
+        <li>The Elder Dragon's secret treasure cave — if she trusts you</li></ul></article>
+
+      <article class="idea"><h3>🗺️ The Map Room<span class="chip made">🌿 built</span></h3><ul>
+        <li>At the top of Silverveil's tallest tower</li>
+        <li>Magic maps that show where secret places are hidden — a few at a time</li></ul></article>
+
+      <article class="idea"><h3>🪞 The Mirror Maze<span class="chip made">🌿 built</span></h3><ul>
+        <li>A curtain at the back of the circus tent</li>
+        <li>A maze of mirrors — one reflection doesn't copy you, and it leads somewhere secret</li></ul></article>
+
+      <article class="idea"><h3>🐚 The Shell That Leads Somewhere<span class="chip made">🌿 built</span></h3><ul>
+        <li>Hold a special seashell to your ear in the right place</li>
+        <li>It whispers directions to a secret beach no one has ever found</li></ul></article>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== LITTLE SECRETS (new dreams) -->
+  <section>
+    <h2>Little Secrets</h2>
+    <p class="h2sub">small hidden wonders tucked into the newest lands — for the ones who wander off the path</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🕳️ The Giant's Mousehole<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>At the bottom of the giant's great door is a hole just the size of a mouse</li>
+        <li>Squeeze through into his kitchen — where a crumb is a feast, and a forgotten thimble hides a treasure</li></ul></article>
+
+      <article class="idea"><h3>🍁 The Leaf That Falls Up<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>In Amberwood, one red leaf drifts UP instead of down</li>
+        <li>Follow it high into the treetops, to a hidden nook where autumn's oldest secrets are kept</li></ul></article>
+
+      <article class="idea"><h3>🦊 The Fox's Other Den<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>At dusk, the Autumn Fox slips away from the Harvest Tree</li>
+        <li>Follow her (quietly!) to a den full of things her wind blew in from every land</li></ul></article>
+
+      <article class="idea"><h3>🦷 The Crocodile's Golden Tooth<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>One crocodile in the jungle river has a gleaming golden tooth</li>
+        <li>Wait on a stepping stone until he YAWNS… and pluck it out before he snaps shut</li></ul></article>
+
+      <article class="idea"><h3>🗿 The Face's Other Eyes<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The temple's great stone face has a second pair of eyes — carved on the back</li>
+        <li>Press them at sunset and a sealed vault opens beneath the temple</li></ul></article>
+
+      <article class="idea"><h3>🐦 The Parrot Who Knows Things<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A scruffy jungle parrot repeats secrets it's overheard</li>
+        <li>Feed it a fig, and it squawks out a secret about some faraway land</li></ul></article>
+
+      <article class="idea"><h3>🐋 The Whale Under the Ice<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The whale asleep under the frozen sea stirs when you play a lullaby on the ice</li>
+        <li>It breaks through, and carries you on its back to an iceberg nobody has ever stood on</li></ul></article>
+
+      <article class="idea"><h3>💧 Hrimfang's Frozen Tear<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The Giant King's tear never melts — it lies where it fell, in the throne room</li>
+        <li>Hold it up to the full moon and it shows a map of the frost giants' long-lost summer palace</li></ul></article>
+
+      <article class="idea"><h3>🔵 The Blue Lantern Flag<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>One lantern flag on the frozen sea burns BLUE instead of gold</li>
+        <li>Sled to it after dark, and the ice opens onto a staircase going down…</li></ul></article>
+
+      <article class="idea"><h3>🐚 The Shell That Remembers<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A seashell on the jungle beach plays back the last tune anyone played near it</li>
+        <li>Some of its songs are very, very old — and one of them opens something</li></ul></article>
+
+      <article class="idea"><h3>🐌 The Slowest Race<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A snail at the Sky Cup Canyon challenges you to a race</li>
+        <li>You must WALK the whole way, never faster than him — the prize is a glowing shell lantern</li></ul></article>
+
+      <article class="idea"><h3>🪞 The Upside-Down Puddle<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>After the rain, one puddle in Golden Hollow shows the sky where the ground should be</li>
+        <li>Jump in, and land in a tiny upside-down copy of the village</li></ul></article>
+
+      <article class="idea"><h3>🔔 The Bell Under the Lake<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>On still nights a bell rings from under the giant's puddle-lake</li>
+        <li>Sail the leaf boat to the exact spot, drop a pebble through — and listen</li></ul></article>
+
+      <article class="idea"><h3>🗺️ The Map's Blank Corner<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The Lost Explorers' Map has one blank corner</li>
+        <li>It slowly draws itself in as you visit places nobody has ever mapped — find them all</li></ul></article>
+
+    </div>
+  </section>
+
+  <!-- ===================================================== GRAND ADVENTURES -->
+  <section>
+    <h2>Dangers and Perils</h2>
+    <p class="h2sub">things that can make you lose hearts — for brave mice only</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🦅 The Hawk's Shadow<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A great shadow sweeps over the meadow — DIVE under a leaf, a log or a mushroom before the hawk swoops!</li>
+        <li>Caught in the open: talons graze you (−2 ❤️) and you drop something from your pack</li></ul></article>
+
+      <article class="idea"><h3>🐍 The Grass Snake<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A long green snake slithers through the tall grass. Hear the hiss, see the grass ripple</li>
+        <li>Too close and it lunges (−3 ❤️) — but toss it an egg and it'll let you pass</li></ul></article>
+
+      <article class="idea"><h3>🌵 Thorn Bramble Patches<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Wicked thorn thickets with a shortcut right through them</li>
+        <li>Push through and they scratch (−1 ❤️ each step) — or find the hidden rabbit run round the side</li></ul></article>
+
+      <article class="idea"><h3>🥶 Freezing Cold<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>In Frostpine blizzards, your warmth runs out fast</li>
+        <li>Run out of warmth and you lose hearts until you reach a fire, a cocoa den or the hot spring</li></ul></article>
+
+      <article class="idea"><h3>🌊 Rapids and Whirlpools<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Fast river rapids sweep you downstream and bump you on rocks (−1 ❤️ per bump)</li>
+        <li>Whirlpools pull you under — swim hard sideways to escape!</li></ul></article>
+
+      <article class="idea"><h3>🪨 Falling Rocks<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>On the mountain paths, pebbles trickle down first… then BOULDERS</li>
+        <li>Watch for the warning dust, dodge left or right — get hit and −3 ❤️</li></ul></article>
+
+      <article class="idea"><h3>🐝 Angry Bees<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Knock a beehive while gathering honey and the whole swarm comes after you</li>
+        <li>Jump into water to escape them, or get stung (−1 ❤️ each sting)</li></ul></article>
+
+      <article class="idea"><h3>🍄 Poison Mushrooms<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Some mushrooms LOOK just like the good ones, with tiny tell-tale spots</li>
+        <li>Eat one and feel dizzy — your controls go wobbly and you lose 2 ❤️</li></ul></article>
+
+      <article class="idea"><h3>🌩️ Lightning Storms<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>On storm days, lightning strikes the tallest thing around</li>
+        <li>Don't stand on hilltops or under lone trees! A near-miss knocks you flat (−4 ❤️)</li></ul></article>
+
+      <article class="idea"><h3>🕳️ Long Falls<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Fall from somewhere really high and you land with a THUMP (lose hearts for the height)</li>
+        <li>Glide with a leaf-umbrella or land in water or a haystack to be safe</li></ul></article>
+
+      <article class="idea"><h3>🐀 The Rat Bandits<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A gang of rat bandits ambushes travellers on the old roads at night</li>
+        <li>Fight them off with your stick (or run!) — every hit costs a heart, and they want your coins</li></ul></article>
+
+      <article class="idea"><h3>🔥 Hot Embers<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Around the forge, the cooking fires and the dragon's nest, sparks and embers fly</li>
+        <li>Step on a hot ember and OUCH (−1 ❤️) — wear the fire-proof boots to walk right over them</li></ul></article>
+
+      <article class="idea"><h3>👻 The Shadow-Wisps<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Black wisps with glowing purple eyes drift through the dark places</li>
+        <li>They drain your hearts if they touch you — keep a lantern lit, they hate the light</li></ul></article>
+
+      <article class="idea"><h3>🕷️ Sticky Spider Webs<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Huge webs strung between the trees of the Darkwood</li>
+        <li>Get stuck and the spider comes to look (−2 ❤️) — wiggle free fast (tap Space)!</li></ul></article>
+
+      <article class="idea"><h3>😵 Hungry and Tired<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Forget to eat for a whole day and your hearts slowly go down</li>
+        <li>Sleep in your own bed to wake up with full hearts again</li></ul></article>
+
+      <article class="idea"><h3>💚 How to Get Hearts Back<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Eat cooked food, sit by a fire, soak in the hot spring, sleep in your bed</li>
+        <li>Find golden heart-berries — and a rare Heart Locket that gives you an extra heart forever</li></ul></article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Animals and Creatures</h2>
+    <p class="h2sub">wild animals to meet, tame, ride, and befriend — and a few to avoid</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🦌 The White Stag<span class="chip made">🌿 built</span></h3><ul>
+        <li>A rare white stag roams the deep forest at dawn</li>
+        <li>Earn its trust over many days and it lets you ride it — the fastest mount in the woods</li>
+        <li><b>📍 Silverveil, north-east of the square — two white birches leaning together, at NIGHT only (hold F). The Moonlit Glade. Bring berries, 3 visits</b></li></ul></article>
+
+      <article class="idea"><h3>🐺 A Wolf Companion<span class="chip made">🌿 built</span></h3><ul>
+        <li>Find a wounded wolf pup in the snow and nurse it back to health</li>
+        <li>It grows up beside you, scouts ahead, and howls when danger is near</li>
+        <li><b>📍 Frostpine, south-east of the square — a hurt pup in the snow. Give it a fish</b></li></ul></article>
+
+      <article class="idea"><h3>🦅 The Great Eagle<span class="chip made">🌿 built</span></h3><ul>
+        <li>A giant golden eagle nests on the highest peak</li>
+        <li>Climb to the nest, bring it food, and it carries you across the mountains</li>
+        <li><b>📍 Frostpine's southern hill — a knotted rope down the rock, in the MORNING only (hold F). Bring fish, 3 visits. It flies you (tap Space to flap, hold to glide)</b></li></ul></article>
+
+      <article class="idea"><h3>🐻 The Old Bear of the Pines<span class="chip made">🌿 built</span></h3><ul>
+        <li>A huge, sleepy bear guards the honey caves</li>
+        <li>Sneak past while it sleeps — or bring it berries and it becomes your friend</li>
+        <li><b>📍 Far west of your cottage, asleep by a honey cave. Leave 3 berries</b></li></ul></article>
+
+      <article class="idea"><h3>🦉 A Messenger Owl<span class="chip made">🌿 built</span></h3><ul>
+        <li>Train a young owl to carry letters between you and your friends</li>
+        <li>It brings back gifts and gossip from the other cities</li>
+        <li><b>📍 Reedmere, south-east of the square, on an old post — NIGHT only</b></li></ul></article>
+
+      <article class="idea"><h3>🐢 The Ancient Sea Turtle<span class="chip made">🌿 built</span></h3><ul>
+        <li>A turtle as big as an island, older than the cities</li>
+        <li>Ride on its back across the Open Sea to faraway shores</li>
+        <li><b>📍 Reedmere's north-east shore — a sea-cave in the rocks, at NIGHT only (hold F). Bring water lilies, 3 visits. Swims you across water</b></li></ul></article>
+
+      <article class="idea"><h3>🦊 Fox Scouts<span class="chip made">🌿 built</span></h3><ul>
+        <li>Clever foxes who know every secret path in the forest</li>
+        <li>Pay them in eggs and they lead you to hidden places</li>
+        <li><b>📍 Golden Hollow, north-west of the square, by the wheat. Give him an egg</b></li></ul></article>
+
+      <article class="idea"><h3>🐎 A Wild Mustang Herd<span class="chip made">🌿 built</span></h3><ul>
+        <li>Wild horses thunder across the open plains</li>
+        <li>Lasso and tame one — each has its own speed, colour and spirit</li>
+        <li><b>📍 Golden Hollow, south-west — a gap in the farthest hedge, in the MORNING only (hold F). Bring carrots, 3 visits</b></li></ul></article>
+
+      <article class="idea"><h3>🦡 The Badger Miners<span class="chip made">🌿 built</span></h3><ul>
+        <li>Badgers who dig tunnels under the hills</li>
+        <li>Help them and they open shortcuts underground between the cities</li>
+        <li><b>📍 Golden Hollow, north-east of the square. Help him dig (E three times)</b></li></ul></article>
+
+      <article class="idea"><h3>🐊 The Marsh Crocodile<span class="chip made">🌿 built</span></h3><ul>
+        <li>Something with yellow eyes lurks in Shadowmere's marsh</li>
+        <li>Cross the stepping logs without waking it — or lose hearts</li>
+        <li><b>📍 Shadowmere's marsh. Keep away — it lunges!</b></li></ul></article>
+
+      <article class="idea"><h3>🦬 A Bison Caravan<span class="chip made">🌿 built</span></h3><ul>
+        <li>Great shaggy bison carry traders across the frozen north</li>
+        <li>Ride with the caravan to reach towns no road goes to</li>
+        <li><b>📍 Golden Hollow's far north-east field — a painted tent-flap at NOON only (hold F). Bring dry grass, 3 visits</b></li></ul></article>
+
+      <article class="idea"><h3>🐆 The Snow Leopard<span class="chip made">🌿 built</span></h3><ul>
+        <li>Almost invisible against the snow, it follows you through Frostpine</li>
+        <li>Find its hidden den to earn its respect — and a rare silver keepsake</li>
+        <li><b>📍 Frostpine's edges (it follows you). Its den: a snowy rock on the northern hill — peek in and he becomes your friend — and your ride</b></li></ul></article>
+
+      <article class="idea"><h3>🦇 Cave Bats<span class="chip made">🌿 built</span></h3><ul>
+        <li>Clouds of bats in the deep caves — they scatter when you light a lantern</li>
+        <li>Follow them at dusk and they lead you out of any cave</li>
+        <li><b>📍 At DUSK, a great rock north-east of your cottage. Follow them and dig where they circle</b></li></ul></article>
+
+      <article class="idea"><h3>🐋 The Singing Whale<span class="chip made">🌿 built</span></h3><ul>
+        <li>A whale whose song you can hear from the shore on still nights</li>
+        <li>Dive with it to find a sunken ship full of treasure</li>
+        <li><b>📍 Reedmere's lagoon on still NIGHTS — swim to it when it surfaces</b></li></ul></article>
+
+      <article class="idea"><h3>🐐 Mountain Goats<span class="chip made">🌿 built</span></h3><ul>
+        <li>Goats that leap up sheer cliffs as if they were stairs</li>
+        <li>Ride one up the cliffs no one else can climb</li>
+        <li><b>📍 Frostpine's western hill — a crack in the rock, at DUSK only (hold F). Bring pine needles, 3 visits. Huge leaps!</b></li></ul></article>
+
+      <article class="idea"><h3>🦔 A Hedgehog Healer<span class="chip made">🌿 built</span></h3><ul>
+        <li>An old hedgehog who knows every healing herb</li>
+        <li>Bring her rare plants and she brews potions that restore your hearts</li>
+        <li><b>📍 Reedmere, west of the square. Give her a medicinal mushroom</b></li></ul></article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Where to Find the Animals</h2>
+    <p class="h2sub">✨ spoilers! ✨ every creature, and how to find it</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🦌 Riding Animals — their Secret Realms</h3><ul>
+        <li>Each one lives in its own hidden realm. The way in only appears at ONE time of day, with no sparkle — hold F right up close. Inside, earn its trust: bring its favourite food, once per visit; after 3 visits it lets you ride (Caps Lock, pick who in your backpack)</li>
+        <li>🦌 <b>The White Stag</b> — the Moonlit Glade. SILVERVEIL, north-east of the square: two white birches leaning together. At NIGHT only. Bring berries</li>
+        <li>🦅 <b>The Great Eagle</b> — the Eagle's Eyrie. FROSTPINE's southern hill: a knotted rope down the rock. In the MORNING only. Bring fish</li>
+        <li>🐐 <b>The Mountain Goat</b> — Goat Crag. FROSTPINE's western hill: a crack in the rock. At DUSK only. Bring pine needles</li>
+        <li>🐎 <b>The Wild Mustang</b> — the Hidden Plains. GOLDEN HOLLOW, south-west: a gap in the farthest hedge. In the MORNING only. Bring carrots</li>
+        <li>🦬 <b>The Bison</b> — the Nomads' Camp. GOLDEN HOLLOW, north-east field: a painted tent-flap. At NOON only. Bring dry grass</li>
+        <li>🐢 <b>The Sea Turtle</b> — Turtle Cove. REEDMERE's north-east shore: a sea-cave in the rocks. At NIGHT only. Bring water lilies. It swims you across water!</li></ul></article>
+
+      <article class="idea"><h3>🐺 Companions — befriend them, they follow you</h3><ul>
+        <li>🐺 <b>Ash the wolf pup</b> — FROSTPINE, south-east of the square, hurt in the snow. Give it a fish. Howls when danger is near</li>
+        <li>🦊 <b>Rusk the fox scout</b> — GOLDEN HOLLOW, north-west of the square, by the wheat. Give him an egg. Sniffs out secrets for you</li>
+        <li>🦡 <b>Digger the badger</b> — GOLDEN HOLLOW, north-east of the square. Help him dig (E three times). Digs up treasures as you go</li>
+        <li>🦉 <b>Quill the owl</b> — REEDMERE, south-east of the square, on an old post — NIGHT only. Hold out your arm. Brings you a gift every day</li>
+        <li>🦔 <b>Old Bramble the hedgehog healer</b> — REEDMERE, west of the square. Give her a medicinal mushroom. Heals you while she's with you</li></ul></article>
+
+      <article class="idea"><h3>🐻 The Wild — careful!</h3><ul>
+        <li>🐻 <b>The Old Bear of the Pines</b> — far WEST of your cottage, asleep by a honey cave. Get too close and it swipes you (−hearts). Leave 3 berries and it's your friend — then take honey from the cave once a day</li>
+        <li>🦇 <b>The cave bats</b> — at DUSK they pour out of a great rock north-east of your cottage. Follow them — dig where they circle (once a day)</li>
+        <li>🐊 <b>The marsh crocodile</b> — SHADOWMERE. It drifts in the marsh and LUNGES if you come close (−hearts). Keep away!</li>
+        <li>🐆 <b>The snow leopard</b> — out on FROSTPINE's edges it follows you, vanishing when you turn round. Its den is a snowy rock on the northern hill: peek inside — and Frost, a huge snow leopard, becomes your friend and lets you RIDE him (Caps Lock; he keeps you warm in the snow)</li>
+        <li>🐋 <b>The singing whale</b> — REEDMERE's lagoon, on still NIGHTS. Swim out when it surfaces and grab its fin — it takes you to a sunken ship</li></ul></article>
+
+      <article class="idea"><h3>🐀 The Secret Trader</h3><ul>
+        <li>A RAT as big as a house who trades in secrets. His lair is behind a huge rat-hole low in an old wall in SILVERVEIL, north-west of the square (hold F)</li>
+        <li>The Gossips in every city talk about him. Pay him 🪙 650 and he tells you exactly where (and when) to find an animal you haven't found yet</li></ul></article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Signature Adventures</h2>
+    <p class="h2sub">one really special thing in every world — only once you've finished its quest</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>⚡ Lightning Surfing<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Great Storm (after Phase 22) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Surf the storm on a lightning-board and catch lightning in jars before it fades. Goal: 15 jars in 60 seconds</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>⚙️ The Gear Coaster<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 Clockwork Mountain (after Phase 28) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>A runaway cart races round the whole mountain — lean with A/D to grab the gold cogs. Goal: 24 cogs</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🐋 The Whale Run<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 Coralmere (after Phase 27) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Ride a whale through the sunken city and catch the glowing fish. Goal: 14 fish</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🍄 Mushroom Bouncing<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Glowcap Kingdom (after Phase 30) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>The giant caps are trampolines — bounce from cap to cap up to the lantern at the top, as fast as you can</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🎶 Crystal Music<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Crystal Caverns (after Phase 31) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Listen to the song, then strike the crystals in the same order. Play all three songs to open a hidden grotto</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🌑 Shadow Tag with Umbra<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 Shadowmere (after Phase 29) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Umbra pops out of the shadows — tag him before he melts away! Goal: 8 tags in 90 seconds</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🏜️ The Dune Run<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Whispering Dunes (after Phase 24) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>An endless sandboarding run down the dunes as the sun sets: tap Space to jump, hold Space in the air to BACKFLIP (land upright for speed + combos), grind along vines, jump rocks and canyons, grab coins. 5000 points for the trophy</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🌌 Aurora Gliding<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Aurora Reach (after Phase 19) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Glide along the northern lights through every glowing ring, in order</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🌠 Ride a Falling Star<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Starway (after Phase 20) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Hold on to a falling star and scoop up the stardust. Goal: 16 in 50 seconds</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🏝️ The Pirate's Daily Dig<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Moonless Isle (after Phase 17) — look for the glowing ⭐ sign near where you arrive</li>
+        <li>A new treasure map every day — read the clue and dig in the right place. Find 5 treasures for the trophy</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🎪 The Human Cannon<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Circus Tent — look for the glowing ⭐ sign near where you arrive</li>
+        <li>BOOM! Steer with A/D in mid-air and land on the target. Three shots — 250 points for the trophy</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>🦪 Pearl Diving<span class="chip made">🌿 built</span></h3><ul>
+        <li>📍 the Open Sea — look for the glowing ⭐ sign near where you arrive</li>
+        <li>Swim out and gather the pearls glinting on the water. Goal: 10 pearls in 75 seconds</li>
+        <li>Your best score is kept · beat the goal once to win a trophy (it stands in your Trophy Room) + 🪙 150</li></ul></article>
+
+      <article class="idea"><h3>✨ Treasures That Really Work<span class="chip made">🌿 built</span></h3><ul>
+        <li>Open your backpack (B) → “✨ Things you can use”</li>
+        <li>🥚 The Unhatched Dragon Egg hatches into Sparky, a baby dragon who follows you</li>
+        <li>🗺️ The Smuggler's Map shows a hidden hatch in Golden Hollow (east of the square) — 🗝️ the Skeleton Key unlocks it: the Smugglers' Hold, full of gold. The key also opens the tiny locked door in your cottage</li>
+        <li>🗝️ The Old Lighthouse Key opens the lost lighthouse in Reedmere</li>
+        <li>🧭 Compasses and the 🔍 magnifying glass point you to the nearest secret</li>
+        <li>🌱 Seeds grow in a little garden by your cottage over a few days — 🔔 the Harvest Bell makes them grow faster</li>
+        <li>🏮 Lanterns, candles, glow-jars and the Caught Star light your way · 🪁 fly your kite · 🔮 shake a snow globe for snow · 🔮 the Storm-Glass tells the weather</li>
+        <li>🫧 the Wishing Pearl grants a wish a day · 🏮 let a sky lantern go · 🗝️ the Season Clock's key turns the seasons · 🐋💎 shells and crystals sing</li></ul></article>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Grand Adventures</h2>
+    <p class="h2sub">big, daring adventures for later</p>
+    <div class="divider">✧ ❀ ✧</div>
+    <div class="ideas">
+
+      <article class="idea"><h3>🏴‍☠️ The Sky Pirates<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A pirate airship raids the cities from the clouds</li>
+        <li>Chase it on dragon-back, sneak aboard, and win back the stolen treasure</li></ul></article>
+
+      <article class="idea"><h3>🗡️ The Knights of the Old Oak<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Train at a knights' school — wooden-sword duels and pony jousting</li>
+        <li>Earn your knight's cloak in the Great Tournament</li></ul></article>
+
+      <article class="idea"><h3>🐲 The Dragon Hatchery<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Rare dragon eggs hidden all over the world</li>
+        <li>Hatch new kinds of dragons — a crystal dragon, a cloud dragon, a moon dragon</li></ul></article>
+
+      <article class="idea"><h3>🚂 The Mine Cart Rush<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A runaway mine cart through the tunnels of Emberpeak</li>
+        <li>Lean round corners, duck under beams and jump the broken tracks</li></ul></article>
+
+      <article class="idea"><h3>🌌 The Star Bridges<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Connect the stars to make constellations</li>
+        <li>Each one builds a glowing bridge across the night sky to a new place</li></ul></article>
+
+      <article class="idea"><h3>🗿 The Stone Guardians<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Giant stone guardians sleep at the edge of the world</li>
+        <li>Answer their ancient riddles and they wake — and let you pass</li></ul></article>
+
+      <article class="idea"><h3>🌊 The Great Flood<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A storm floods the Great Forest</li>
+        <li>Rescue mice on your raft and race to build a dam before the water rises</li></ul></article>
+
+      <article class="idea"><h3>🏇 The Pony Racing League<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Race your pony against riders from every city</li>
+        <li>Jumps, shortcuts and a golden horseshoe trophy</li></ul></article>
+
+      <article class="idea"><h3>🧪 Potion Brewing<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Mix ingredients in a cauldron to brew real potions</li>
+        <li>Potions that let you breathe underwater, glow in the dark, or float like a feather</li></ul></article>
+
+      <article class="idea"><h3>🎪 The Missing Acrobat<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The circus's star acrobat has vanished the night before the big show</li>
+        <li>Follow the clues, solve the mystery and save the show</li></ul></article>
+
+      <article class="idea"><h3>🗺️ The Cartographer's Quest<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Walk to the very edges of every land and map them</li>
+        <li>Each finished map reveals a brand-new place that wasn't there before</li></ul></article>
+
+      <article class="idea"><h3>🌙 The Moon's Phases<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Every night the moon changes — and so does the world</li>
+        <li>New moon: secrets appear · full moon: moon creatures come out to play</li></ul></article>
+
+      <article class="idea"><h3>🌋 The Mountain That Woke Up<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>The old mountain beyond Frostpine starts to rumble and smoke</li>
+        <li>Climb inside the volcano past rivers of lava to calm the fire-spirit before it erupts</li></ul></article>
+
+      <article class="idea"><h3>🧭 The Edge of the Map<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Every map ends at the same misty line. What's beyond it?</li>
+        <li>Build a boat, sail into the mist, and discover a whole new land no mouse has ever seen</li></ul></article>
+
+      <article class="idea"><h3>🦉 The Great Owl Council<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>Once every hundred years, all the owls gather. This year they've invited a MOUSE</li>
+        <li>Prove yourself with three trials of wisdom, and win a seat at the council</li></ul></article>
+
+      <article class="idea"><h3>⚔️ The Siege of Silverveil<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A storm-army of ice-wraiths marches on Silverveil</li>
+        <li>Rally all six cities, defend the walls, and lead the charge on dragon-back</li></ul></article>
+
+      <article class="idea"><h3>🏺 The Sunken Kingdom<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>When the tide goes out further than ever before, a drowned kingdom rises from the sea</li>
+        <li>Explore its streets before the water comes back — you only have one day!</li></ul></article>
+
+      <article class="idea"><h3>🐺 The Lost Wolf Cub<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A wolf cub is lost far from her pack, and wolves are dangerous to mice</li>
+        <li>Bring her home through the wild lands — and the wolves become your friends forever</li></ul></article>
+
+      <article class="idea"><h3>🌑 The Night Without End<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>One morning the sun simply doesn't rise</li>
+        <li>Journey to the edge of the world and wake it up, before everything freezes</li></ul></article>
+
+      <article class="idea"><h3>🏹 The Hunt for the Golden Stag<span class="chip dream">💭 a dream</span></h3><ul>
+        <li>A golden stag appears in the forest only once a year</li>
+        <li>Track it for days through every land; it leads you to an ancient secret</li></ul></article>
+
+    </div>
+  </section>
+
+  <footer>
+    written in pink ink, by the light of the glowing mushrooms
+    <span class="sig">~ WhiskerWood ~</span>
+  </footer>
+<!--BOOK-END-->
+</main>
+
+<!-- 🌸 editing mode -->
+<button id="editBtn" class="edit-btn" type="button">Edit!:)</button>
+<div id="editToast" class="toast" role="status"></div>
+
+<!-- 🍄 the glowing mushroom forest floor -->
+<div class="shrooms" aria-hidden="true" id="shrooms"></div>
+
+<script>
+  // ⭐ scatter stars, sparkles and fireflies across the night
+  const sky = document.getElementById("sky");
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  for (let i = 0; i < 90; i++) {
+    const s = document.createElement("div");
+    s.className = "star";
+    s.style.cssText = `left:${rnd(0, 100)}%;top:${rnd(0, 100)}%;--d:${rnd(2, 5)}s;--w:${rnd(0, 4)}s`;
+    sky.appendChild(s);
+  }
+  for (let i = 0; i < 26; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.textContent = ["✦", "✧", "⋆", "✨", "❀"][i % 5];
+    s.style.cssText = `left:${rnd(0, 100)}%;top:${rnd(10, 100)}%;--s:${rnd(10, 22)}px;--d:${rnd(7, 14)}s;--w:${rnd(0, 6)}s`;
+    sky.appendChild(s);
+  }
+  for (let i = 0; i < 14; i++) {
+    const f = document.createElement("div");
+    f.className = "fly";
+    f.style.cssText = `left:${rnd(0, 100)}%;top:${rnd(40, 95)}%;--d:${rnd(9, 18)}s;--x:${rnd(-160, 160)}px;--y:${rnd(-140, 40)}px;animation-delay:${rnd(0, 6)}s`;
+    document.body.appendChild(f);
+  }
+  // 🍄 glowing pink mushrooms (little SVGs, all different sizes)
+  const shroom = (h, cap, spots) => `<svg class="shroom" style="--w:${rnd(0, 3)}s" width="${h * 0.9}" height="${h}" viewBox="0 0 90 100">
+    <path d="M38 52 Q34 80 30 98 L60 98 Q56 80 52 52 Z" fill="#fff1f6"/>
+    <path d="M6 54 Q8 12 45 8 Q82 12 84 54 Q45 62 6 54 Z" fill="${cap}"/>
+    ${spots.map(([x, y, r]) => `<circle cx="${x}" cy="${y}" r="${r}" fill="#ffe6f2"/>`).join("")}
+    <path d="M10 52 Q45 60 80 52" stroke="#ffc3dd" stroke-width="3" fill="none"/>
+  </svg>`;
+  const caps = ["#ff8cc6", "#ff6fb5", "#ffa6d2", "#f77bbd", "#ffb8dc"];
+  const floor = document.getElementById("shrooms");
+  const n = Math.max(6, Math.round(window.innerWidth / 110));
+  let html = "";
+  for (let i = 0; i < n; i++) {
+    const h = rnd(48, 120);
+    html += shroom(h, caps[i % caps.length], [[30, 30, rnd(4, 7)], [58, 26, rnd(3, 6)], [45, 44, rnd(3, 5)], [70, 42, rnd(2, 4)]]);
+  }
+  floor.innerHTML = html;
+
+  // 🌲 layers of dark trees along the bottom, and leafy branches hanging from the top
+  {
+    const W = 1600;
+    const tree = (x, h, col, kind) => kind
+      ? `<g fill="${col}"><rect x="${x - 4}" y="${400 - h * 0.35}" width="8" height="${h * 0.35}"/><circle cx="${x}" cy="${400 - h * 0.55}" r="${h * 0.28}"/><circle cx="${x - h * 0.18}" cy="${400 - h * 0.42}" r="${h * 0.2}"/><circle cx="${x + h * 0.18}" cy="${400 - h * 0.44}" r="${h * 0.21}"/></g>`
+      : `<g fill="${col}"><rect x="${x - 3}" y="${400 - h * 0.2}" width="6" height="${h * 0.2}"/><polygon points="${x - h * 0.22},${400 - h * 0.18} ${x},${400 - h * 0.6} ${x + h * 0.22},${400 - h * 0.18}"/><polygon points="${x - h * 0.17},${400 - h * 0.45} ${x},${400 - h} ${x + h * 0.17},${400 - h * 0.45}"/></g>`;
+    let back = "", front = "";
+    for (let x = -20; x < W + 40; x += rnd(40, 70)) back += tree(x, rnd(180, 320), "#1c3528", Math.random() < 0.4);
+    for (let x = -30; x < W + 40; x += rnd(60, 110)) front += tree(x, rnd(120, 230), "#0f2018", Math.random() < 0.5);
+    document.getElementById("forest").innerHTML = `<svg viewBox="0 0 ${W} 400" preserveAspectRatio="xMidYMax slice">${back}${front}<rect x="0" y="392" width="${W}" height="8" fill="#0b1812"/></svg>`;
+    let leaves = "";
+    for (let x = 0; x < W; x += rnd(18, 34)) {
+      const y = rnd(10, 70);
+      leaves += `<ellipse cx="${x}" cy="${y}" rx="${rnd(14, 26)}" ry="${rnd(7, 12)}" transform="rotate(${rnd(-40, 40)} ${x} ${y})" fill="${["#1c3528", "#24442f", "#163024"][Math.floor(rnd(0, 3))]}"/>`;
+      if (Math.random() < 0.18) leaves += `<circle cx="${x + 6}" cy="${y + 10}" r="4" fill="#ff9ccf" opacity=".85"/>`;
+    }
+    document.getElementById("canopy").innerHTML = `<svg viewBox="0 0 ${W} 120" preserveAspectRatio="xMidYMin slice" width="100%" height="100%"><path d="M0 0 H${W} V40 Q${W * 0.75} 70 ${W / 2} 45 T0 50 Z" fill="#12261b"/>${leaves}</svg>`;
+  }
+  // 🍃🌸 leaves and petals drifting down
+  for (let i = 0; i < 16; i++) {
+    const l = document.createElement("div");
+    l.className = "leaf";
+    l.textContent = ["🍃", "🌸", "🍂", "🌿", "🌸", "✿"][i % 6];
+    l.style.cssText = `left:${rnd(0, 100)}%;--s:${rnd(12, 22)}px;--d:${rnd(12, 24)}s;--w:${rnd(-24, 0)}s;--x:${rnd(-90, 90)}px`;
+    document.body.appendChild(l);
+  }
+
+  // ================================================================ 🌸 EDIT MODE
+  // Edit!:) — change any words, add or remove ideas, tap a ribbon to flip it
+  // between 💭 dream and 🌿 built. While you edit, the book SAVES ITSELF a
+  // moment after you stop typing (back into catalog.html, through the game's
+  // dev server). Save!:) saves one last time and closes editing.
+  // 🚩 Flags: pin little flags on any idea (⚔️ more epic · 🗺️ more adventure ·
+  // 🎀 less girlish, or your own) — they're saved too, so Claude can read them.
+  const book = document.querySelector(".book");
+  const btn = document.getElementById("editBtn");
+  const toast = document.getElementById("editToast");
+  const DRAFT = "ww.catalog.draft";
+  let editing = false;
+  const say = (msg, ms = 2600) => {
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(say.t);
+    say.t = setTimeout(() => toast.classList.remove("show"), ms);
+  };
+
+  const DREAM = "💭 a dream";
+  const BUILT = "🌿 built";
+  const FLAGS = [
+    { key: "epic", text: "⚔️ more epic" },
+    { key: "adventure", text: "🗺️ more adventure" },
+    { key: "lessgirly", text: "🎀 less girlish" },
+  ];
+  const cards = () => [...book.querySelectorAll(".idea, .land")];
+  const ui = (tag, cls, text) => {
+    const el = document.createElement(tag);
+    el.className = cls + " edit-ui";
+    el.contentEditable = "false";
+    if (tag === "button") el.type = "button";
+    if (text) el.textContent = text;
+    return el;
+  };
+  const newIdea = () => {
+    const a = document.createElement("article");
+    a.className = "idea";
+    a.innerHTML = `<h3><span class="num">✿</span>A new idea<span class="chip dream">${DREAM}</span></h3><ul><li>write it here…</li></ul>`;
+    return a;
+  };
+  const newLand = () => {
+    const d = document.createElement("div");
+    d.className = "land";
+    d.innerHTML = `<b>🌸 A new land</b>what is it like?`;
+    return d;
+  };
+
+  // ---- 🚩 flags (always available, not just while editing)
+  function flagBox(card) {
+    let box = card.querySelector(":scope > .flags");
+    if (!box) {
+      box = document.createElement("div");
+      box.className = "flags";
+      box.contentEditable = "false";
+      card.prepend(box);
+    }
+    return box;
+  }
+  function addFlagButton(card) {
+    if (card.querySelector(":scope > .flag-btn")) return;
+    card.appendChild(ui("button", "flag-btn", "🚩"));
+    const box = card.querySelector(":scope > .flags");
+    if (box) box.contentEditable = "false";
+  }
+  function closeMenus() {
+    book.querySelectorAll(".flag-menu").forEach((m) => m.remove());
+  }
+  function openFlagMenu(card, at) {
+    closeMenus();
+    const menu = ui("div", "flag-menu");
+    const have = new Set([...card.querySelectorAll(".flag")].map((f) => f.dataset.flag));
+    for (const F of FLAGS) {
+      const b = ui("button", "flag-opt" + (have.has(F.key) ? " on" : ""), F.text);
+      b.dataset.key = F.key;
+      menu.appendChild(b);
+    }
+    menu.appendChild(ui("button", "flag-opt own", "✏️ my own flag…"));
+    card.appendChild(menu);
+  }
+  function toggleFlag(card, key, text) {
+    const box = flagBox(card);
+    const old = box.querySelector(`.flag[data-flag="${CSS.escape(key)}"]`);
+    if (old) old.remove();
+    else {
+      const f = document.createElement("span");
+      f.className = "flag flag-" + key.replace(/[^a-z0-9]/gi, "");
+      f.dataset.flag = key;
+      f.contentEditable = "false";
+      f.title = "tap to take this flag off";
+      f.textContent = text;
+      box.appendChild(f);
+    }
+    if (!box.children.length) box.remove();
+    persist(true);
+  }
+
+  // ---- editing tools
+  function decorate() {
+    cards().forEach((el) => {
+      if (el.closest(".deco")) return;
+      el.appendChild(ui("button", "del-btn", "✕"));
+    });
+    book.querySelectorAll(".ideas, .lands").forEach((list) => {
+      list.after(ui("button", "add-btn", list.classList.contains("lands") ? "＋ add a new land" : "＋ add a new idea"));
+    });
+    const help = ui("div", "edit-help", "✏️ Editing! Click any words to change them · tap a ribbon to flip 💭 ↔ 🌿 · 🚩 pins a flag · ✕ removes · it saves by itself as you go");
+    book.prepend(help);
+  }
+  const undecorate = () => book.querySelectorAll(".del-btn, .add-btn, .edit-help, .flag-menu").forEach((el) => el.remove());
+
+  book.addEventListener("click", (e) => {
+    const card = e.target.closest(".idea, .land");
+    // 🚩 flags work any time
+    if (e.target.closest(".flag-btn")) {
+      e.preventDefault();
+      if (card.querySelector(".flag-menu")) closeMenus();
+      else openFlagMenu(card);
+      return;
+    }
+    const opt = e.target.closest(".flag-opt");
+    if (opt) {
+      e.preventDefault();
+      if (opt.classList.contains("own")) {
+        const t = (prompt("What should your flag say?", "") || "").trim().slice(0, 30);
+        if (t) toggleFlag(card, "own-" + t.toLowerCase().replace(/\s+/g, "-"), "🚩 " + t);
+      } else {
+        const F = FLAGS.find((x) => x.key === opt.dataset.key);
+        toggleFlag(card, F.key, F.text);
+      }
+      closeMenus();
+      return;
+    }
+    const flag = e.target.closest(".flag");
+    if (flag) {
+      e.preventDefault();
+      toggleFlag(card, flag.dataset.flag, flag.textContent);
+      return;
+    }
+    closeMenus();
+    if (!editing) return;
+    if (e.target.closest(".del-btn")) {
+      const name = (card.querySelector("h3, b") || card).textContent.replace(/[✕🚩💭🌿]|a dream|built/g, "").trim();
+      if (confirm(`Remove “${name.slice(0, 40)}”?`)) {
+        card.remove();
+        persist(true);
+      }
+      return;
+    }
+    const add = e.target.closest(".add-btn");
+    if (add) {
+      const list = add.previousElementSibling;
+      const fresh = list.classList.contains("lands") ? newLand() : newIdea();
+      list.appendChild(fresh);
+      fresh.appendChild(ui("button", "del-btn", "✕"));
+      addFlagButton(fresh);
+      fresh.scrollIntoView({ behavior: "smooth", block: "center" });
+      say("🌸 A new page! Click it to write.");
+      persist(true);
+      return;
+    }
+    const chip = e.target.closest(".chip");
+    if (chip && chip.closest(".idea")) {
+      e.preventDefault();
+      const built = chip.classList.contains("made");
+      chip.classList.toggle("made", !built);
+      chip.classList.toggle("dream", built);
+      chip.textContent = built ? DREAM : BUILT;
+      persist(true);
+    }
+  });
+
+  // ---- saving: the book (without any buttons or vines) goes back into catalog.html
+  const bookHTML = () => {
+    const copy = book.cloneNode(true);
+    copy.querySelectorAll(".deco, .edit-ui").forEach((el) => el.remove());
+    copy.removeAttribute("contenteditable");
+    copy.querySelectorAll("[contenteditable]").forEach((el) => el.removeAttribute("contenteditable"));
+    return copy.innerHTML.replace(/<!--BOOK-(START|END)-->/g, "").trim();
+  };
+  // (the book's fingerprint as the file had it when this page loaded — a stale
+  //  tab can't save over a newer book; it asks you to reload instead)
+  const stamp = (t) => { let h = 0; for (const c of t.replace(/\s+/g, "")) h = (h * 31 + c.codePointAt(0)) | 0; return String(h); };
+  let base = null;
+  const baseReady = fetch(location.pathname, { cache: "no-store" }).then((r) => r.text()).then((t) => {
+    const a = t.indexOf("<!--BOOK-START-->");
+    const b = t.indexOf("<!--BOOK-END-->");
+    if (a >= 0 && b > a) base = stamp(t.slice(a + "<!--BOOK-START-->".length, b));
+  }).catch(() => {});
+  let stale = false;
+  let saving = null;
+  let again = false;
+  async function persist(loud) {
+    if (saving) {
+      again = true;
+      return saving;
+    }
+    const html = bookHTML();
+    saving = (async () => {
+      await baseReady;
+      try { localStorage.setItem(DRAFT, JSON.stringify({ html, base })); } catch {} // (kept here until the book file has it)
+      try {
+        if (stale) throw new Error("stale");
+        const r = await fetch("/api/save-catalog", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ book: html, base }) });
+        if (r.status === 409) {
+          stale = true;
+          throw new Error("stale");
+        }
+        if (!r.ok) throw new Error("save failed");
+        const j = await r.json().catch(() => ({}));
+        if (j.stamp) base = j.stamp;
+        try { localStorage.removeItem(DRAFT); } catch {}
+        if (loud) say("💖 Saved into your Idea Book!");
+        return true;
+      } catch (e) {
+        if (stale) say("📖 The book was changed somewhere else (maybe by Claude)! RELOAD this page to see the newest book — your edits here are kept safe and will come back.", 9000);
+        else say("💗 Couldn't reach the game's dev server — your edits are kept safe in this browser. Start the game (npm run dev), then press Save!:) again.", 6000);
+        return false;
+      } finally {
+        saving = null;
+        if (again) {
+          again = false;
+          persist(false);
+        }
+      }
+    })();
+    return saving;
+  }
+  let typingT = 0;
+  book.addEventListener("input", () => {
+    if (!editing) return;
+    clearTimeout(typingT);
+    typingT = setTimeout(() => persist(false), 1500); // (saves itself a moment after you stop typing)
+  });
+
+  btn.addEventListener("click", async () => {
+    if (!editing) {
+      editing = true;
+      document.body.classList.add("editing");
+      decorate();
+      book.contentEditable = "true";
+      book.querySelectorAll(".chip, .flags, .flag, .vine").forEach((c) => (c.contentEditable = "false"));
+      btn.textContent = "Save!:)";
+      say("✏️ Editing mode — change anything you like! (It saves as you go.)");
+      return;
+    }
+    clearTimeout(typingT);
+    const ok = await persist(true);
+    if (!ok) return; // (stay in editing so nothing is lost)
+    editing = false;
+    document.body.classList.remove("editing");
+    undecorate();
+    book.removeAttribute("contenteditable");
+    btn.textContent = "Edit!:)";
+  });
+
+  // ---- 🛟 edits that never reached the book file come back
+  // (made on THIS version of the book? they come straight back and save. Made on
+  //  an older version? they never overwrite anything by themselves — a button
+  //  lets you bring them back if you want them.)
+  baseReady.then(() => {
+    let draft = null;
+    try { draft = JSON.parse(localStorage.getItem(DRAFT) || "null"); } catch {
+      try { draft = { html: localStorage.getItem(DRAFT), base: null }; } catch {}
+    }
+    if (!draft || !draft.html) return;
+    if (draft.html === bookHTML()) {
+      try { localStorage.removeItem(DRAFT); } catch {}
+      return;
+    }
+    const restore = () => {
+      book.innerHTML = draft.html;
+      addVines();
+      cards().forEach(addFlagButton);
+      buildShortcuts();
+      persist(false).then((ok) => say(ok ? "🛟 Your unsaved edits are back — and saved now!" : "🛟 Your unsaved edits are back! Start the game, then press Save!:)", 6000));
+    };
+    if (draft.base && draft.base === base) return restore();
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "edit-btn rescue";
+    b.textContent = "🛟 bring back my unsaved edits";
+    b.onclick = () => {
+      if (!confirm("Bring back the edits that didn't get saved? (They were made on an older version of the book, so they'll replace what's here now.)")) return;
+      b.remove();
+      restore();
+    };
+    document.body.appendChild(b);
+  });
+  cards().forEach(addFlagButton);
+  book.querySelectorAll(".flags").forEach((b) => (b.contentEditable = "false"));
+
+  // 🌿 flowering vines climbing both sides of the book
+  function addVines() {
+    book.querySelectorAll(".deco").forEach((v) => v.remove());
+    let path = "M23 0", flowers = "";
+    for (let y = 0; y < 2000; y += 60) {
+      path += ` Q${y % 120 ? 38 : 8} ${y + 30} 23 ${y + 60}`;
+      flowers += `<ellipse cx="${y % 120 ? 34 : 12}" cy="${y + 20}" rx="9" ry="4.5" transform="rotate(${y % 120 ? -35 : 35} ${y % 120 ? 34 : 12} ${y + 20})" fill="#3f7a4a"/>`;
+      flowers += `<ellipse cx="${y % 120 ? 12 : 34}" cy="${y + 46}" rx="8" ry="4" transform="rotate(${y % 120 ? 30 : -30} ${y % 120 ? 12 : 34} ${y + 46})" fill="#4f8f58"/>`;
+      if (y % 180 === 0) flowers += `<g transform="translate(${y % 360 ? 36 : 10} ${y + 34})">${[0, 72, 144, 216, 288].map((a) => `<ellipse rx="4.5" ry="2.6" cx="3.6" transform="rotate(${a})" fill="#ff9ccf"/>`).join("")}<circle r="2" fill="#ffe08a"/></g>`;
+    }
+    for (const side of ["left", "right"]) {
+      const v = document.createElement("div");
+      v.className = `vine ${side} deco`;
+      v.contentEditable = "false";
+      v.innerHTML = `<svg viewBox="0 0 46 2000" preserveAspectRatio="xMidYMin slice"><path d="${path}" stroke="#2e5e38" stroke-width="3.5" fill="none"/>${flowers}</svg>`;
+      book.appendChild(v);
+    }
+  }
+  addVines();
+  // 📑 shortcuts: a "jump to" bar built from the book's own sections (it updates
+  // itself if you add a section), and a 🔝 button to float back up
+  function buildShortcuts() {
+    book.querySelectorAll(".toc, .toc-title").forEach((x) => x.remove());
+    const secs = [...book.querySelectorAll("section")];
+    secs.forEach((sec, i) => {
+      const h = sec.querySelector("h2");
+      sec.id = "s-" + (h ? h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, "-") : i);
+    });
+    const icons = { "story-chapters": "📜", "lands-to-explore": "🗺️", "little-wonders-to-add": "✨", "hidden-secrets": "🔍", "even-more-secret-places": "🗝️", "grand-adventures": "⚔️" };
+    const title = document.createElement("div");
+    title.className = "toc-title deco";
+    title.textContent = "~ jump to a page ~";
+    const nav = document.createElement("nav");
+    nav.className = "toc deco";
+    nav.contentEditable = "false";
+    nav.innerHTML = secs.map((sec) => {
+      const h = sec.querySelector("h2");
+      const n = sec.querySelectorAll(".idea, .land").length;
+      return `<a href="#${sec.id}">${icons[sec.id.slice(2)] || "❀"} ${h ? h.textContent.trim() : "…"}<span class="n">(${n})</span></a>`;
+    }).join("");
+    const head = book.querySelector("header");
+    if (head) head.after(title, nav);
+  }
+  buildShortcuts();
+  const topBtn = document.createElement("button");
+  topBtn.type = "button";
+  topBtn.className = "to-top";
+  topBtn.title = "back to the top";
+  topBtn.textContent = "🔝";
+  topBtn.onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  document.body.appendChild(topBtn);
+  window.addEventListener("scroll", () => topBtn.classList.toggle("show", window.scrollY > 600));
+  if (new URLSearchParams(location.search).get("edit")) btn.click(); // (catalog.html?edit=1 opens straight into editing)
+  window.addEventListener("beforeunload", (e) => {
+    if (editing) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+  });
+</script>
+</body>
+</html>

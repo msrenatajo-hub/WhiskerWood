@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  window.addEventListener("error", (e) => (document.title = "ERR: " + e.message));
+</script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>WhiskerWood — Designer Editor 🛠️</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #22301a; font-family: system-ui, sans-serif; }
+  #edit { display: block; width: 100%; height: 100%; }
+
+  .panel {
+    position: fixed; z-index: 10; background: rgba(18, 24, 12, 0.88); color: #eef3df;
+    border-radius: 12px; backdrop-filter: blur(6px); font-size: 13px;
+  }
+  #toolbar { top: 10px; left: 10px; right: 10px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 12px; }
+  #toolbar b { color: #cfe89a; }
+  #toolbar button {
+    padding: 7px 12px; border: none; border-radius: 8px; cursor: pointer;
+    font-size: 13px; font-weight: 600; background: #4a5f33; color: #eef3df;
+  }
+  #toolbar button.on { background: #6d9a3f; color: #fff; }
+  #toolbar button.save { background: #d49a3a; color: #201808; }
+  #status { margin-left: auto; font-size: 12px; opacity: 0.9; }
+
+  /* asset library */
+  #library { top: 62px; left: 10px; bottom: 10px; width: 210px; display: flex; flex-direction: column; }
+  #library h3 { margin: 10px 12px 4px; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: #cfe89a; }
+  #lib-scroll { overflow-y: auto; flex: 1; padding: 0 8px 10px; }
+  .lib-cat { font-size: 11px; color: #9ab87a; margin: 10px 4px 4px; text-transform: uppercase; letter-spacing: 1px; }
+  .lib-item {
+    display: block; width: 100%; text-align: left; margin: 2px 0; padding: 6px 8px;
+    border: none; border-radius: 7px; background: rgba(255,255,255,0.06); color: #eef3df;
+    cursor: pointer; font-size: 13px;
+  }
+  .lib-item:hover { background: rgba(255,255,255,0.16); }
+  .lib-item.placing { background: #6d9a3f; color: #fff; }
+
+  /* properties */
+  #props { top: 62px; right: 10px; width: 250px; padding: 12px 14px; display: none; }
+  #props h3 { margin: 0 0 8px; font-size: 14px; color: #ffe6a8; }
+  #props .row { display: flex; align-items: center; gap: 6px; margin: 5px 0; }
+  #props label { width: 64px; color: #b8caa0; font-size: 12px; }
+  #props input[type="number"], #props input[type="text"] {
+    flex: 1; min-width: 0; padding: 4px 6px; border-radius: 6px; border: 1px solid #4a5f33;
+    background: #141c0c; color: #eef3df; font-size: 13px;
+  }
+  #props .dims { color: #9ab87a; font-size: 12px; margin: 6px 0; }
+  #props .btns { display: flex; gap: 6px; margin-top: 10px; }
+  #props .btns button { flex: 1; padding: 7px 0; border: none; border-radius: 7px; cursor: pointer; font-weight: 600; }
+  #clone-b { background: #3a6a8a; color: #fff; }
+  #focus-b { background: #4a5f33; color: #eef3df; }
+  #delete-b { background: #b04a44; color: #fff; }
+
+  #help { bottom: 10px; left: 230px; right: 280px; padding: 8px 14px; font-size: 12px; line-height: 1.6; opacity: 0.92; }
+  #help b { color: #ffe6a8; }
+</style>
+</head>
+<body>
+  <canvas id="edit"></canvas>
+
+  <div id="toolbar" class="panel">
+    <b>🛠️ Designer Editor</b>
+    <button id="tool-select" class="on">🖱 Select</button>
+    <button id="tool-terrain">⛰ Terrain</button>
+    <button id="toggle-boxes">▦ Boxes</button>
+    <button id="rebuild">🔁 Rebuild world</button>
+    <button id="save" class="save">💾 Save to game</button>
+    <span id="status"></span>
+  </div>
+
+  <div id="library" class="panel">
+    <h3>Asset Library</h3>
+    <div id="lib-scroll"></div>
+  </div>
+
+  <div id="props" class="panel">
+    <h3 id="p-title">Selected</h3>
+    <div class="row"><label>Label</label><input id="p-name" type="text" /></div>
+    <div class="row"><label>X</label><input id="p-x" type="number" step="1" /></div>
+    <div class="row"><label>Z</label><input id="p-z" type="number" step="1" /></div>
+    <div class="row"><label>Y offset</label><input id="p-y" type="number" step="0.5" /></div>
+    <div class="row"><label>Rotation°</label><input id="p-rot" type="number" step="5" /></div>
+    <div class="row"><label>Scale</label><input id="p-scale" type="number" step="0.1" /></div>
+    <div class="row bump-only"><label>Radius</label><input id="p-radius" type="number" step="2" /></div>
+    <div class="row bump-only"><label>Height</label><input id="p-height" type="number" step="1" /></div>
+    <div class="dims" id="p-dims"></div>
+    <div class="btns">
+      <button id="clone-b">⧉ Clone</button>
+      <button id="focus-b">🎯 Focus</button>
+      <button id="delete-b">🗑</button>
+    </div>
+  </div>
+
+  <div id="help" class="panel">
+    <b>Fly:</b> W/A/S/D move · Q/E down/up · hold <b>right-drag</b> (or left-drag on empty ground) to look · wheel = zoom · Shift = fast ·
+    <b>Edit:</b> click = select · arrows = move · R/F = raise/lower · +/− = scale · [ ] = rotate · ⌘/Ctrl-D = clone · Delete = remove · G = drop to ground · Esc = deselect ·
+    <b>⛰ Terrain:</b> click ground = raise a mound (hold Alt = dig) — then Rebuild world to see placements settle.
+  </div>
+
+  <script type="module" src="/src/editor.js"></script>
+</body>
+</html>

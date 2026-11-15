@@ -45,6 +45,7 @@
     <button id="bigger" class="sel" disabled>➕ Bigger</button>
     <button id="smaller" class="sel" disabled>➖ Smaller</button>
     <button id="rotate" class="sel" disabled>↻ Rotate</button>
+    <button id="pin" class="sel" disabled>📌 Pin for Claude</button>
     <button id="delete" class="del" disabled>🗑 Delete</button>
     <button id="save" class="save">💾 Save to game</button>
     <span id="status"></span>
@@ -53,10 +54,11 @@
 
   <div id="hint">
     <b>Drag</b> a thing to move it • <b>drag the grass</b> to pan • <b>scroll</b> to zoom<br>
-    Click something to select it, then use the buttons (or press Delete).<br>
+    Click something to select it, then use the buttons (or press Delete).<br>📌 <b>Pin</b> things and tell Claude what to do with them — Claude sees your selection live.<br>
     📤 Upload <b>.glb .gltf .fbx .obj</b> models — or a whole <b>.unitypackage</b> (I'll pull the models out of it!).
   </div>
   <div id="sel-name"></div>
+  <div id="pin-list" style="position:fixed;bottom:44px;right:12px;z-index:10;padding:6px 12px;border-radius:10px;background:rgba(20,28,12,0.7);color:#ffd98a;font-size:13px;max-width:420px;"></div>
 
   <script type="module" src="/src/world-editor.js"></script>
 </body>

@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // dev: surface fatal errors in the tab title (headless checks read it)
+      window.addEventListener("error", (e) => {
+        window.__lastError = e.message;
+        document.title = "ERR: " + e.message;
+      });
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WhiskerWood 🐭</title>
@@ -17,9 +24,26 @@
       <div>S / ↓ &nbsp;— walk backward</div>
       <div>A / ← &nbsp;— turn left</div>
       <div>D / → &nbsp;— turn right</div>
-      <div>Space — jump</div>
-      <div>F — stand up &amp; look at the sky</div>
-      <div>E — craft (near the stump)</div>
+      <div>Space — jump (again in mid-air: double jump!)</div>
+      <div>Caps Lock — belly-sled on snow · ride your pony 🐴</div>
+      <div>F — look at the sky · by something odd: look closely 🔍</div>
+      <div>E — talk, gather, use (craft at the stump)</div>
+      <div>B — look in your backpack</div>
+      <div>J — Thistle's journal (the story so far)</div>
+      <div>Q — ⚔️ Quest Log (choose a quest!)</div>
+      <div>N — 📖 Collection Book (bugs, fish, fossils)</div>
+      <div>M — 🗺️ the map</div>
+      <div>P — 📸 photo mode</div>
+      <div>H — 🧑‍🎓 talk to Sprig, your apprentice (Life Goal tips)</div>
+      <div>L — 📬 your mailbox (letters from friends)</div>
+      <div>U — 🪈 play your reed flute (keys 1–8, Esc to stop)</div>
+      <div>O — 🏘️ your village board (in the forest)</div>
+      <div>Y — 🏆 your titles & badges</div>
+      <div>I — 📜 your storybook (the tale of your adventure)</div>
+      <div>C — 🏡 your Life Goals (optional)</div>
+      <div>1 — 🐉 call your dragon (fly · 🏁 race · choose who to ride)</div>
+      <div><b>Z — ❓ the Help Book (EVERYTHING explained)</b></div>
+      <div>K — travel the old roads (once you're a Moonkeeper)</div>
       <div>Shift — sprint (15s, then rests)</div>
       <div>G — grab / drop with teeth</div>
       <div>X — get in / out of the nest</div>

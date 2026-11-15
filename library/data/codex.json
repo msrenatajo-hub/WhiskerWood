@@ -1,0 +1,2054 @@
+[
+  {
+    "id": "whisker-wood",
+    "title": "Whisker Wood",
+    "category": "world",
+    "status": "canon",
+    "summary": "The whole known world: one enormous protected wilderness — forests, meadow, creek, hidden cities below and above — seen from a mouse's height.",
+    "content": "The world of **Whisker Wood** is ordinary to a human and enormous to a mouse. A blade of grass is a tree; ~~a porch step a mountain;~~ a puddle can kill. That change of scale is the heart of the game.\n\n## The regions\n- [[meadow]] — the open heart and crossroads of the map\n- [[pine-forest]] — dense, dark, resource-rich survival forest\n- [[aspen-forest]] — pale, golden, quiet and mysterious\n- [[wildflower-patch]] — bright, buzzing, high-reward and exposed\n- [[tall-grass]] — the stealth maze\n- [[berry-bushes]] — the great food larder, watched by predators\n- [[crossable-creek]] — the moving-water barrier\n- [[fallen-log]] — a hidden wayside shelter, hollow all the way through\n- [[old-well]] — the strange human relic\n~~- [[human house]] -- a place of risk ~~\n- [[home]] — the burrow everything returns to\n- Hidden from every map: [[moonstone-hollow]], the other [[hidden-places]] — and, if the old stories are true, the Great Cities of the [[great-canopy-alliance]]\n\n## How the map feels\nEach region owns one emotion, and the contrast between them is deliberate:\n- Meadow — openness\n- Pine Forest — enclosed survival\n- Aspen Forest — calm mystery\n- Wildflower Patch — vibrant risk\n- Tall Grass — a towering maze of uncertainty\n~~- Human House -- awe and tension~~\n- Home — safety\n\n> The best worlds leave empty space, quiet areas, and mystery. That is what makes discoveries meaningful.",
+    "tags": [
+      "world",
+      "map",
+      "overview",
+      "scale",
+      "canon-v2"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "centered-on"
+      },
+      {
+        "to": "meadow",
+        "kind": "contains"
+      },
+      {
+        "to": "home",
+        "kind": "contains"
+      },
+      {
+        "to": "vision-and-direction",
+        "kind": "designed-by"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T20:03:37.689Z",
+    "version": 4,
+    "author": "The Keeper"
+  },
+  {
+    "id": "everbough",
+    "title": "Everbough",
+    "category": "world",
+    "status": "canon",
+    "summary": "The colossal ancient tree at the heart of the world, and the forest that grew in its shadow.",
+    "content": "# Everbough\n\n**Everbough** is the great tree older than memory, so vast that whole mouse\nnations live among its roots, trunk hollows, and lower boughs. The forest that\nsurrounds it — and, to the mice, the *entire known world* — takes its name.\n\n## The three reaches\n- **The Rootways** — the tunnels and hollows below, home of the [[moonstone-hollow]].\n- **The Understory** — the forest floor: the [[pine-forest]], the [[aspen-forest]], meadows and creeks.\n- **The Canopy** — the high boughs, rarely travelled, watched by the [[barn-owl]].\n\nThe [[moonkeepers]] teach that the tree remembers every mouse who has lived\nbeneath it, and that its deepest roots drink from the same water as the moon.\n\nThe access point to Everbough is in the home of the Great Horned Owl who guards the entrance vigorously. You must obtain the crystal key from Moonstone Hollow and wear it around your neck.The guardian owl will recognize the moonkeepers key and will let you past. You must insert the precious key into the ancient keyhole, and travel the tunnels to Everbough.",
+    "tags": [
+      "world",
+      "great-tree",
+      "origin"
+    ],
+    "related": [
+      {
+        "to": "pine-forest",
+        "kind": "contains"
+      },
+      {
+        "to": "aspen-forest",
+        "kind": "contains"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "contains"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "revered-by"
+      }
+    ],
+    "attachments": [],
+    "timeline": {
+      "era": "The First Age",
+      "year": 0,
+      "order": 0
+    },
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-02T19:02:28.430Z",
+    "version": 5,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "The bright open heart of the map — the crossroads every route passes through, beautiful and dangerously exposed.",
+    "content": "The **Meadow** is where the world opens up: sunlit, wide, gently rolling, full of flowing grass, clover, and swaying seed heads. After the dark forests it feels like breathing out — but there is nowhere to hide.\n\n## Role: travel, orientation, transition\nThe Meadow connects the [[pine-forest]], [[aspen-forest]], [[human-house]], [[wildflower-patch]], and [[crossable-creek]]. It is the hub biome: players reorient here, spot landmarks, and choose routes. Movement is fast — fewer obstacles, open ground.\n\n## What mice do here\n- Navigate and scout (visibility is the best on the map)\n- Gather dependable basics: seeds, clover, grass fibers, insects, dry stems\n- Sprint between safe zones\n\n## The danger: exposure\nYou can see far — and everything can see YOU. Hawks and crows hunt from above; owls at dusk; foxes cross through. Sprinting from cover to cover is a survival skill learned here.\n\n## Wind\nThe grass waves constantly, showing wind direction and casting moving shadows. Strong wind can hide the sound of movement — the beginning of stealth play.\n\n## At night\nSilver-blue and dew-bright under the moon; visibility stays high, and so does the feeling of being watched.\n\n> \"Never cross the Meadow at noon.\"\n> \"The sky hunters watch there. Travel fast and stay low.\"",
+    "tags": [
+      "region",
+      "open",
+      "travel",
+      "hub",
+      "wind"
+    ],
+    "related": [
+      {
+        "to": "whisker-wood",
+        "kind": "part-of"
+      },
+      {
+        "to": "tall-grass",
+        "kind": "borders"
+      },
+      {
+        "to": "red-fox",
+        "kind": "crossed-by"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "meadow",
+    "title": "Meadow",
+    "category": "region",
+    "coordinates": {
+      "x": 48,
+      "y": 0,
+      "z": -157,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The survival heart of the map: dense, shadowy, protective and resource-rich — the player's working forest.",
+    "content": "Where the [[aspen-forest]] is airy and mysterious, the **Pine Forest** is dense, shadowy, protective, and slightly dangerous. Towering pines, deep shadows, mossy roots, and a carpet of needles. This is where the player first truly feels: *I am a tiny animal surviving in a huge wilderness.*\n\n## Role: primary gathering & shelter zone\nThe core loop lives here — gather resources, avoid predators, learn stealth, discover hidden routes, prepare for expeditions.\n\n## Resources\n- Common: pine nuts, mushrooms, twigs, bark, moss, beetles, dry needles\n- Rare: owl feathers, shiny human trash, medicinal fungus, abandoned nests, sap droplets\n\n## How it plays differently\n- **Low visibility** — the canopy blocks light; predators hide well\n- **Sound dampening** — needles soften footsteps; stealth works better both ways\n- **Rain shelter** — branches block storms; warmth drains slower\n\n## Predators\nFoxes, snakes, owls, raccoons, feral cats near the edges. You often will not see danger until it is close.\n\n## Secrets\nThe forest floor hides hollow stumps, abandoned dens, buried caches — and beneath the roots, the [[tunnel-network]]. A hidden entrance below the [[fallen-log]] leads down.\n\n## At night\nVisibility collapses; trees become silhouettes; eyes glow in the dark. Genuine survival tension — never horror.\n\n> \"Do not sleep inside the mushroom ring.\"\n> Old mice speak of giant owls overhead, ancient safe trees, and a legendary pinecone cache.",
+    "tags": [
+      "region",
+      "forest",
+      "pine",
+      "survival",
+      "stealth",
+      "resources"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "part-of"
+      },
+      {
+        "to": "tunnel-network",
+        "kind": "connects-to"
+      },
+      {
+        "to": "fallen-log",
+        "kind": "borders"
+      },
+      {
+        "to": "pine-needles",
+        "kind": "yields"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "pine-forest",
+    "title": "Pine Forest",
+    "category": "region",
+    "coordinates": {
+      "x": -202,
+      "y": 0,
+      "z": -196,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "Pale trunks, golden trembling leaves, soft light — the quietest, oldest-feeling place on the map.",
+    "content": "The **Aspen Forest** should feel emotionally different the second you enter: airy, ancient, slightly magical — peaceful but eerie. Pale white bark, golden leaves trembling in the wind, soft light beams, thin undergrowth.\n\n## Role: stealth, foraging, exploration\nLess food than the [[meadow]], but better visibility and quiet movement. Safe — if you are careful. Ground danger is low; the sky is the threat: owls, hawks, foxes at dusk, snakes in leaf piles.\n\n## Resources\n- Common: fallen leaves, bark fibers, small seeds, dry twigs, insects under bark\n- Rare: medicinal mushrooms, owl feathers, shiny objects carried from the [[human-house]], abandoned bird nests\n- **Aspen bark** is a special crafting resource: bedding, insulation, nest lining, lightweight wraps\n\n## The quaking\nAspens tremble in wind. Rustling leaves, moving shadows, drifting gold — and strong wind hides the sound of your movement. Advanced stealth lives here.\n\n## At night\nThe pale trunks glow faintly in moonlight and the forest turns silver-blue — one of the prettiest places in the world after dark. Somewhere between here and the [[crossable-creek]], a faint blue glow is sometimes seen through the trees…\n\n## Emotion\nSolitude, curiosity, calm exploration, hidden secrets. Not fear.\n\n> Old mice say spirits live there, that the trees whisper, that lost mice disappear beneath the roots. None of it is confirmed.",
+    "tags": [
+      "region",
+      "forest",
+      "aspen",
+      "stealth",
+      "calm",
+      "mystery"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "part-of"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "conceals"
+      },
+      {
+        "to": "moonpetal",
+        "kind": "yields"
+      },
+      {
+        "to": "barn-owl",
+        "kind": "hunted-by"
+      },
+      {
+        "to": "crossable-creek",
+        "kind": "borders"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "aspen-forest",
+    "title": "Aspen Forest",
+    "category": "region",
+    "coordinates": {
+      "x": -154,
+      "y": 0,
+      "z": -348,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The brightest, most alive place on the map — a miniature jungle of towering flowers, nectar and bees. Beautiful, and risky.",
+    "content": "To a mouse the **Wildflower Patch** is not a garden — it is a jungle. Lavender spires and golden wildflowers taller than you, clover mazes, drifting petals, butterflies, and the constant hum of bees. Sunny, fragrant, overgrown… and exposed.\n\n## Role: high-reward foraging\n- **Nectar** — energy boosts, healing recipes, special foods\n- Petals, soft stems, pollen, seeds, plant fibers — decoration, medicine, insulation, cosmetics\n- Insects everywhere: beetles, caterpillars, bees, butterflies — food, ingredients, hazards\n\n## The danger under the beauty\n- **Low cover from above** — disturbed flowers betray your movement to birds\n- **Bees** — usually indifferent, furious if startled\n- **Pollen clouds** — may slow visibility and make your scent easier to track\n\n## Living flowers\nWind shifts the pathways and visibility constantly. This biome should always be moving.\n\n## At dusk and night\nFlowers half-close, fireflies rise, colors mute to purple and blue — magical-looking, but louder with insects, and owl danger grows.\n\n> \"Never sleep in the flowers.\"\n> \"The bees remember faces.\"\n> \"Foxes hunt there at sunset.\"",
+    "tags": [
+      "region",
+      "flowers",
+      "foraging",
+      "bees",
+      "exposed"
+    ],
+    "related": [
+      {
+        "to": "berry-bushes",
+        "kind": "borders"
+      },
+      {
+        "to": "meadow",
+        "kind": "borders"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "wildflower-patch",
+    "title": "Wildflower Patch",
+    "category": "region",
+    "coordinates": {
+      "x": 202,
+      "y": 0,
+      "z": 73,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The stealth biome: a living wall of towering grass where you hear more than you see — and so does everything else.",
+    "content": "Inside the **Tall Grass** the world closes in: towering blades, bent pathways, seed heads overhead, moving shadows. The player is swallowed by vegetation. It is all about concealment versus uncertainty.\n\n## Role: stealth, escape, ambush\nHide, travel unseen, evade predators, slip between dangerous areas. Sightlines collapse — you can vanish here. So can foxes, snakes, spiders, and cats straying from the [[human-house]].\n\n## Sound is everything\nRustling stems, wind, insects, snapping stalks. Your movement makes noise and shakes the grass visibly — move carefully. In strong wind, walls of grass move together and hide your sound entirely.\n\n## What mice do here\n- Hide and wait out danger\n- Hunt crickets, grasshoppers, beetles, moths\n- Build brief, concealed rest spots and stashes\n\n## Weather\nRain bends the grass heavy and slow; wind turns the whole biome into a shifting maze.\n\n## At night\nVisibility nearly vanishes; sound becomes survival; eyes may glow between the stems. Tense, disorienting — and safe, if used well.\n\n> \"Stay still when the grass stops moving.\"\n> \"The silent grass is the dangerous grass.\"\n> \"Foxes listen more than they look.\"",
+    "tags": [
+      "region",
+      "stealth",
+      "grass",
+      "concealment",
+      "tension"
+    ],
+    "related": [
+      {
+        "to": "meadow",
+        "kind": "borders"
+      },
+      {
+        "to": "garter-snake",
+        "kind": "haunted-by"
+      },
+      {
+        "to": "red-fox",
+        "kind": "haunted-by"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "tall-grass",
+    "title": "Tall Grass",
+    "category": "region",
+    "coordinates": {
+      "x": 284,
+      "y": 0,
+      "z": -196,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The great food larder: dark tangled bushes heavy with purple fruit — and everyone in the forest wants a share.",
+    "content": "To a mouse a **Berry Bush** is almost a miniature forest: twisting thorny branches, thick leaves, deep shadow beneath, and clusters of dark brownish-purple fruit. Rich, overgrown, tempting.\n\n## Role: primary early-game food zone\nBerries restore hunger, store for winter, and feed recipes. The bushes respawn. Players return here constantly — and that is exactly why it is dangerous.\n\n## What mice do here\n- Gather berries (and fallen ones beneath)\n- Hide in the deep shadow under the leaves — instant cover, escape routes\n- Hunt the beetles, ants, flies and caterpillars the fruit attracts\n\n## The danger: everyone wants the berries\nFoxes, birds, raccoons, snakes — and cats when near the [[human-house]] side. Some predators simply wait, silent, beside the heaviest branches.\n\n## Weather & seasons\nAfter rain the berries shine, scent carries farther, mud forms below — more visitors, easier tracking. Fruit ripens and thins with the seasons; the world should feel alive.\n\n## Why the berries are that gothic purple\nThe darker fruit reads richer, moodier, less cartoonish — it gives the world personality.\n\n> \"The sweetest berries grow where danger hunts.\"\n> \"Never eat the pale ones.\"\n> \"Foxes wait near the heavy bushes.\"",
+    "tags": [
+      "region",
+      "food",
+      "berries",
+      "risk",
+      "gathering"
+    ],
+    "related": [
+      {
+        "to": "wildflower-patch",
+        "kind": "complements"
+      },
+      {
+        "to": "red-fox",
+        "kind": "stalked-by"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "berry-bushes",
+    "title": "Berry Bushes",
+    "category": "region",
+    "coordinates": {
+      "x": 269,
+      "y": 0,
+      "z": -41,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "Moving water that divides the map — a shallow, survivable barrier that teaches respect for nature itself.",
+    "content": "The **Crossable Creek** is not just water. It is a boundary, a navigation puzzle, a source of life, and a danger with no teeth. Cold, moving, reflective — to a mouse, even a shallow creek is massive and powerful.\n\n## \"Crossable\" is the point\nDangerous, but survivable: shallow fords, stepping stones, sticks and fallen branches. Choosing WHERE to cross is the gameplay.\n\n## Crossing costs\n- Water drains stamina and slows movement\n- A wet mouse loses warmth faster and leaves a stronger scent trail\n- Slip, and the current can take you\n\n## Life at the water\nFrogs, fish, dragonflies, water beetles, snakes, herons. Reeds and cattails for rope-craft; smooth stones; mud for building; water mint at the margins.\n\n## Weather changes everything\nAfter storms the creek rises and fords vanish — sometimes impassable for a day. In drought, stones stand exposed and crossings multiply.\n\n## At night\nReflections shimmer; depth becomes hard to judge; the sound grows. Eerie, cold, hypnotic — moonlight on water is one of the most beautiful sights in the game.\n\nBehind roots on the far bank, they say, there is a tiny cave that only shows itself when the water is low… (see [[hidden-places]]).\n\n> \"Fast water steals careless paws.\"\n> \"Cross upstream after rain.\"\n> \"Never trust still water.\"",
+    "tags": [
+      "region",
+      "water",
+      "traversal",
+      "danger",
+      "landmark"
+    ],
+    "related": [
+      {
+        "to": "aspen-forest",
+        "kind": "borders"
+      },
+      {
+        "to": "old-well",
+        "kind": "near"
+      },
+      {
+        "to": "garter-snake",
+        "kind": "haunted-by"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "crossable-creek",
+    "title": "Crossable Creek",
+    "category": "region",
+    "coordinates": {
+      "x": 37,
+      "y": 0,
+      "z": -412,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "A moss-hidden wayside shelter below the Pine Forest — not as good as Home, but far safer than open ground.",
+    "content": "The **Fallen Log** lies in shadow and moss below the [[pine-forest]], near the lower path crossing — close to forest resources, partly concealed, easy for predators to pass without a glance. Mice have always used logs like this; that is why it feels real.\n\n## Role: hideout & temporary shelter\n- **Rest** — short naps restore a little sleep (slower than [[home]])\n- **Scavenge** — mushrooms, beetles, pine nuts, moss seeds, hidden crumbs\n- **Hide** — crawl inside and visibility drops to almost nothing (so does your own)\n- **Emergency storage** — a paw-full of items, three to five early on\n\n## Weather\nA blessing in rain, storms and cold nights; a hazard in floods, rot, and snake nesting season.\n\n## Never perfectly safe\nSpiders, snakes, centipedes, raccoons digging through — and mold sickness if you sleep too long. The log keeps its tension.\n\n## Its story\nAn old mouse hideout, abandoned after a predator attack — the legendary safe spot older mice still mention. Inside: scratched warnings, old stored seeds, lost things. Beneath it, a hidden mouth of the [[tunnel-network]].\n\n## One day\nLine it with grass, reinforce it with bark, dig side tunnels, hide food, add escape holes.",
+    "tags": [
+      "region",
+      "shelter",
+      "hideout",
+      "waypoint"
+    ],
+    "related": [
+      {
+        "to": "pine-forest",
+        "kind": "below"
+      },
+      {
+        "to": "tunnel-network",
+        "kind": "conceals-entrance"
+      },
+      {
+        "to": "home",
+        "kind": "waypoint-toward"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "fallen-log",
+    "title": "Fallen Log",
+    "category": "region",
+    "coordinates": {
+      "x": -193,
+      "y": 0,
+      "z": -44,
+      "map": "overworld"
+    }
+  },
+  {
+    "id": "old-well",
+    "title": "Old Well",
+    "category": "region",
+    "status": "canon",
+    "summary": "A cracked, moss-grown human relic — cool, damp, echoing, and very deep. The first proof that giants were here long before you.",
+    "content": "The **Old Well** is the strangest place on the map: weathered stone, moss between cracked blocks, vines trailing into a dark opening, broken beams. It is the first place that whispers: *humans were here long before me.*\n\n## Role: mystery & vertical exploration\n- **Water** — clean and cold, a hydration refill, a cool rest\n- **Climb & descend** — rope fibers, roots, cracks in the stones\n- **Secrets** — hidden tunnels, abandoned nests, shiny lost objects, old human things\n\n## The danger is DEPTH\nNo predator needed. One thought should always hang overhead: *if I fall, I may not get back out.*\n\n## Its own small ecosystem\nFrogs, spiders, beetles, snakes — bats, later, and glowing insects far below. The air is colder; morning mist gathers; every sound echoes: dripping water, falling pebbles, distant movement.\n\n## At night\nThe dark inside feels endless. Strange sounds rise. Moonlight touches the water far below; sometimes something glints back.\n\n~~## Late-game promise~~\n~~An underground biome entrance; a water network; passages that some say run all the way to the [[human-house]].~~\n\n> \"Never go near the deep water.\"\n> \"Something lives below.\"\n> \"The rope moves at night.\"",
+    "tags": [
+      "region",
+      "human-relic",
+      "mystery",
+      "vertical",
+      "landmark"
+    ],
+    "related": [
+      {
+        "to": "crossable-creek",
+        "kind": "near"
+      },
+      {
+        "to": "tunnel-network",
+        "kind": "may-connect"
+      },
+      {
+        "to": "human-house",
+        "kind": "rumored-passage"
+      }
+    ],
+    "attachments": [],
+    "coordinates": {
+      "x": 155,
+      "y": 0,
+      "z": -223,
+      "map": "overworld"
+    },
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:56:07.760Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "A hidden glowing clearing between the Aspen Forest and the creek — the world's one place of pure wonder. Never marked on any map.",
+    "content": "The **Moonstone Hollow** is deliberately NOT a labeled biome. No path leads to it. It hides between the [[aspen-forest]] and the [[crossable-creek]], off every trail, behind dense trees — and players simply stumble into it. That is the whole point.\n\n## By day\nA quiet clearing. Strange pale stones. Nothing obvious.\n\n## By night\nIt transforms: glowing moss, pale flowers, silver stones, drifting spores, soft blue-white light, fireflies. Through distant trees a faint blue glow — *what is that?* — and the discovery becomes real.\n\n## What it holds\n- Glowing moss, [[moonpetal|moon petals]], crystal fragments, luminous mushrooms\n- Items from the Hollow glow in darkness, improve night sight, calm fear\n- The seat of the [[moonkeepers]] lies deeper still, reached through the [[tunnel-network]]; at its heart stands the Reading Stone\n\n## Design law\nKeep it small, subtle, emotionally powerful. No combat. No quest hub. No flashy fantasy magic — the grounded world is what makes the Hollow feel sacred. Its rewards are wonder, rare glowing materials, and perhaps a flower crown.\n\n> An old mouse, if asked, will only say: \"Some places shine after moonrise.\"",
+    "tags": [
+      "hidden",
+      "sacred",
+      "moonstone",
+      "easter-egg",
+      "wonder"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "part-of"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "home-of"
+      },
+      {
+        "to": "moonstone",
+        "kind": "lit-by"
+      },
+      {
+        "to": "hidden-places",
+        "kind": "greatest-of"
+      },
+      {
+        "to": "aspen-forest",
+        "kind": "hidden-near"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "moonstone-hollow",
+    "title": "Moonstone Hollow",
+    "category": "region",
+    "coordinates": {
+      "x": -260,
+      "y": -40,
+      "z": -260,
+      "map": "underground"
+    }
+  },
+  {
+    "status": "review",
+    "summary": "The secret world inside the world: wall spaces, hollow stumps, root tunnels, caves behind the creek — found only by the curious.",
+    "content": "Whisker Wood's scale creates secret spaces everywhere. The best hidden areas never feel like video-game caves — they feel like places a tiny mouse could really find. They are believable, optional, atmospheric, and they never scream \"secret area.\"\n\n## The known secrets\n- **[[moonstone-hollow]]** — the glowing clearing; the greatest of them all\n- **The [[tunnel-network]]** — root-roads beneath the Pine Forest\n- **Hollow Stump Interior** — a rotting stump hiding a whole vertical ecosystem: glowing fungus, beetles, dripping water — perhaps another survivor, and journal scratches on the walls\n- **The Wall Space** — inside the [[human-house]] walls: insulation tunnels, stolen treasures, warm mouse highways. It turns the House into a layered world\n- **Pantry Crawlspace** — under the giant kitchen: the ultimate loot zone, guarded by traps, the cat, and the giants themselves\n- **Creekside Cavern** — behind roots beside the [[crossable-creek]], visible only at low water: crystal minerals, a hidden spring, glowing moss\n- **Owl Watch Tree** — a dead tree with a perch that shows the whole map. Bones and feathers warn you whose perch it is\n- **Abandoned Bird Nest** — high, dangerous climbing; feathers, string, shiny things. The owner may return\n- **Buried Garden Tunnel** — soft-soiled passages under the [[wildflower-patch]], roots overhead, insect colonies below\n- **The Flooded Pipe** — a broken drain near the House; slippery, industrial, strange\n\n## Design law\nReveal nothing. The moment that matters is: *\"Wait… I can go IN here?\"*",
+    "tags": [
+      "hidden",
+      "secrets",
+      "exploration",
+      "easter-eggs"
+    ],
+    "related": [
+      {
+        "to": "moonstone-hollow",
+        "kind": "includes"
+      },
+      {
+        "to": "tunnel-network",
+        "kind": "includes"
+      },
+      {
+        "to": "human-house",
+        "kind": "riddles"
+      },
+      {
+        "to": "small-details",
+        "kind": "companion-note"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "hidden-places",
+    "title": "The Hidden Places",
+    "category": "region"
+  },
+  {
+    "status": "canon",
+    "summary": "The burrow. Warm, hidden, personal — the emotional and mechanical anchor of the entire game.",
+    "content": "Every other place is risky, uncertain, temporary. **Home** is the opposite: warm, hidden, personal, safe, alive. It is *the place I return to after surviving the world* — and it is simply called Home, because that word makes players project their own feeling onto it.\n\n## Outside\nEasy to miss: tucked beneath roots and grass, a small entrance hole, moss, faint worn trails. Predators shouldn't notice it.\n\n## Inside\nDim, warm, comforting: grass nest, leaf bedding, twig supports, food piles, tiny tunnels, earthy walls.\n\n## Role: safe zone & progression hub\nRest (fastest recovery, warmth, sickness healing), storage that physically appears in the burrow, [[crafting]] at the crafting corner, upgrades, decoration.\n\n## Home evolves\n- **Early** — one cramped nest chamber and a food pile\n- **Mid** — storage chamber, reinforced walls, extra exits, first decorations\n- **Late** — many rooms, an underground network, escape tunnels, furniture, glowing lantern-mushroom light — and a nursery (see [[family-and-legacy]])\n\n## Safe — never invincible\nStorm flooding, a discovered entrance, collapse after heavy rain, parasites if neglected. The tension never fully leaves.\n\n## The feeling\nStorm outside; family sleeping in a pile; warm den glow; food stocked for winter. Rain drips beyond the doorway and you are safe.\n\n> \"A strong burrow means another spring.\"\n> \"The roots remember every family.\"",
+    "tags": [
+      "home",
+      "burrow",
+      "safe-zone",
+      "progression",
+      "cozy"
+    ],
+    "related": [
+      {
+        "to": "crafting",
+        "kind": "hosts"
+      },
+      {
+        "to": "family-and-legacy",
+        "kind": "shelters"
+      },
+      {
+        "to": "fallen-log",
+        "kind": "backup-shelter"
+      },
+      {
+        "to": "whisker-wood",
+        "kind": "anchored-in"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "home",
+    "title": "Home",
+    "category": "building",
+    "coordinates": {
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "map": "overworld"
+    }
+  },
+  {
+    "status": "removed",
+    "summary": "STRUCK FROM CANON (v2): the world outgrew a single house. Humans now shape Whisker Wood only from its edges.",
+    "content": "> **Keeper's note (canon v2):** This page is preserved for the record, but the Human House is no longer part of Whisker Wood. Once the world grew into one enormous protected wilderness with the Five Great Cities beneath and above it, a single abandoned house stopped making sense.\n\n## What replaced it\nHumans still exist — experienced from the **edges** of the world (see [[humans-at-the-edges]]): a hiking trail, a summer campsite, a picnic ground, a ranger station, old logging roads. Human objects survive as **discovered treasures**, never destinations — a lost button becomes a shield, a marble a prized decoration, a thimble a bucket, a spool a table.\n\n## What this page used to describe\nA giant's fortress of food and terror: stair-cliffs, carpet-grasslands, kitchen raids at night, the [[house-cat]] hunting silently. The best of those ideas — scale contrast, tension, scavenged riches — now live spread across the whole wilderness instead of packed into one building.",
+    "tags": [
+      "human",
+      "removed",
+      "canon-v2",
+      "history"
+    ],
+    "related": [
+      {
+        "to": "humans-at-the-edges",
+        "kind": "superseded-by"
+      },
+      {
+        "to": "house-cat",
+        "kind": "was-guarded-by"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 3,
+    "author": "The Keeper",
+    "id": "human-house",
+    "title": "Human House",
+    "category": "building"
+  },
+  {
+    "status": "canon",
+    "summary": "The Moonkeepers' underground roads: a root-woven maze of passages joining the forests to the deep Rootways.",
+    "content": "Beneath the [[pine-forest]] lies a maze of tunnels formed under giant roots — tiny chambers, old nests, hidden caches, underground shortcuts. Cramped, ancient, safe but eerie. This is mouse infrastructure.\n\n## The Great Tunnel Network\nIt is also far more: one of the [[moonkeepers]]' greatest works. Not mines — **roads**. Underground highways once connected the [[aspen-forest]], the Pine Forest, the [[meadow]], the [[crossable-creek]], [[everbough]] itself, and sanctuaries no map remembers. Many entrances have collapsed; others hide behind roots, rocks, and the [[fallen-log]].\n\n## Restoring the roads\nReopening the network is one of the longest projects a mouse can undertake — clearing falls, re-marking junction runes, relearning which turns were meant to mislead. Every junction bears a carved rune; every dead end once had a reason.\n\nThe longest, safest road leads to the [[moonstone-hollow]].",
+    "tags": [
+      "underground",
+      "infrastructure",
+      "tunnels",
+      "moonkeepers"
+    ],
+    "related": [
+      {
+        "to": "pine-forest",
+        "kind": "beneath"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "leads-to"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "built-by"
+      },
+      {
+        "to": "fallen-log",
+        "kind": "entrance-under"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "tunnel-network",
+    "title": "The Tunnel Network",
+    "category": "building"
+  },
+  {
+    "status": "canon",
+    "summary": "The player: a quietly curious little survivor trying to build a life in a gigantic world.",
+    "content": "The mouse is **quietly curious** — observant, emotional, cautious, kind. Not superhero-brave, not comic relief. The player should feel: *this tiny creature is trying to build a life.*\n\n## Habits that make a character\n- adjusts the [[the-bracelet|bracelet]] when nervous\n- touches the [[the-backpack|backpack]] strap while thinking\n- curls the tail while sleeping\n- pauses to watch fireflies\n- flattens ears during storms\n- shakes water off after rain; curls close to family in thunder\n\n## The inner voice\nRare, soft, memory-like thoughts at meaningful moments — never constant narration.\n\n> \"I remember when Mother gave this to me…\"\n> \"They sleep just like we used to…\"\n\nBad: \"I should gather berries now!\" Good: memories, fears, hopes, attachment — then silence, and the rain going on outside.\n\n## Where the voice belongs\nInside [[home]] during storms and family moments; in real danger; at quiet firsts — the first sunrise in the [[meadow]], the discovery of [[moonstone-hollow]].",
+    "tags": [
+      "player",
+      "protagonist",
+      "personality"
+    ],
+    "related": [
+      {
+        "to": "the-backpack",
+        "kind": "carries"
+      },
+      {
+        "to": "the-bracelet",
+        "kind": "wears"
+      },
+      {
+        "to": "the-companion",
+        "kind": "bonds-with"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "lives"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-mouse",
+    "title": "The Mouse",
+    "category": "character"
+  },
+  {
+    "id": "pip",
+    "title": "Pip Thornwhisker",
+    "category": "character",
+    "status": "canon",
+    "summary": "A curious young Moonkeeper apprentice and the compiler of the Grand Library.",
+    "content": "**Pip Thornwhisker** was a small brown field mouse with an oversized satchel and an even larger curiosity. Long before the hidden city of [[Everbough]] was rediscovered, Pip wandered the forests beyond its borders, gathering leaves, sketching maps, collecting strange trinkets, and recording stories that other mice dismissed as myths.\n\nPip's proudest craft was a well-made [[moss-bedding]], and his greatest dream was to map every passage of the [[tunnel-network]]. Wherever an old well, forgotten ruin, hidden waterfall, or mysterious hollow could be found, Pip was certain there was another secret waiting to be uncovered.\n\nFascinated by the forgotten [[moonkeepers]], Pip spent years searching for clues to their vanished order. His journals, sketches, and maps hinted at an ancient path leading to the legendary city of [[Everbough]], though no one knows whether he ever truly reached it.\n\nPip eventually disappeared without a trace.\n\nToday, every young mouse in Everbough learns the story of Pip Thornwhisker at school. Some believe he rediscovered the Moonkeepers' lost secrets. Others insist he became lost in the ancient tunnels forever. Historians continue to debate the truth, and much of Pip's story has faded into legend.\n\nAs the player explores the world, they uncover Pip's original journals, maps, campsites, and belongings, slowly revealing that the stories taught in the classroom are only part of what really happened.\n",
+    "tags": [
+      "mouse",
+      "apprentice",
+      "keeper"
+    ],
+    "related": [
+      {
+        "to": "moonkeepers",
+        "kind": "member-of"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "lives-in"
+      },
+      {
+        "to": "moss-bedding",
+        "kind": "crafts"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-02T19:29:19.899Z",
+    "version": 3,
+    "author": "The Keeper"
+  },
+  {
+    "id": "the-elder",
+    "title": "The Elder",
+    "category": "character",
+    "status": "draft",
+    "summary": "An old mouse mentor — parent, elder sibling, or wandering survivor — who appears rarely and says just enough.",
+    "content": "# The Elder\n\nThe **Elder** is not a constant companion — just occasional guidance in the first days, and a voice for the old survival culture afterward. They never explain the world outright; they leave hints that only make sense later.\n\n\nThe **Elder** is the beloved teacher of Everbough's Grand Library, where every young mouse begins their education. Patient, wise, and endlessly curious, he has devoted his life to preserving the history, traditions, and stories of the forest.\n\nRather than giving direct answers, the Elder teaches through stories and short sayings that encourage mice to think for themselves. These lessons have been collected over generations as **[[whisker-wisdom]]**, and nearly every mouse in Everbough can recite at least a few by heart.\n\nEach morning, the Elder welcomes his students with a new lesson. Some are simple reminders for daily life, while others quietly hint at forgotten places, ancient mysteries, and the secrets of the [[moonkeepers]]. Most students hear only words of wisdom. The curious eventually realize that many of his sayings contain clues hidden in plain sight.\n\nThe Elder is one of Everbough's foremost historians and often teaches the legend of **[[pip-thornwhisker]]**, the famous explorer whose disappearance remains one of the city's greatest mysteries. Though he knows the official histories better than anyone, the Elder openly admits that many parts of the past have been lost to time.\n\nHe believes that true knowledge is not inherited—it is discovered. Rather than telling young explorers where to go, he hopes they will ask questions, follow their curiosity, and uncover the answers for themselves.\n\nAs the player's journey unfolds, they gradually discover that some of the Elder's oldest sayings are more than simple wisdom—they are echoes of truths that have waited generations to be understood.\n",
+    "tags": [
+      "mentor",
+      "npc",
+      "tutorial",
+      "sayings"
+    ],
+    "related": [
+      {
+        "to": "the-first-day",
+        "kind": "guides"
+      },
+      {
+        "to": "whisker-wisdom",
+        "kind": "voice-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:37:59.377Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "id": "the-companion",
+    "title": "The Companion",
+    "category": "character",
+    "status": "review",
+    "summary": "Another survivor, met naturally in the world — who may, slowly, come to share the burrow and the life inside it.",
+    "content": "The Companion is **not a collectible, a stat bonus, or an unlock**. They are another survivor in the world.\n\n## Meeting them\nNever scripted at a set moment. Perhaps: an injured mouse near the [[crossable-creek]];~~ a scavenger near the [[human-house]];~~ a stranger hiding in the [[tall-grass]] during a storm. The player helps — food, shelter, protection — and trust builds across repeated encounters. Never \"press button, get mate.\"\n\n## When they move into Home\n[[home]] changes: someone sleeps beside you, organizes the food piles, repairs the nest, startles at thunder, warns of predators. The burrow starts feeling alive instead of empty.\n\nFrom here, the family grows — see [[family-and-legacy]].",
+    "tags": [
+      "mate",
+      "family",
+      "companion",
+      "emotional"
+    ],
+    "related": [
+      {
+        "to": "home",
+        "kind": "lives-in"
+      },
+      {
+        "to": "family-and-legacy",
+        "kind": "begins"
+      },
+      {
+        "to": "the-mouse",
+        "kind": "bonds-with"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:31:10.280Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "The great pale hunter of the night sky — the mice's oldest fear.",
+    "content": "Silent-winged and moon-faced, the **Barn Owl** hunts the [[aspen-forest]] edges and the open [[meadow]] at dusk. Mice navigate by owl-shadow and owl-silence; a too-quiet grove means one is near.\n\n## Surviving the owl\n- Stay under cover after dusk; the open Meadow at night belongs to the sky\n- Hide in bushes or the [[tall-grass]]; freeze when spotted\n- The [[pine-forest]] canopy is your roof — but owls nest overhead there too\n\nThe [[moonkeepers]] chart owl territories in the Endless Scroll. Its fallen feathers are prized for stealth crafting.",
+    "tags": [
+      "predator",
+      "bird",
+      "night",
+      "danger"
+    ],
+    "related": [
+      {
+        "to": "aspen-forest",
+        "kind": "hunts-in"
+      },
+      {
+        "to": "meadow",
+        "kind": "hunts-over"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "yields-feathers"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "barn-owl",
+    "title": "Barn Owl",
+    "category": "animal"
+  },
+  {
+    "id": "red-fox",
+    "title": "Red Fox",
+    "category": "animal",
+    "status": "canon",
+    "summary": "The patient patroller of meadow edges and berry bushes — it listens more than it looks.",
+    "content": "The **Red Fox** patrols the [[meadow]] edges and waits, silent, near the heaviest [[berry-bushes]]. It crosses the open ground at dusk and hunts the [[tall-grass]] by ear.\n\n## Surviving the fox\n- Use tunnels and the [[fallen-log]]; a fox will not dig long for a maybe\n- In grass, stillness beats speed — it strikes at sound and motion\n- Watch for pawprints near the Meadow: danger moves through the world and leaves signs\n\n> \"Foxes listen more than they look.\"\n> \"Foxes hunt there at sunset.\"",
+    "tags": [
+      "predator",
+      "dusk",
+      "meadow",
+      "danger"
+    ],
+    "related": [
+      {
+        "to": "meadow",
+        "kind": "patrols"
+      },
+      {
+        "to": "berry-bushes",
+        "kind": "stalks"
+      },
+      {
+        "to": "tall-grass",
+        "kind": "hunts-in"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:38:47.727Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "A ribbon of danger in the leaf piles and creek reeds — quick, quiet, and closer than you think.",
+    "content": "The **Garter Snake** haunts the margins of the [[crossable-creek]] and the deep [[tall-grass]], and in nesting season it favors dark hollows — even the [[fallen-log]].\n\n## Surviving the snake\n- Climb rocks; take the higher path along the creek\n- In grass, watch the stems: a snake parts them differently than wind\n- Never sleep in an unchecked hollow in nesting season\n\nIts shed skin is a rare crafting material for those brave enough to collect it.",
+    "tags": [
+      "predator",
+      "creek",
+      "grass",
+      "danger"
+    ],
+    "related": [
+      {
+        "to": "crossable-creek",
+        "kind": "haunts"
+      },
+      {
+        "to": "tall-grass",
+        "kind": "haunts"
+      },
+      {
+        "to": "fallen-log",
+        "kind": "nests-in"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "garter-snake",
+    "title": "Garter Snake",
+    "category": "animal"
+  },
+  {
+    "id": "house-cat",
+    "title": "The Striped Cat",
+    "category": "animal",
+    "status": "removed",
+    "summary": "A ranger's cat that roams in from the edges of the wilderness — patient, silent, and the deadliest hunter a mouse will ever meet.",
+    "content": "The **Striped Cat** arrives with the humans — it lives at the ranger station and prowls in from [[humans-at-the-edges]] when the campsite is occupied. Unlike the forest hunters it does not need to eat you; it hunts because it enjoys the game.\n\n## Surviving the cat\n- If human scent is fresh, assume the cat came with it\n- Learn its sunbeam hours; it sleeps long and hunts silently\n- Thick cover beats speed — it strikes at movement in the open\n- When a busy clearing goes quiet, ask WHY it is quiet\n\n> \"The striped cat hunts silently.\"\n\n*Status note: its territory and how often it visits the deep forest are still under review after the Human House was struck from canon.*",
+    "tags": [
+      "predator",
+      "cat",
+      "danger",
+      "humans-edge"
+    ],
+    "related": [
+      {
+        "to": "humans-at-the-edges",
+        "kind": "comes-with"
+      },
+      {
+        "to": "berry-bushes",
+        "kind": "prowls-near"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:11:50.118Z",
+    "version": 3,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "A pale night-blooming flower whose petals hold a faint glow; sacred to the Moonkeepers.",
+    "content": "The **Moonpetal** opens only under moonlight, its five petals faintly luminous. Found at the bright edges of the [[aspen-forest]] and in abundance within the [[moonstone-hollow]], it is gathered for lanterns and medicine — including the rare calming Moon Petal Tea (see [[recipes-food-survival]]).\n\nThe [[moonkeepers]] consider a moonpetal left as an offering the politest of prayers.",
+    "tags": [
+      "flower",
+      "night-blooming",
+      "reagent",
+      "glow"
+    ],
+    "related": [
+      {
+        "to": "aspen-forest",
+        "kind": "grows-in"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "abounds-in"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "sacred-to"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "moonpetal",
+    "title": "Moonpetal",
+    "category": "plant"
+  },
+  {
+    "status": "canon",
+    "summary": "Handmade mouse survival gear — stitched leaves, twine straps, acorn-cap buttons — that grows with its owner's story.",
+    "content": "Because the camera rides behind the mouse, the **backpack** is part of the character's identity. It is never a scaled-down human bag — it is survival gear a mouse actually built: stitched leaves, cloth scraps, string straps, acorn-cap buttons, a bark frame, a tiny rolled blanket.\n\n## It tells your story\n- Empty: slim and light. Full: stuffed, mushrooms poking out, cloth dangling\n- **Early**: a tiny leaf pouch → **Mid**: a stitched cloth pack → **Late**: an organized survival kit with a lantern mushroom and feather charms\n- Rain beads on it; it rests beside the nest while you sleep; one day, little paws tug at its dangling straps\n\n## Charms & pins\nTiny collected keepsakes hang from it — a feather charm, a glowing pebble, a berry bead, a button from the [[human-house]].\n\nDesign rule: keep it SMALL. The mouse silhouette comes first.",
+    "tags": [
+      "gear",
+      "inventory",
+      "identity",
+      "cosmetic"
+    ],
+    "related": [
+      {
+        "to": "the-mouse",
+        "kind": "carried-by"
+      },
+      {
+        "to": "recipes-exploration-gear",
+        "kind": "crafted-via"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-backpack",
+    "title": "The Backpack",
+    "category": "item"
+  },
+  {
+    "status": "canon",
+    "summary": "A woven grass band with one scavenged bead — small, handmade, and worth more than anything in the Human House.",
+    "content": "A **braided grass bracelet with one tiny scavenged bead** — natural, cozy, believable. Not human jewelry shrunk down; a treasure a mouse repurposed and kept.\n\n## Why it matters\nIt was given — by family, in childhood — and the mouse adjusts it when nervous. In a storm cutscene it taps softly against the backpack buckle, wet with rain, visible in the lantern glow of [[home]].\n\n> \"I remember when Mother gave this to me…\"\n\nDesign rule: tiny, subtle, asymmetrical. Too much decoration would break the grounded survival tone.",
+    "tags": [
+      "keepsake",
+      "cosmetic",
+      "emotional",
+      "family"
+    ],
+    "related": [
+      {
+        "to": "the-mouse",
+        "kind": "worn-by"
+      },
+      {
+        "to": "recipes-charms-cosmetics",
+        "kind": "crafted-via"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-bracelet",
+    "title": "The Braided Bracelet",
+    "category": "item"
+  },
+  {
+    "id": "resource-guide",
+    "title": "The Forager's Guide to Everything",
+    "category": "resource",
+    "status": "canon",
+    "summary": "The complete survival ecosystem: every food, material, medicine and secret resource, and where the world hides it.",
+    "content": "Every biome gives different materials, food and dangers — resources are tied to the environment naturally, and value rises with risk. That is what makes travel worth it.\n\n## Food\n- Berries — [[berry-bushes]] — main hunger restoration\n- Pine nuts — [[pine-forest]] — long-lasting food\n- Nectar — [[wildflower-patch]] — energy boost\n- Clover seeds — [[meadow]] — small dependable food\n- Mushrooms — Pine Forest, [[fallen-log]] — food and medicine\n- Beetles, grasshoppers, ants — forests, grass, bushes — protein\n- Water — [[crossable-creek]], dew drops, flower cups\n\n## Natural materials\n- Twigs and sticks — forests and meadow — building\n- Bark fibers and bark sheets — [[aspen-forest]] — lining and walls\n- Moss — Pine Forest and creek — bedding and insulation\n- Grass fibers — Meadow, [[tall-grass]] — weaving\n- Pine needles, leaves, petals, lavender — bedding, decoration, scent\n- Reeds and mud — creek — rope-craft and reinforcement\n\n## Rare & special\n- Glowing moss, crystal fragments, moon petals — [[moonstone-hollow]]\n- Owl and crow feathers — stealth crafting and charms\n- Snake skin, beetle shells, spider silk, bee wax — creature craft\n\n## Medicine\nMedicinal mushrooms (healing), moon petals (night sight), pollen (buffs), bitter herbs (antidote), sap droplets (sealant).\n\n## Secret finds\nAncient seeds in the [[tunnel-network]];  lost human coins; strange bones at the Owl Watch Tree.\n\n## Progression\nEarly: berries, grass, twigs, mushrooms. Mid: nectar, feathers, bark, reeds. Late: glowing resources, secret collectibles.",
+    "tags": [
+      "resources",
+      "guide",
+      "foraging",
+      "reference"
+    ],
+    "related": [
+      {
+        "to": "crafting",
+        "kind": "feeds"
+      },
+      {
+        "to": "whisker-wood",
+        "kind": "maps"
+      },
+      {
+        "to": "moonstone",
+        "kind": "includes"
+      },
+      {
+        "to": "pine-needles",
+        "kind": "includes"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:09:29.060Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "A softly glowing silver-blue mineral found in the deep roots; the light of the Hollow.",
+    "content": "**Moonstone** grows in slow veins through the deep root-rock, giving off a cool silver-blue light. It lights the [[moonstone-hollow]] and is prized for crafting lanterns and charms. Removing large amounts is forbidden by the [[moonkeepers]].",
+    "tags": [
+      "mineral",
+      "glow",
+      "rare"
+    ],
+    "related": [
+      {
+        "to": "moonstone-hollow",
+        "kind": "found-in"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "protected-by"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "moonstone",
+    "title": "Moonstone",
+    "category": "resource"
+  },
+  {
+    "status": "canon",
+    "summary": "Fallen evergreen needles — humble but essential bedding and thatch material.",
+    "content": "Gathered by the pawful from the [[pine-forest]] floor, **pine needles** are springy, water-shedding, and everywhere. A core ingredient of [[moss-bedding]] and many a roof.",
+    "tags": [
+      "material",
+      "common",
+      "bedding"
+    ],
+    "related": [
+      {
+        "to": "pine-forest",
+        "kind": "gathered-from"
+      },
+      {
+        "to": "moss-bedding",
+        "kind": "ingredient-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "pine-needles",
+    "title": "Pine Needles",
+    "category": "resource"
+  },
+  {
+    "status": "canon",
+    "summary": "A soft woven nest of moss, grass, and pine needles — the first thing every mouse learns to craft.",
+    "content": "The **Moss Bedding** is a warm, springy nest and the classic first craft.\n\n## Ingredients\n- 5 Moss\n- 3 Grass Fibers\n- 2 [[pine-needles|Pine Needles]]\n\nWoven correctly it is snug enough to sleep a whole family. [[pip|Pip]] insists the secret is to line the rim with [[moonpetal]] for sweet dreams.",
+    "tags": [
+      "recipe",
+      "comfort",
+      "starter"
+    ],
+    "related": [
+      {
+        "to": "pine-needles",
+        "kind": "requires"
+      },
+      {
+        "to": "crafting",
+        "kind": "made-with"
+      },
+      {
+        "to": "recipes-home-comfort",
+        "kind": "first-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "moss-bedding",
+    "title": "Moss Bedding",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Ten crafts that turn a hole in the ground into a home: bedding, blankets, lamps, warmth and keepsakes.",
+    "content": "The first chapter of the Guildmaster's Ledger. Everything here makes [[home]] warmer, safer, and more yours.\n\n## The recipes\n- **1. [[moss-bedding|Moss Bedding]]** — 5 Moss, 3 Grass Fibers, 2 Pine Needles. Soft, warm nest\n- **2. Leaf Blanket** — 4 Large Leaves, 2 Grass Fibers, 1 Cloth Scrap. Survives cold nights and storms\n- **3. Den Wall Reinforcement** — 6 Bark Sheets, 4 Root Fibers, 3 Stones. Safer HOME in storms\n- **4. Nursery Nest** — 5 Moss, 4 Flower Petals, 2 Soft Cloth Fibers. Safe sleep for babies\n- **5. Lantern Mushroom Lamp** — 2 Glowing Mushrooms, 1 Mushroom Cap, 2 String. Soft glowing light\n- **6. Warmth Stones** — 5 Smooth Stones, 2 Moss, 1 Clay Mud. Keeps the nest warm at night\n- **7. Acorn Bowl** — 1 Large Acorn Cap, 1 Sap Droplet, 1 Grass Fiber. Stores berries or water\n- **8. Storage Cache** — 4 Bark Sheets, 5 Stones, 3 Dry Grass. Hidden storage; slows spoilage\n- **9. Family Keepsake Shelf** — 3 Bark Sheets, 2 Tiny Trinkets, 1 Feather. Decoration with memory\n- **10. Thistle Bed** — 5 Thistle Flowers, 4 Moss, 2 Pine Needles. Better sleep, better mornings",
+    "tags": [
+      "recipes",
+      "home",
+      "comfort"
+    ],
+    "related": [
+      {
+        "to": "home",
+        "kind": "improves"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-home-comfort",
+    "title": "Recipes — Home & Comfort",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Ten crafts for the road: the pack, the cloak, ropes, lanterns and the scent mask that keep a traveler alive.",
+    "content": "Gear for leaving [[home]] and coming back again.\n\n## The recipes\n- **11. Travel Backpack** — 3 Cloth Fibers, 4 String, 2 Bark Fibers. More carrying room (see [[the-backpack]])\n- **12. Leaf Rain Cloak** — 5 Large Leaves, 2 Sap Droplets, 3 String. Shrugs off rain and cold\n- **13. Root Rope** — 6 Root Fibers, 3 Grass Fibers. Climbing and gap-crossing\n- **14. Dew Water Pouch** — 2 Soft Cloth Fibers, 1 Sap Droplet, 1 String. Carry water\n- **15. Scent Mask Pouch** — 2 Lavender Flowers, 3 Moss, 1 Flower Petal. Hides your smell from hunters\n- **16. Waterproof Leaf Pack** — 4 Large Leaves, 2 Sap Droplets, 2 String, 1 Cloth Scrap. Dry inventory in rain\n- **17. Climbing Spikes** — 2 Sharp Thorns, 2 Beetle Shells, 2 Root Fibers. Steeper, faster climbs\n- **18. Glow Lantern** — 2 Glowing Moss, 1 Mushroom Cap, 2 String. Light for dark places\n- **19. Firefly Lantern** — 1 Glass Fragment, 3 Fireflies, 2 String, 1 Moss. A moving light that draws insects\n- **20. Moonstone Necklace** — 1 Crystal Fragment, 2 Root Fibers, 1 Tiny Bead, 1 Glowing Moss. Faint glow; night sight",
+    "tags": [
+      "recipes",
+      "gear",
+      "exploration"
+    ],
+    "related": [
+      {
+        "to": "the-backpack",
+        "kind": "includes"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "rare-materials-from"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-exploration-gear",
+    "title": "Recipes — Exploration Gear",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Ten recipes between a mouse and hunger: bundles, stews, poultices, balms — and the legendary Cheese Feast.",
+    "content": "What the forest gives, the crafting corner turns into meals and medicine.\n\n## The recipes\n- **21. Berry Bundle** — 6 Berries, 1 Twig. Portable snack\n- **22. Mushroom Stew** — 3 Mushrooms, 1 Creek Water, 2 Herbs. Warm healing meal\n- **23. Nectar Energy Mix** — 2 Nectar, 3 Clover Seeds. Stamina burst\n- **24. Roasted Beetle Snack** — 2 Beetles, 1 Twig. Protein of the pines\n- **25. Healing Poultice** — 2 Medicinal Mushrooms, 3 Moss, 1 Bitter Herb. Restores health\n- **26. Bee Wax Balm** — 2 Bee Wax, 1 Flower Petal, 1 Moss. Wards off cold and rain\n- **27. Glow Dust Satchel** — 2 Glowing Moss, 1 Mushroom Dust, 1 Cloth Scrap, 1 String. Faint tunnel light\n- **28. Cheese Feast** — 1 Cheese Chunk, 4 Berries, 2 Clover Seeds. Massive morale and hunger boost\n- **29. Moon Petal Tea** — 3 [[moonpetal|Moon Petals]], 1 Creek Water, 1 Nectar. Rare calming drink of the Hollow\n- **30. Snack Pouch** — 2 Cloth Fibers, 2 String, 3 Dry Grass. Extra food on long journeys",
+    "tags": [
+      "recipes",
+      "food",
+      "medicine",
+      "survival"
+    ],
+    "related": [
+      {
+        "to": "berry-bushes",
+        "kind": "supplied-by"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      },
+      {
+        "to": "moonpetal",
+        "kind": "uses"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-food-survival",
+    "title": "Recipes — Food & Survival",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Ten tiny treasures to wear and hang: bracelets, crowns, charms and jars of fireflies.",
+    "content": "Small things with big meaning — every charm is a memory you can wear.\n\n## The recipes\n- **31. Braided Grass Bracelet** — 4 Grass Fibers, 1 Tiny Bead. The keepsake (see [[the-bracelet]])\n- **32. Feather Charm** — 1 Owl Feather, 2 String. For the backpack strap\n- **33. Button Backpack Pin** — 1 Human Button, 1 String. A trophy from the giants' house\n- **34. Berry Seed Charm** — 3 Berry Seeds, 1 String\n- **35. Flower Crown** — 5 Wildflowers, 2 Grass Fibers\n- **36. Acorn Pendant** — 1 Acorn Cap, 1 String, 1 Tiny Pebble\n- **37. Lavender Anklet** — 3 Lavender Flowers, 2 Grass Fibers\n- **38. Crystal Ear Charm** — 1 Crystal Fragment, 1 String\n- **39. Firefly Jar Decoration** — 1 Glass Fragment, 2 Fireflies, 1 String\n- **40. Moonstone Crown** — 3 Crystal Fragments, 4 Moon Petals, 2 Root Fibers. The rarest thing a mouse can wear",
+    "tags": [
+      "recipes",
+      "cosmetics",
+      "charms"
+    ],
+    "related": [
+      {
+        "to": "the-bracelet",
+        "kind": "includes"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-charms-cosmetics",
+    "title": "Recipes — Charms & Cosmetics",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Ten works of mouse engineering: hideouts, bridges, storm doors, escape tunnels and the map table.",
+    "content": "The chapter that changes the world instead of the mouse.\n\n## The recipes\n- **41. Grass Hideout** — 8 Tall Grass, 3 Moss, 2 Twigs. Emergency shelter\n- **42. Twig Bridge** — 5 Sticks, 4 Root Fibers. Cross puddles and gaps\n- **43. Lookout Perch** — 4 Bark Sheets, 3 Twigs. Scout danger safely\n- **44. Escape Tunnel** — 6 Root Fibers, 5 Stones, 4 Packed Dirt. A hidden second way out of [[home]]\n- **45. Storm Door** — 4 Bark Sheets, 2 Sap Droplets, 3 Stones. Weathers the worst nights\n- **46. Herb Drying Rack** — 4 Twigs, 2 Root Fibers, 3 Bark Strips. Preserves medicine\n- **47. Map Table** — 5 Bark Sheets, 3 Twigs, 2 String, 1 Feather. Unlocks map tracking and notes\n- **48. Scent Trail Marker** — 2 Lavender Flowers, 1 Berry Juice, 1 Moss. Find your way home in storms and dark\n- **49. Baby Toy** — 1 Cloth Scrap, 2 Grass Fibers, 1 Tiny Button. Happier family; babies sleep better\n- **50. Sticky Sap Trap** — 3 Sap Droplets, 2 Mushroom Dust, 1 Beetle Shell, 1 Berry Juice. Slows a pursuing predator",
+    "tags": [
+      "recipes",
+      "building",
+      "structures"
+    ],
+    "related": [
+      {
+        "to": "home",
+        "kind": "protects"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      },
+      {
+        "to": "family-and-legacy",
+        "kind": "supports"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-building-structures",
+    "title": "Recipes — Building & Structures",
+    "category": "recipe"
+  },
+  {
+    "status": "review",
+    "summary": "Five recipes written in silverpoint at the back of the Ledger — found, not taught.",
+    "content": "These pages are never taught. They are found — in journals, in ruins, in the glow of the Hollow.\n\n## The recipes\n- **51. Moonstone Lantern** — 2 Crystal Fragments, 3 Glowing Moss, 2 String\n- **52. Secret Root Door** — 5 Root Fibers, 2 Bark Sheets, 3 Moss\n- **53. Ancient Seed Planter** — 3 Ancient Seeds, 2 Acorn Caps, 1 Moss. The old crops live again\n- **54. Family Portrait Wall** — 3 Bark Sheets, 2 Feathers, 1 Human Paper Scrap\n- **55. Moonstone Hollow Shrine** — 5 Crystal Fragments, 10 Moon Petals, 5 Glowing Moss. The last page of the Ledger\n\nWith all fifty-five, a mouse can build a life: survival, exploration, home, family, beauty, and one small shrine under the moon.",
+    "tags": [
+      "recipes",
+      "secret",
+      "moonstone",
+      "late-game"
+    ],
+    "related": [
+      {
+        "to": "moonstone-hollow",
+        "kind": "materials-from"
+      },
+      {
+        "to": "moonkeeper-journals",
+        "kind": "found-in"
+      },
+      {
+        "to": "crafting",
+        "kind": "chapter-of"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "recipes-secret",
+    "title": "Recipes — The Secret Pages",
+    "category": "recipe"
+  },
+  {
+    "status": "canon",
+    "summary": "Not a crafting table — a crafting corner: a bark workspace inside Home where a mouse carefully assembles a life.",
+    "content": "Crafting in Whisker Wood is **handmade, natural, cozy, improvised** — a tiny mouse assembling survival tools from scavenged materials. Never an industrial recipe grid.\n\n## The Crafting Corner\nInside [[home]]: a flat bark surface, a woven grass mat, pebble tools, acorn bowls, hanging string, berry-dye stains, a lantern mushroom glowing nearby. Lived-in. Personal.\n\n## How it opens\n- Walk to the corner → *Press E to Craft* — the mouse physically sits, sorts materials, ties string, weaves fibers, and then the menu appears\n- Small recipes (a Berry Bundle) can be crafted anywhere from [[the-backpack]]\n- Major recipes (the Travel Backpack, the Nursery Nest) require HOME — coming home stays meaningful\n- As HOME upgrades, deeper chapters unlock: survival → family → the secret Moonstone pages\n\n## The philosophy\nCrafting is *improving your life*, not grinding. The strongest crafting moments are storms: family asleep nearby, lantern glow flickering, rain on the roof — crafting as emotional downtime.\n\n## The Ledger\nAll 55 recipes, chapter by chapter: [[recipes-home-comfort]], [[recipes-exploration-gear]], [[recipes-food-survival]], [[recipes-charms-cosmetics]], [[recipes-building-structures]], and [[recipes-secret]].\n\n## The UI\nHand-drawn, organic, tactile — recipes laid out on bark, icons sketched like field notes. Never a futuristic inventory screen.",
+    "tags": [
+      "system",
+      "gameplay",
+      "crafting",
+      "cozy"
+    ],
+    "related": [
+      {
+        "to": "home",
+        "kind": "lives-in"
+      },
+      {
+        "to": "resource-guide",
+        "kind": "consumes"
+      },
+      {
+        "to": "recipes-home-comfort",
+        "kind": "chapter"
+      },
+      {
+        "to": "recipes-secret",
+        "kind": "chapter"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "crafting",
+    "title": "Crafting & the Crafting Corner",
+    "category": "mechanic"
+  },
+  {
+    "status": "canon",
+    "summary": "The systems under the fur: hunger, water, sleep, warmth, wetness, visibility and sound — and how every biome bends them.",
+    "content": "## The four needs\nHealth, food, water, sleep. Food and water drain as you live; run either dry and health follows. Sleep restores fastest at [[home]], slower at the [[fallen-log]].\n\n## Wetness & warmth\nCrossing the [[crossable-creek]] soaks you: warmth drains faster and your scent trail grows. Rain does the same in the open. Pine boughs, cloaks and balms push back.\n\n## Stealth is three senses\n- **Sight** — the [[tall-grass]] and bush-shadow hide you; the open [[meadow]] does not. Disturbed flowers and shaking grass betray movement\n- **Sound** — pine needles soften steps; snapping stalks carry; strong wind masks everything (yours and theirs)\n- **Scent** — pollen, wetness and crushed berries make you easier to track; lavender scent-masks make you harder\n\n## Weather is a system, not a backdrop\nRain bends grass, raises the creek and shines the berries. Storms flood fords, test the burrow, and make the [[human-house]] gutters roar. Heat exposes crossing stones. Every forecast changes the right route.\n\n## Night\nEvery biome has a night self: the forests close down, the Meadow silvers, the flowers close, the House lights up — and somewhere past the aspens, something faintly glows.",
+    "tags": [
+      "system",
+      "survival",
+      "stats",
+      "stealth",
+      "weather"
+    ],
+    "related": [
+      {
+        "to": "whisker-wood",
+        "kind": "governs"
+      },
+      {
+        "to": "crafting",
+        "kind": "countered-by"
+      },
+      {
+        "to": "the-first-day",
+        "kind": "taught-in"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "survival",
+    "title": "Survival — Stats, Weather & Stealth",
+    "category": "mechanic"
+  },
+  {
+    "status": "review",
+    "summary": "Not a breeding mechanic — a life: a companion, a nursery of squeaking babies, and generations that carry the burrow forward.",
+    "content": "The heart-change of the whole game: from *survive for yourself* to *protect the family*.\n\n## The Companion\nMet naturally, trusted slowly (see [[the-companion]]). When they move into [[home]], the burrow comes alive.\n\n## The babies\nThey stay in the nest at first; squeak during storms; sleep piled together; grow slowly — newborn, wandering, curious juvenile, independent young mouse. Never workers or units.\n\n## What changes\nMore food storage. Safer den upgrades. Escape tunnels. Warmer bedding. A fox near the nest is no longer a threat — it is THE threat. Weather, reserves and security suddenly matter emotionally.\n\n## The killer feature\n**The babies learn from the player**: they follow the paths you use, prefer the foods you bring, mimic your habits, inherit little traits. They feel alive because they carry you in them.\n\n## Keep it small\nOne companion, a few babies. Intimacy, not colony management. Never RTS.\n\n## Legacy\nOlder children leave to explore; some return with gifts, some with maps to places you have never seen. The world continues (see [[life-of-a-mouse]]).",
+    "tags": [
+      "system",
+      "family",
+      "emotional",
+      "legacy"
+    ],
+    "related": [
+      {
+        "to": "the-companion",
+        "kind": "begins-with"
+      },
+      {
+        "to": "home",
+        "kind": "transforms"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "fulfills"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "family-and-legacy",
+    "title": "Family & Legacy",
+    "category": "mechanic"
+  },
+  {
+    "status": "canon",
+    "summary": "Twelve phases: from a little school in the south, through loss and wilderness, to reuniting the five Great Cities — and a life after.",
+    "content": "Knowledge and abilities unlock the world — never level gates (think Breath of the Wild, Outer Wilds, Subnautica).\n\n## The twelve phases\n1. **A Quiet Beginning** — life at the [[fallen-log-school]]: classmates, teachers, the garden, the workshop. You fall in love with it. Then the expedition leaves\n2. **Alone** — the predator attack. You wake with a small backpack, a journal, a knife, a lantern, and a wooden compass from graduation. Survive\n3. **The Search Begins** — torn maps, cold campfires, teacher journals: *they were here*. And [[home]] starts to matter: expand it, decorate it, stock it\n4. **Exploring the Great Forest** — the biomes open; progression is gear, not XP: better rope, stronger lantern, bigger backpack, climbing claws, a raft, a grappling vine\n5. **[[moonstone-hollow]]** — huge, ancient, silent. You descend\n6. **[[roothaven]]** — the reveal. The teachers are ALIVE. Engineering, machines, water systems — and four words that change everything: *\"Everbough is real.\"*\n7. **Reconnecting the World** — the mission transforms: restore trade, mail, maps, old roads, Moonkeeper stations\n8. **[[everbough]]** — the legendary city: the Grand Library, the Academy, guilds, festivals, dozens of lives entangled with yours\n9. **The Other Great Cities** — each opens a whole system: Reedmere boats, Golden Hollow farming and cooking, Frostpine cold survival and carving\n10. **Becoming a Moonkeeper** — never inherited, always EARNED: the cities recognize the first Moonkeeper in generations\n11. **Restoring the [[great-canopy-alliance]]** — bridges reopen, caravans roll, academies trade students; the world visibly heals\n12. **Your Life After the Story** — the dream burrow, apprentices or a family (see [[family-and-legacy]]), museum halls filled, every book found for the Grand Library\n\n## Progression: reputation, not levels\nEach Great City learns to trust you separately — trust opens buildings, archives, guild doors, festival invitations and homes. By the end you are not the most powerful mouse in the world. You are **the mouse who reunited it**.\n\n> The theme under it all: rebuilding connections across a world that forgot it was ever one civilization.",
+    "tags": [
+      "story",
+      "arc",
+      "phases",
+      "canon-v2",
+      "ending"
+    ],
+    "related": [
+      {
+        "to": "fallen-log-school",
+        "kind": "begins-at"
+      },
+      {
+        "to": "roothaven",
+        "kind": "turns-at"
+      },
+      {
+        "to": "great-canopy-alliance",
+        "kind": "restores"
+      },
+      {
+        "to": "family-and-legacy",
+        "kind": "epilogue"
+      },
+      {
+        "to": "the-first-day",
+        "kind": "opens-with"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "life-of-a-mouse",
+    "title": "The Story of Whiskerwood",
+    "category": "story"
+  },
+  {
+    "status": "canon",
+    "summary": "The tutorial that never says 'tutorial': wake in the den, taste the world, meet its dangers, and come home at dusk.",
+    "content": "The opening should feel like *a tiny mouse waking up and learning to survive* — never menus, popups, or PRESS W TO MOVE.\n\n## The shape of the day\n1. **Black screen** — wind in grass, distant birds, soft squeaking. Fade in: curled asleep inside [[home]], warm light, tiny den\n2. **\"Morning already…\"** — leave the den. One quiet objective, no giant UI\n3. **The reveal** — giant grass in the wind, sunrise, birds overhead. The fantasy lands here\n4. **Hunger stirs** → the [[berry-bushes]]. *Press E to gather.* Exploration = survival\n5. **Thirst** → the sound of water guides you to the [[crossable-creek]]. Drink\n6. **The first fear** — an owl call, a fox bark, a shadow overhead. No combat. Just vulnerability\n7. **Hide** → the [[tall-grass]] teaches sneaking; stillness saves\n8. **Discovery** → the [[fallen-log]]: mushrooms, shelter, proof the world hides safe places\n9. **Dusk** — the light dies, the sounds sharpen, and going home feels like an instinct\n10. **First night** — rain on the roof, warm nest, sleep. Fade out\n\n## The morning after\nStep out of HOME; the camera lifts; the whole world spreads — Meadow, forests, creek, the [[human-house]] far off. Music swells softly. *This world is mine to survive in.*\n\nMovement hints appear once, small, then never again. An [[the-elder|Elder]] may offer one line and vanish. Discovery is the teacher.",
+    "tags": [
+      "tutorial",
+      "quest",
+      "opening",
+      "design"
+    ],
+    "related": [
+      {
+        "to": "home",
+        "kind": "starts-at"
+      },
+      {
+        "to": "the-elder",
+        "kind": "guided-by"
+      },
+      {
+        "to": "survival",
+        "kind": "teaches"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "phase-one"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-first-day",
+    "title": "The First Day",
+    "category": "quest"
+  },
+  {
+    "status": "canon",
+    "summary": "The ancient civilization of builders, healers and explorers whose silver-lit works became legend — and whose disappearance is the world's great mystery.",
+    "content": "Hundreds of mouse generations ago, before the villages of today, there was one great civilization: the **Moonkeepers**. Every mouse has heard the stories. Most believe they are only fairy tales.\n\n## Why \"Moonkeepers\"\nThey believed the moon watched over every creature. They worked at night; their villages glowed with tiny lanterns, polished moonstone, and bioluminescent fungi. Travelers could always find shelter by following the silver lights through the trees.\n\n## What made them great\nNot rulers — **builders, inventors, healers, explorers**. Homes grown inside living trees without harming them. Rope bridges that lasted generations. Winter stores, medicine gardens, illustrated journals, and tunnel roads connecting whole forests.\n\n> \"Leave the forest stronger than you found it.\" — their greatest belief\n\n## The symbol\nA silver crescent moon around an oak leaf — carved into ancient doors, old bridges, hidden tunnels, forgotten tools and stone markers. Find the mark, and you have found their work.\n\n## Their architecture\nEverything feels grown, not built: bridges woven from living roots, mossy stone stairs, acorn-cap lantern posts, water channels carved along roots, spiral stairs inside hollow trunks, underground halls held up by the roots of [[everbough]] itself.\n\n## The Great Tunnel Network\nTheir masterwork — see [[tunnel-network]]. Underground highways whose entrances have mostly collapsed or hidden themselves behind roots and rocks.\n\n## The mystery\nNo one knows why they vanished (see [[the-vanishing]]). They faded; a terrible winter scattered them; a predator broke the capital; they went deeper, to guard something beneath the forest. Different mice tell different stories. None are confirmed — the truth is pieced together from [[moonkeeper-journals|journals]], ruins, and conversation.\n\n## The player's role\nNot the chosen one. Just the first mouse in generations curious enough to seek the legacy — restoring bridges, reopening tunnels, preserving journals — until the other mice begin to use the old word again: *Moonkeeper*. Not for bloodline. For how you choose to live.",
+    "tags": [
+      "order",
+      "lore",
+      "civilization",
+      "moon",
+      "mystery"
+    ],
+    "related": [
+      {
+        "to": "moonstone-hollow",
+        "kind": "dwells-in"
+      },
+      {
+        "to": "tunnel-network",
+        "kind": "built"
+      },
+      {
+        "to": "moonkeeper-journals",
+        "kind": "left-behind"
+      },
+      {
+        "to": "the-vanishing",
+        "kind": "ended-by"
+      },
+      {
+        "to": "everbough",
+        "kind": "reveres"
+      },
+      {
+        "to": "pip",
+        "kind": "member"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 2,
+    "author": "The Keeper",
+    "id": "moonkeepers",
+    "title": "The Moonkeepers",
+    "category": "lore"
+  },
+  {
+    "status": "canon",
+    "summary": "Beautifully illustrated field books — each one a recipe, a bridge, a hidden door, a song — that together reconstruct a lost civilization.",
+    "content": "The [[moonkeepers]] left no history books. They left **journals** — beautifully illustrated, each one teaching something:\n\n- a forgotten crafting recipe (the Ledger's [[recipes-secret|secret pages]] came from these)\n- how to raise a root bridge\n- where a hidden tunnel begins\n- which flowers bloom only under certain moons\n- old traditions, and older songs\n\nCollecting them slowly reconstructs what happened — and quietly turns the collector into what the journals describe. This very Library is a Moonkeeper endeavour; their apprentice [[pip]] compiled much of what you read here.\n\n> \"What is written twice can be forgotten once and still endure.\" — First Keeper's Maxim",
+    "tags": [
+      "lore",
+      "journals",
+      "collectibles",
+      "knowledge"
+    ],
+    "related": [
+      {
+        "to": "moonkeepers",
+        "kind": "written-by"
+      },
+      {
+        "to": "recipes-secret",
+        "kind": "source-of"
+      },
+      {
+        "to": "pip",
+        "kind": "collected-by"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "moonkeeper-journals",
+    "title": "The Moonkeeper Journals",
+    "category": "lore"
+  },
+  {
+    "id": "whisker-wisdom",
+    "title": "Whisker Wisdom",
+    "category": "lore",
+    "status": "canon",
+    "summary": "The sayings of the old mice — the whole survival culture of Whisker Wood in two dozen short warnings.",
+    "content": "Nothing teaches the world faster than what the old mice say. Collected by the Keepers, biome by biome.\n\n## Of the open sky\n> \"Never cross the Meadow at noon.\"\n> \"The sky hunters watch there. Travel fast and stay low.\"\n\n## Of the grass\n> \"Stay still when the grass stops moving.\"\n> \"The silent grass is the dangerous grass.\"\n> \"Foxes listen more than they look.\"\n\n## Of food\n> \"The sweetest berries grow where danger hunts.\"\n> \"Never eat the pale ones.\"\n> \"Foxes wait near the heavy bushes.\"\n> \"Never sleep in the flowers.\" — \"The bees remember faces.\"\n\n## Of water\n> \"Fast water steals careless paws.\"\n> \"Cross upstream after rain.\"\n> \"Never trust still water.\"\n\n## Of the deep places\n> \"Never go near the deep water.\" — \"Something lives below.\" — \"The rope moves at night.\"\n> \"Do not sleep inside the mushroom ring.\"\n\n## Of home and hope\n> \"A strong burrow means another spring.\"\n> \"The roots remember every family.\"\n> And of a certain glow beyond the aspens: \"Some places shine after moonrise.\"",
+    "tags": [
+      "lore",
+      "sayings",
+      "culture",
+      "survival"
+    ],
+    "related": [
+      {
+        "to": "the-elder",
+        "kind": "spoken-by"
+      },
+      {
+        "to": "whisker-wood",
+        "kind": "describes"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-02T19:17:22.314Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "The mythic day Everbough broke the soil, from which the mice reckon all time.",
+    "content": "By Moonkeeper reckoning, the world begins with **The First Sprout** — the day [[everbough]] broke the soil. All years are counted from it.",
+    "tags": [
+      "origin",
+      "myth",
+      "era"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "concerns"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "first-sprout",
+    "title": "The First Sprout",
+    "category": "timeline",
+    "timeline": {
+      "era": "The First Age",
+      "year": 0,
+      "order": 0
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The Moonkeepers descend into the roots and settle the Moonstone Hollow.",
+    "content": "In the twelfth year, the [[moonkeepers]] followed a moonstone glow down the [[tunnel-network]] and founded the [[moonstone-hollow]] as their eternal home.",
+    "tags": [
+      "moonkeepers",
+      "era",
+      "founding"
+    ],
+    "related": [
+      {
+        "to": "moonkeepers",
+        "kind": "concerns"
+      },
+      {
+        "to": "moonstone-hollow",
+        "kind": "concerns"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "founding-hollow",
+    "title": "The Founding of the Hollow",
+    "category": "timeline",
+    "timeline": {
+      "era": "The First Age",
+      "year": 12,
+      "order": 2
+    }
+  },
+  {
+    "status": "review",
+    "summary": "The year the silver lights went out — and nobody knows why.",
+    "content": "In the year 412, travelers stopped finding the silver lights. The bridges stood; the tunnels breathed; the journals waited on their shelves — but the [[moonkeepers]] were gone.\n\nThe stories disagree: they faded away; a terrible winter scattered them; a predator destroyed the capital; they went deeper, to guard something beneath the forest. The [[moonkeeper-journals]] end mid-sentence, in a dozen different pawwritings, all in the same season.\n\nNo confirmed account exists. The Scroll keeps the year and keeps its silence.",
+    "tags": [
+      "moonkeepers",
+      "mystery",
+      "era"
+    ],
+    "related": [
+      {
+        "to": "moonkeepers",
+        "kind": "concerns"
+      },
+      {
+        "to": "moonkeeper-journals",
+        "kind": "evidence"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-vanishing",
+    "title": "The Vanishing",
+    "category": "timeline",
+    "timeline": {
+      "era": "The Silent Age",
+      "year": 412,
+      "order": 0
+    }
+  },
+  {
+    "status": "draft",
+    "summary": "Early palette exploration for the high boughs at golden hour.",
+    "content": "A draft palette for the **Canopy** reach of [[everbough]]: warm amber light filtered through green, deep shadow pockets, dust motes in every sunbeam.\n\n*Placeholder — art to be attached.*",
+    "tags": [
+      "art",
+      "palette",
+      "canopy"
+    ],
+    "related": [
+      {
+        "to": "everbough",
+        "kind": "depicts"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-01-12T09:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "art-canopy",
+    "title": "Canopy — Colour Study",
+    "category": "concept-art"
+  },
+  {
+    "status": "canon",
+    "summary": "What Whiskerwood IS: a cozy survival adventure about being tiny — camera, art style, engine, first slice, and the one image that sells it all.",
+    "content": "## The genre\nA **cozy survival adventure** — Breath of the Wild / Stray / Little Kitty Big City energy. NOT a map simulator, city builder, or management game. Fully immersive, over-the-shoulder, cinematic exploration.\n\n## The camera\nBehind the mouse, low to the ground, slightly cinematic. The mouse scampers, squeezes through gaps, flattens under objects, climbs roots, jumps stones — fast, agile, lightweight. Never a human reskinned.\n\n## The superpower: PERSPECTIVE\nA blade of grass is a tree. A porch is a castle. A creek is a river. Most animal survival games fail because environments feel normal-sized; Whiskerwood works because the WORLD changes scale.\n\n## Art style\n**Stylized realism** — painterly textures, soft lighting, realistic proportions, slightly storybook. Not hyper-real, not voxel, not mobile-cartoon. Chunky low-poly woodland with flat colors and rounded edges for props.\n\n## Engine\nUnity: third-person controller, Cinemachine, URP lighting. (A Three.js sketch exists as the current prototype.)\n\n## The first playable slice\nNot the whole game: one meadow, tall grass, a berry bush, the creek, one wall of the Human House, mouse movement, camera behind. If THAT feels magical, the whole game works.\n\n## Why people will play\nCoziness + danger + tiny-scale wonder, together. The fantasy reads in one image. HOME builds attachment; atmosphere makes memories; stakes are personal (protect the family, survive winter — not save the world). Relaxing without being boring; the emotional niche of *building a quiet life* is underserved.\n\n## The one image\nA tiny mouse running through giant grass toward warm glowing house windows at sunset. Every decision serves that image.\n\n## The core theme\n> Building a life in a dangerous world — coziness in the middle of danger. That contrast is the soul of Whiskerwood.",
+    "tags": [
+      "vision",
+      "design",
+      "camera",
+      "engine",
+      "scope"
+    ],
+    "related": [
+      {
+        "to": "whisker-wood",
+        "kind": "defines"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "shapes"
+      },
+      {
+        "to": "asset-plan",
+        "kind": "informs"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "vision-and-direction",
+    "title": "Vision & Direction",
+    "category": "dev-note"
+  },
+  {
+    "status": "canon",
+    "summary": "The tiny touches that make the world real: a crow feather, predator tracks, flattened trails — and why less beats more.",
+    "content": "The map has enough big places. What makes it REAL are tiny environmental details.\n\n## Add first (highest value, least clutter)\n- **Crow Feather** — huge to a mouse, instantly says *a giant bird was here*. Near the [[tall-grass]] or [[meadow]] edge; a crafting item and an omen\n- **Predator Tracks** — fox prints by the Meadow, cat prints by the [[human-house]], snake trails by the creek. Danger moves through the world and leaves signs\n- **Flattened Grass Trails** — worn mouse paths; the world is inhabited\n\n## Add later\n- Fairy-ring mushrooms in the [[pine-forest]] (\"Don't sleep inside the ring\")\n- A tiny stone arch near the aspens that frames the moon\n- A half-eaten apple core by the House — food jackpot, insect magnet\n- A bee nest near the [[wildflower-patch]] — high-risk nectar\n- A hidden cheese stash, absurdly hard to find — community legend material\n- A wind chime near the House: faint, lonely notes drifting across the map at night\n\n## The rule\nThe best worlds keep empty space, quiet areas, and mystery. Too many \"cool things\" become clutter; discoveries need silence around them to matter.",
+    "tags": [
+      "design",
+      "details",
+      "atmosphere",
+      "worldbuilding"
+    ],
+    "related": [
+      {
+        "to": "hidden-places",
+        "kind": "companion-note"
+      },
+      {
+        "to": "whisker-wood",
+        "kind": "dresses"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "small-details",
+    "title": "Small Details & Environmental Storytelling",
+    "category": "dev-note"
+  },
+  {
+    "status": "review",
+    "summary": "All 55 craftables in five low-poly packs, with budgets, mouse-scale sizing, and how to prompt Meshy for each one.",
+    "content": "## Five packs for the 55 recipes\n1. **Home & Comfort** (10) — 100–500 tris each: bedding, blankets, lamps, bowls, caches\n2. **Exploration Gear** (10) — stitched leaves, bark buckles, twine: mouse equipment, never human gear\n3. **Food & Survival** (10) — chunky low-poly: oversized berries, stylized stew, simple sacks\n4. **Charms & Cosmetics** (10) — 50–200 tris, easy to swap onto the mouse model\n5. **Structures & Rare** (15) — the hero assets, 500–2000 tris: bridges, storm doors, the Shrine\n\n## Shared palette\nMoss green, forest green, bark brown, mushroom cream, lavender purple. Flat colors, no photo textures, chunky rounded geometry — cozy stylized low-poly woodland.\n\n## Mouse-scale guide (mouse = 0.25m)\n- Acorn bowl 0.08m · Backpack 0.12m · Nest 0.30m · Twig bridge 1.0m · Moonstone shrine 1.5m\n\n## Prompting Meshy\nThe physical description IS the prompt — 100–200 words on shape, materials, construction and scale; style words (\"stylized\", \"low poly\") are seasoning, not the meal. Example: *\"Round mouse sleeping nest, twelve inches across, thick moss packed into a shallow bowl, woven grass rim, compressed sleeping depression, uneven organic silhouette, handmade by a woodland mouse. Single object.\"* Generate one item at a time.\n\n## Environment kit\nThe Polytope \"Dreamscape Nature Mountains\" Unity pack fits the woodland look: import to Unity, pull the FBX sources, export GLB via Blender for Three.js. Scale everything UP dramatically and keep the mouse tiny. License allows conversion for the project, never redistribution of converted files.",
+    "tags": [
+      "assets",
+      "3d",
+      "pipeline",
+      "low-poly",
+      "meshy"
+    ],
+    "related": [
+      {
+        "to": "vision-and-direction",
+        "kind": "implements"
+      },
+      {
+        "to": "crafting",
+        "kind": "visualizes"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T08:00:00.000Z",
+    "modified": "2026-07-01T08:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "asset-plan",
+    "title": "The Asset Plan",
+    "category": "dev-note"
+  },
+  {
+    "id": "humans-at-the-edges",
+    "title": "Humans at the Edges",
+    "category": "region",
+    "status": "canon",
+    "summary": "One enormous protected wilderness is the whole world — humans only brush its edges, and what they drop becomes treasure.",
+    "content": "~~All of Whisker Wood lies inside **one enormous protected forest** — a real wilderness, national-forest vast. To a mouse that forest is an entire world, and the mouse civilizations within it are ancient and self-contained. Humans pass through; they are not part of everyday life.~~\n\n~~## Where the giants touch the world~~\n~~- A **hiking trail** crossing the forest~~\n~~- A **campsite** that appears in summer~~\n~~- A **picnic area** where mice scavenge after the people leave~~\n~~- A **ranger station** — far too dangerous to enter while occupied (home of the [[house-cat]])~~\n~~- **Logging roads** that changed parts of the forest long ago~~\n~~- Fences, bridges, culverts and old farm equipment — colossal landmarks from a mouse's height~~\n## Treasures, not destinations\nHuman objects are discoveries that reinforce the scale fantasy: a lost button becomes a shield; a marble a prized decoration; a thimble a bucket; a spool a table.\n\nThis replaces the old [[human-house]], which was struck from canon.",
+    "tags": [
+      "humans",
+      "canon-v2",
+      "wilderness",
+      "scavenging"
+    ],
+    "related": [
+      {
+        "to": "whisker-wood",
+        "kind": "frames"
+      },
+      {
+        "to": "human-house",
+        "kind": "supersedes"
+      },
+      {
+        "to": "house-cat",
+        "kind": "brings"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-02T19:53:30.820Z",
+    "version": 7,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "The five Great Cities that once traded, taught and celebrated together — until the world forgot it was ever one civilization.",
+    "content": "Long ago five great mouse cities were bound together as the **Great Canopy Alliance** — trade, mail, festivals, and students exchanged between their Royal Academies. Then the roads failed, the Moonkeepers vanished, and each city came to believe the others were legends.\n\n## The Five Great Cities\n- **[[everbough]] — the City of Knowledge**, grown upward into the branches. Its iconic heart: the Grand Library. Royal Academy classes you attend because they are FUN (botany field trips, cartography, architecture, craftsmanship); neighborhoods of craftsmen and scholars; a town square that changes daily; festivals you play in — Spring Blossom, Lantern Night, Harvest Feast, Winter Lights\n- **[[roothaven]] — the City of Builders**, grown downward into the roots\n- **Reedmere, the Marsh City** — floating homes, boats everywhere, fishing and boat races. Iconic: the Lighthouse of Reeds\n- **Golden Hollow, the Plains City** — the food capital: farms, gardens, cooking contests. Iconic: the Great Harvest Hall\n- **Frostpine, the Northern City** — snow, ice caves, hot springs, carving. Iconic: the Hall of Everfrost\n\n## Across every city\nFriendships and letters; a small home of your own to earn; guilds (Explorers, Builders, Botanists, Historians, Engineers, Naturalists); a museum that fills with your donations; an art gallery where, one day, someone paints YOU; cafés where overheard rumors become quests.\n\n## The map of the world\nFrostpine in the north; Golden Hollow, Everbough and Reedmere across the middle; [[moonstone-hollow]] below; [[roothaven]] beneath it; and the [[fallen-log-school]] in the south, where the story begins.\n\nRestoring this Alliance is the long arc of the game (see [[life-of-a-mouse]]).",
+    "tags": [
+      "cities",
+      "alliance",
+      "canon-v2",
+      "lore"
+    ],
+    "related": [
+      {
+        "to": "roothaven",
+        "kind": "member"
+      },
+      {
+        "to": "everbough",
+        "kind": "member"
+      },
+      {
+        "to": "moonkeepers",
+        "kind": "bound-by"
+      },
+      {
+        "to": "the-great-alliance",
+        "kind": "founded-at"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "great-canopy-alliance",
+    "title": "The Great Canopy Alliance",
+    "category": "lore"
+  },
+  {
+    "id": "roothaven",
+    "title": "Roothaven",
+    "category": "world",
+    "status": "draft",
+    "summary": "A lost city",
+    "content": "🪨 Roothaven\nThe Hidden City Beneath the Roots\n\n\"The earth remembers what the sky forgets.\"\n— Ancient Roothaven Proverb\n\nOverview\n\nRoothaven is one of the Five Great Cities of the Great Canopy Alliance.\n\nUnlike Everbough, which grew upward into the branches of ancient trees, Roothaven grew downward into the roots of the oldest forests.\n\nIt is one of the oldest continuously inhabited cities in the world.\n\nMany surface mice believe it is only a myth.\n\nThe citizens of Roothaven believe the surface cities disappeared generations ago.\n\nBoth are wrong.\n\nLocation\n\nHidden beneath the Pine Forest.\n\nThe only known entrance is through Moonstone Hollow.\n\nTo reach it, you must descend through:\n\nMoonstone Hollow\nAncient Moonkeeper tunnels\nRoot Caverns\nThe Great Descent\n\nEventually...\n\nThe tunnel opens into something impossible.\n\nFirst Impression\n\nThe player expects a cave.\n\nInstead...\n\nThe tunnel widens.\n\nWarm golden lights appear.\n\nThe air becomes warmer.\n\nYou hear water.\n\nVoices echo in the distance.\n\nThen...\n\nThe entire city is revealed.\n\nAn underground metropolis stretching farther than you can see.\n\nBuilt around the roots of an impossibly ancient pine tree.\n\nUnderground rivers wind through the city.\n\nStone bridges cross glowing waterways.\n\nHundreds of lanterns illuminate carved halls.\n\nThe ceiling disappears into darkness high above.\n\nThe player realizes:\n\nThis isn't a ruin.\n\nPeople still live here.\n\nThe Great Roots\n\nThe enormous roots of the World Pine support almost every building.\n\nHomes are carved into:\n\nRoots\nStone walls\nCrystal chambers\n\nThe roots weave through the city like streets.\n\nChildren play on them.\n\nLanterns hang from them.\n\nThey are considered sacred.\n\nNo one is allowed to damage them.\n\nArchitecture\n\nRoothaven is nothing like Everbough.\n\nEverything feels:\n\nSolid\nAncient\nWarm\nEngineered\n\nMaterials include:\n\nStone\nSlate\nClay brick\nPine roots\nPolished crystals\nBronze\nIron (rare)\n\nRounded arches.\n\nMassive pillars.\n\nWater channels everywhere.\n\nLighting\n\nThere is no sunlight.\n\nInstead the city glows because of:\n\nWarm lanterns.\n\nCrystal lamps.\n\nBioluminescent fungi.\n\nReflective stone.\n\nThe entire city has a cozy amber glow.\n\nThe Sound\n\nRoothaven sounds different.\n\nInstead of birds...\n\nYou hear:\n\nFlowing water.\n\nWater wheels.\n\nEchoing footsteps.\n\nHammers.\n\nSteam.\n\nWind through tunnels.\n\nChildren laughing.\n\nDistricts\n🏛 Root Hall\n\nThe city's center.\n\nThe Great Council meets here.\n\nThe oldest root passes directly through the ceiling.\n\n⚙ The Foundry District\n\nEngineers.\n\nInventors.\n\nMechanical workshops.\n\nWater-powered machines.\n\nPulley systems.\n\nElevators.\n\n💎 Crystal Quarter\n\nRare crystals.\n\nBeautiful homes.\n\nCrystal artisans.\n\nGlassmakers.\n\n🚣 River District\n\nUnderground canals.\n\nBoats.\n\nFishing.\n\nCargo transport.\n\nMarkets.\n\n📚 Archive Hall\n\nStone libraries.\n\nMaps.\n\nEngineering records.\n\nMoonkeeper journals.\n\n🛏 Hearth District\n\nNeighborhoods.\n\nFamilies.\n\nSchools.\n\nGardens lit by glowing moss.\n\nGovernment\n\nRoothaven is governed by the Council of Roots.\n\nEach district elects one Elder.\n\nTogether they govern the city.\n\nThe oldest Elder is called the Root Speaker, whose role is to guide discussion rather than rule alone.\n\nCulture\n\nRoothaven values:\n\nEngineering.\n\nCraftsmanship.\n\nReliability.\n\nCommunity.\n\nHistory.\n\nHard work.\n\nQuiet confidence.\n\nPeople rarely boast.\n\nInstead they say:\n\n\"Good work speaks for itself.\"\n\nEconomy\n\nKnown for producing:\n\nStonework.\n\nTools.\n\nMachinery.\n\nMining equipment.\n\nWater pumps.\n\nBeautiful crystal lamps.\n\nStrong rope.\n\nMetal hardware.\n\nOther cities once traded heavily with Roothaven for these goods.\n\nTransportation\n\nInstead of roads...\n\nWaterways.\n\nStone bridges.\n\nElevators.\n\nSpiral staircases.\n\nRoot walkways.\n\nCargo lifts.\n\nFood\n\nUnderground mushrooms.\n\nRoot vegetables.\n\nFresh fish.\n\nStored berries.\n\nNut breads.\n\nHerb soups.\n\nCrystal cave honey (from tiny cave bees, if we decide those exist).\n\nAcademy\n\nThe Royal Academy of Roothaven specializes in:\n\nEngineering.\n\nArchitecture.\n\nGeology.\n\nHydrology.\n\nMechanics.\n\nSurveying.\n\nStudents from Everbough once studied here centuries ago.\n\nThe Teachers\n\nHere's where your story fits perfectly.\n\nWhen your teachers enter Moonstone Hollow...\n\nThey accidentally discover Roothaven.\n\nThey are welcomed.\n\nThe people are amazed.\n\nThey haven't seen a surface mouse in generations.\n\nThe teachers spend months learning everything they can.\n\nThey never meant to disappear.\n\nThe Player Arrives\n\nWhen you finally reach Roothaven...\n\nThe teachers are shocked.\n\nThey believed you had died.\n\nIt's one of the happiest reunions in the game.\n\nBut then they tell you something astonishing.\n\n\"Everbough is real.\"\n\nThey've learned of it through Roothaven's oldest maps.\n\nYour journey isn't over.\n\nIt's only beginning.\n\nSymbol\n\nEvery Great City has a crest.\n\nRoothaven's crest is:\n\nA massive pine root wrapped around a crystal.\n\nMeaning:\n\nStrength below. Light within.\n\nMotto\n\n\"Beneath every great forest lies an even older story.\"\n\n🌳 My favorite detail\n\nI think Roothaven should have one place that every player remembers forever: The Root Cathedral.\n\nIt's not a religious building. It's the city's oldest public hall, where the colossal roots of the World Pine descend through a cavern the size of a castle. The roots twist together into natural arches, bridges, and columns, and the mice have carefully built around them for centuries without cutting a single one. Warm lanterns hang from the roots like stars, and underground streams flow quietly beneath wooden walkways.\n\nThe first time the player steps into that space, it should be the moment they realize this isn't just a hidden town—it's one of the greatest civilizations in the world. I think that scene could become one of the most iconic moments in WhiskerWood. 🌳🪨",
+    "tags": [
+      "lost",
+      "city",
+      "moonkeepers"
+    ],
+    "related": [],
+    "attachments": [],
+    "created": "2026-07-01T21:58:24.353Z",
+    "modified": "2026-07-01T21:58:53.164Z",
+    "version": 2,
+    "author": "The Keeper"
+  },
+  {
+    "status": "canon",
+    "summary": "The little school in the south of the wilderness where the story begins — classmates, teachers, a garden, and one fateful expedition.",
+    "content": "The **Fallen Log School** sits in the south of the great wilderness — a small, warm world of its own: classmates, teachers, a headmaster, a little library, a garden and a workshop. Here the player learns everything naturally — walking, climbing, gathering, simple crafting, map reading — and, more importantly, comes to love the place.\n\n## Then the expedition leaves\nThe teachers set out — and a predator attack scatters everything. The player wakes alone with a small backpack, a journal, a simple knife, a lantern, and a wooden compass from graduation. The first objective is one word: **survive**.\n\n## What the school leaves behind\nTorn maps. Cold campfires. Teacher journals. Footprints and broken wagons. Every clue whispers *they were here* — a trail that leads, eventually, down through [[moonstone-hollow]] to [[roothaven]], where the truth waits (see [[the-teacher-expedition]]).\n\n*The school also anchors the map: Frostpine far north, the three cities across the middle, the Hollow and Roothaven below, and this little log at the bottom of the world — where everything starts small.*",
+    "tags": [
+      "school",
+      "story-start",
+      "canon-v2",
+      "home-region"
+    ],
+    "related": [
+      {
+        "to": "great-canopy-alliance",
+        "kind": "southernmost-of"
+      },
+      {
+        "to": "the-teacher-expedition",
+        "kind": "launched"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "phase-one-of"
+      },
+      {
+        "to": "fallen-log",
+        "kind": "kin-to"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "fallen-log-school",
+    "title": "Fallen Log School",
+    "category": "building"
+  },
+  {
+    "status": "canon",
+    "summary": "The five Great Cities bind themselves together in trade, learning and festival.",
+    "content": "In the 180th year the five Great Cities — [[everbough]], [[roothaven]], Reedmere, Golden Hollow and Frostpine — bound themselves into the [[great-canopy-alliance]]: shared roads, shared mail, shared festivals, and students traded between the Royal Academies.",
+    "tags": [
+      "alliance",
+      "era",
+      "cities"
+    ],
+    "related": [
+      {
+        "to": "great-canopy-alliance",
+        "kind": "concerns"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-great-alliance",
+    "title": "The Founding of the Great Alliance",
+    "category": "timeline",
+    "timeline": {
+      "era": "The First Age",
+      "year": 180,
+      "order": 0
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "With the Moonkeepers gone and the roads failing, each Great City comes to believe the others are only stories.",
+    "content": "After [[the-vanishing]], the tunnel roads collapsed one by one and the messengers stopped coming. Within a generation, each of the Great Cities believed the others were legends. The [[great-canopy-alliance]] survived only in carvings, journals — and the old word *Moonkeeper*.",
+    "tags": [
+      "alliance",
+      "era",
+      "decline"
+    ],
+    "related": [
+      {
+        "to": "great-canopy-alliance",
+        "kind": "concerns"
+      },
+      {
+        "to": "the-vanishing",
+        "kind": "follows"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "cities-lost",
+    "title": "The Cities Lost to Each Other",
+    "category": "timeline",
+    "timeline": {
+      "era": "The Silent Age",
+      "year": 430,
+      "order": 0
+    }
+  },
+  {
+    "status": "canon",
+    "summary": "The Fallen Log School's teachers set out, are scattered by a predator — and stumble into a city out of legend.",
+    "content": "In the present age the teachers of the [[fallen-log-school]] mounted an expedition into the deep forest. A predator attack scattered it; the school believed them lost. In truth they descended through [[moonstone-hollow]] and became the first surface mice in generations to walk into [[roothaven]] — where they learned that [[everbough]] is real. The search for them is where the player's story begins.",
+    "tags": [
+      "school",
+      "era",
+      "story",
+      "roothaven"
+    ],
+    "related": [
+      {
+        "to": "fallen-log-school",
+        "kind": "concerns"
+      },
+      {
+        "to": "roothaven",
+        "kind": "discovered"
+      },
+      {
+        "to": "life-of-a-mouse",
+        "kind": "ignites"
+      }
+    ],
+    "attachments": [],
+    "created": "2026-07-01T18:00:00.000Z",
+    "modified": "2026-07-01T18:00:00.000Z",
+    "version": 1,
+    "author": "The Keeper",
+    "id": "the-teacher-expedition",
+    "title": "The Teacher Expedition",
+    "category": "timeline",
+    "timeline": {
+      "era": "The Age of Whiskers",
+      "year": 1041,
+      "order": 0
+    }
+  }
+]

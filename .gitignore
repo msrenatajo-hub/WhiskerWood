@@ -4,3 +4,8 @@ dist/
 *.log
 
 .claude/settings.local.json
+editor-state.json
+
+# world-editor backups (local only)
+public/world-layout.backup*.json
+.claude/scheduled_tasks.lock

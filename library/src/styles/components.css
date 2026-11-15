@@ -1,0 +1,168 @@
+/* ============================================================
+   Reusable UI atoms: canon badges, cards, tags, buttons, HUD.
+   ============================================================ */
+
+/* ---- Canon status badge ---- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--r-pill);
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+}
+.badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.badge--canon { color: var(--canon); background: var(--canon-bg); }
+.badge--review { color: var(--review); background: var(--review-bg); }
+.badge--removed { color: var(--removed); background: var(--removed-bg); }
+.badge--draft { color: var(--draft); background: var(--draft-bg); }
+
+/* ---- Tag chip ---- */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--r-pill);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 12px;
+}
+
+/* ---- Card (a book on a shelf / a search result) ---- */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  padding: var(--s-4);
+  border-radius: var(--r-md);
+  background: var(--page);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: transform var(--t-fast) var(--ease-out),
+    box-shadow var(--t-fast) var(--ease-out), border-color var(--t-fast);
+  overflow: hidden;
+}
+.card::before {
+  /* spine accent stripe */
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--accent, var(--gold));
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--line-strong);
+}
+.card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+}
+.card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin: 0;
+  color: var(--ink);
+}
+.card__summary {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card__meta {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* ---- Buttons ---- */
+.btn {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background var(--t-fast), transform var(--t-fast);
+}
+.btn:hover { background: var(--parchment-2); }
+.btn:active { transform: scale(0.97); }
+.btn--ghost { background: transparent; border-color: transparent; color: var(--ink-soft); }
+.btn--icon { width: 38px; height: 38px; padding: 0; display: grid; place-items: center; font-size: 18px; }
+
+/* ---- HUD (persistent hints + brand, over the scene) ---- */
+.hud {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-hud);
+  pointer-events: none;
+  font-family: var(--font-ui);
+}
+.hud__brand {
+  position: absolute;
+  top: var(--s-5);
+  left: var(--s-6);
+  color: var(--parchment);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+.hud__brand b {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  display: block;
+}
+.hud__brand span {
+  font-size: 12px;
+  color: var(--gold-bright);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.hud__hint {
+  position: absolute;
+  left: 50%;
+  bottom: var(--s-5);
+  transform: translateX(-50%);
+  color: rgba(246, 236, 214, 0.7);
+  font-size: 12px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+  background: rgba(20, 13, 8, 0.35);
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(6px);
+}
+.hud__hint b { color: var(--gold-bright); }
+.hud__search {
+  position: absolute;
+  top: var(--s-5);
+  right: var(--s-6);
+  pointer-events: auto;
+}

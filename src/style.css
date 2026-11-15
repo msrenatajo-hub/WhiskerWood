@@ -26,12 +26,13 @@ body {
   position: fixed;
   top: 16px;
   left: 16px;
-  padding: 12px 16px;
-  border-radius: 12px;
-  background: rgba(20, 16, 12, 0.6);
+  padding: 7px 10px;
+  border-radius: 10px;
+  background: rgba(20, 16, 12, 0.5);
   color: #f3e9d2;
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 10.5px; /* (small, so it never hides Sprig or the world) */
+  line-height: 1.35;
+  max-width: 250px;
   backdrop-filter: blur(6px);
   user-select: none;
   pointer-events: none;
@@ -39,8 +40,8 @@ body {
 
 #hud strong {
   display: block;
-  margin-bottom: 6px;
-  font-size: 16px;
+  margin-bottom: 3px;
+  font-size: 12px;
 }
 
 /* Sprint meter (bottom-center) */
@@ -74,7 +75,8 @@ body {
 /* Floating "Press ..." prompts (craft + nest + hollow) */
 #craft-prompt,
 #nest-prompt,
-#hollow-prompt {
+#hollow-prompt,
+#act-prompt {
   position: fixed;
   left: 50%;
   bottom: 18%;
@@ -98,7 +100,8 @@ body {
 }
 #craft-prompt.show,
 #nest-prompt.show,
-#hollow-prompt.show {
+#hollow-prompt.show,
+#act-prompt.show {
   opacity: 1;
 }
 #craft-prompt b {
@@ -211,12 +214,46 @@ body {
   margin-bottom: 16px;
 }
 .ing {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 16px;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+.ing:hover {
+  filter: brightness(1.25);
+}
+.ing-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.ing-pin {
+  margin-left: auto;
+  font-size: 13px;
+  opacity: 0.55;
+}
+.ing.open .ing-pin {
+  opacity: 1;
+}
+/* 📍 where to find it — shown when the ingredient is clicked */
+.ing-where {
+  display: none;
+  margin-top: 6px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(20, 14, 8, 0.55);
+  color: #f6ead0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.ing.open .ing-where {
+  display: block;
+}
+.ing-where b {
+  display: block;
+  color: #ffd36a;
+  margin-bottom: 2px;
 }
 .ing .count {
   font-weight: bold;
@@ -260,4 +297,388 @@ body {
   background: rgba(255, 255, 255, 0.1);
   color: #f3e9d2;
   cursor: pointer;
+}
+
+/* ------------------------------------------------------------
+   🗺️ The map: round corner minimap + fullscreen map (M)
+   ------------------------------------------------------------ */
+#minimap {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #7a5222;
+  box-shadow: 0 0 0 2px #3a250e, 0 4px 18px rgba(0, 0, 0, 0.5),
+    inset 0 0 26px rgba(0, 0, 0, 0.65);
+  z-index: 20;
+}
+#minimap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+#minimap-tag {
+  position: absolute;
+  left: 50%;
+  bottom: 7px;
+  transform: translateX(-50%);
+  font: bold 10px Georgia, serif;
+  letter-spacing: 0.06em;
+  color: #f0e0b0;
+  background: rgba(30, 20, 8, 0.68);
+  padding: 2px 9px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+#bigmap {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 9, 4, 0.78);
+  z-index: 30;
+}
+#bigmap.open {
+  display: flex;
+}
+#bigmap canvas {
+  border: 10px solid #7a5222;
+  border-radius: 10px;
+  box-shadow: 0 0 0 3px #3a250e, 0 12px 60px rgba(0, 0, 0, 0.8);
+  background: #20330f;
+}
+
+/* filmic vignette over the whole game view */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(8, 10, 18, 0.34) 100%);
+}
+
+/* "Press E to …" for whatever is right here */
+#act-prompt {
+  bottom: 32%;
+}
+#act-prompt b {
+  color: #ffd36a;
+}
+
+/* 📜 Phase 1 lesson list (top right, under the minimap) */
+#lessons {
+  position: fixed;
+  top: 178px;
+  right: 14px;
+  width: 270px;
+  padding: 10px 14px 8px;
+  border-radius: 12px;
+  background: rgba(30, 22, 14, 0.72);
+  border: 1px solid rgba(255, 220, 150, 0.35);
+  color: #f6ead0;
+  font: 13px/1.4 system-ui, sans-serif;
+  z-index: 5;
+  pointer-events: none;
+}
+#lessons h3 {
+  margin: 0 0 6px;
+  font: bold 14px Georgia, serif;
+  color: #ffd36a;
+}
+#lessons ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#lessons li {
+  margin: 3px 0;
+}
+#lessons li.done {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+#lessons li.next {
+  color: #ffd36a;
+  font-weight: bold;
+}
+body.cs-film #lessons {
+  opacity: 0;
+}
+
+/* 📚 a book from the school's little library */
+#school-book {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(560px, 88vw);
+  max-height: 80vh;
+  overflow: auto;
+  padding: 26px 34px;
+  border-radius: 6px;
+  background: #f1e4c4;
+  color: #3a2614;
+  font: 17px/1.55 Georgia, serif;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 0 40px rgba(120, 80, 30, 0.25);
+  z-index: 30;
+  display: none;
+}
+#school-book.open {
+  display: block;
+}
+#school-book h2 {
+  margin: 0;
+  text-align: center;
+}
+#school-book h4 {
+  margin: 2px 0 14px;
+  text-align: center;
+  font-style: italic;
+  font-weight: normal;
+  color: #7a5a3a;
+}
+#school-book .close {
+  margin-top: 14px;
+  text-align: center;
+  font: 13px system-ui;
+  color: #7a5a3a;
+}
+#lessons .res {
+  font-size: 12px;
+  opacity: 0.9;
+  padding-left: 14px;
+}
+#lessons .kit {
+  margin-top: 6px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 220, 150, 0.25);
+  font-size: 12px;
+  opacity: 0.85;
+}
+/* ✨ the clickable place name → golden trail */
+.where-go {
+  display: block;
+  width: 100%;
+  margin: 0 0 4px;
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 211, 106, 0.5);
+  border-radius: 7px;
+  background: rgba(255, 211, 106, 0.12);
+  color: #ffd36a;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+.where-go:hover {
+  background: rgba(255, 211, 106, 0.25);
+}
+.where-go i {
+  display: block;
+  font-size: 12px;
+  font-style: normal;
+  color: #f0e0b0;
+  opacity: 0.85;
+}
+.where-msg {
+  margin-top: 6px;
+  color: #b7f0bb;
+  font-size: 13px;
+}
+.where-msg:empty {
+  display: none;
+}
+#lessons .gear {
+  display: inline-block;
+  margin: 3px 4px 0 0;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 0.55;
+}
+#lessons .gear.have {
+  opacity: 1;
+  background: rgba(255, 211, 106, 0.2);
+  color: #ffd36a;
+}
+#lessons .sub {
+  margin: 1px 0 0 16px;
+  font-size: 12px;
+  opacity: 0.9;
+  text-decoration: none;
+}
+#lessons .sub.done {
+  opacity: 0.55;
+}
+#lessons li.done .sub {
+  text-decoration: line-through;
+}
+
+/* 🎒 the backpack (B) */
+#backpack {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  display: none;
+  align-items: flex-start; /* (pinned to the top: clicking things never makes it jump) */
+  padding-top: 7vh;
+  justify-content: center;
+  background: rgba(10, 6, 2, 0.5);
+}
+#backpack.open {
+  display: flex;
+}
+#backpack .sheet {
+  width: min(640px, 92vw);
+  max-height: 84vh;
+  overflow: auto;
+  padding: 20px 24px 14px;
+  border-radius: 16px;
+  background: #6a4a2c;
+  border: 3px solid #4a3018;
+  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6), inset 0 0 50px rgba(0, 0, 0, 0.35);
+  color: #f6ead0;
+  font: 14px system-ui, sans-serif;
+}
+#backpack h2 {
+  margin: 0;
+  font: bold 22px Georgia, serif;
+  color: #ffe6a8;
+}
+#backpack h3 {
+  margin: 14px 0 6px;
+  font: bold 15px Georgia, serif;
+  color: #ffd36a;
+}
+#backpack .pk-jump {
+  position: sticky;
+  top: -20px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 8px -8px 6px;
+  padding: 7px 8px;
+  border-radius: 12px;
+  background: #5a3c22;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+#backpack .pk-jump button {
+  font: bold 12px system-ui, sans-serif;
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid #c8a060;
+  background: #7a5634;
+  color: #ffe6a8;
+  cursor: pointer;
+}
+#backpack .pk-jump button:hover {
+  background: #9a7044;
+}
+#backpack .pk-anchor {
+  display: block;
+  scroll-margin-top: 64px;
+}
+#backpack .sub {
+  opacity: 0.8;
+  margin: 2px 0 10px;
+}
+#backpack .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 8px;
+}
+#backpack .cell {
+  position: relative;
+  padding: 8px 6px 6px;
+  border-radius: 10px;
+  background: rgba(30, 18, 8, 0.45);
+  text-align: center;
+}
+#backpack .cell .ic {
+  display: block;
+  font-size: 26px;
+}
+#backpack .cell b {
+  position: absolute;
+  top: 4px;
+  right: 7px;
+  color: #ffd36a;
+}
+#backpack .cell .nm {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  line-height: 1.2;
+}
+#backpack .empty {
+  opacity: 0.8;
+  font-style: italic;
+}
+#backpack .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+#backpack .tag {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(255, 211, 106, 0.16);
+}
+#backpack .close {
+  margin-top: 14px;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 12px;
+}
+#backpack h3 .mirror { float: right; border: 0; border-radius: 8px; padding: 3px 10px; background: #ffd36a; color: #3a2614; font: bold 12px system-ui; cursor: pointer; }
+#backpack .wear { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+#backpack .wcell { display: block; padding: 8px; border-radius: 10px; border: 2px solid transparent; background: rgba(30,18,8,.45); color: #f6ead0; text-align: center; cursor: pointer; font: 13px system-ui; }
+#backpack .wcell.on { border-color: #ffd36a; background: rgba(255,211,106,.18); }
+#backpack .wcell .ic { display: block; font-size: 26px; }
+#backpack .wcell small { display: block; opacity: .75; font-size: 11px; margin-top: 2px; }
+#backpack .wcell.away { opacity: .45; cursor: default; }
+
+/* 🍴 food in the backpack: eat it when you choose */
+#backpack .cell.food { position: relative; padding-bottom: 30px; }
+#backpack .cell .eat {
+  position: absolute; left: 6px; right: 6px; bottom: 5px;
+  font: bold 11px system-ui; padding: 3px 4px; border: 0; border-radius: 7px;
+  background: #7a4a1a; color: #fff3d8; cursor: pointer;
+}
+#backpack .cell .eat:hover { background: #a0602a; }
+
+/* ✨ your powers (backpack) */
+.powers {
+  margin: 10px 0 4px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 214, 110, 0.16);
+  border: 1px solid rgba(255, 214, 110, 0.45);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* 🧭 the great compass round the minimap */
+#compass {
+  position: fixed;
+  top: 6px;
+  right: 6px;
+  width: 184px;
+  height: 184px;
+  z-index: 19;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+body.has-compass #minimap {
+  top: 19px;
+  right: 19px;
+  transform: scale(0.76); /* (the map sits inside the compass ring) */
+}
+body.compass-shown #lessons {
+  top: 198px;
 }

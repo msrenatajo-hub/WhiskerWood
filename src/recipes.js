@@ -186,8 +186,10 @@ export const RECIPES = [
     id: 18,
     name: "Glow Lantern",
     category: "Exploration Gear",
+    // (fireflies, not glowing moss: the moss only grows in Moonstone Hollow,
+    // and you need THIS lantern to get in there)
     ingredients: [
-      { qty: 2, item: "Glowing Moss" },
+      { qty: 3, item: "Fireflies" },
       { qty: 1, item: "Mushroom Cap" },
       { qty: 2, item: "String" },
     ],

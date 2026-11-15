@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Grand Library of Everbough</title>
+    <meta name="description" content="The design bible, encyclopedia, and canon database for WhiskerWood." />
+  </head>
+  <body>
+    <!-- The 3D library renders here, behind everything. -->
+    <canvas id="scene"></canvas>
+
+    <!-- All HTML UI (overlays, search, page viewer) mounts here, above the scene. -->
+    <div id="ui"></div>
+
+    <!-- Loading veil shown while the library is assembled. -->
+    <div id="veil" class="veil">
+      <div class="veil__crest">✦</div>
+      <div class="veil__title">The Grand Library<br /><span>of Everbough</span></div>
+      <div class="veil__bar"><i id="veil-bar"></i></div>
+      <div class="veil__msg" id="veil-msg">unlocking the great doors…</div>
+    </div>
+
+    <!-- Surface uncaught errors instead of failing silently on a black screen. -->
+    <div id="crash" class="crash"></div>
+    <script>
+      window.addEventListener("error", (e) => {
+        const el = document.getElementById("crash");
+        if (el) el.textContent += (e.message || e.error) + "\n";
+      });
+      window.addEventListener("unhandledrejection", (e) => {
+        const el = document.getElementById("crash");
+        if (el) el.textContent += "promise: " + ((e.reason && e.reason.message) || e.reason) + "\n";
+      });
+    </script>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
